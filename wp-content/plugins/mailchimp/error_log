@@ -1,0 +1,3 @@
+[20-Aug-2014 00:12:45 UTC] PHP Fatal error:  Call to undefined function add_shortcode() in /home/staging2/public_html/wp-content/plugins/mailchimp/mailchimp_compat.php on line 18
+[20-Aug-2014 00:15:58 UTC] PHP Fatal error:  Class 'WP_Widget' not found in /home/staging2/public_html/wp-content/plugins/mailchimp/mailchimp_widget.php on line 462
+[20-Aug-2014 00:45:00 UTC] PHP Fatal error:  Call to undefined function plugins_url() in /home/staging2/public_html/wp-content/plugins/mailchimp/mailchimp.php on line 1456

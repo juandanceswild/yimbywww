@@ -1,0 +1,34 @@
+[20-Aug-2014 10:54:12 UTC] PHP Fatal error:  Class 'Jetpack_Sync' not found in /home/staging2/public_html/wp-content/plugins/jetpack/modules/enhanced-distribution.php on line 12
+[20-Aug-2014 10:56:26 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/markdown/easy-markdown.php on line 719
+[20-Aug-2014 11:16:44 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/comments/base.php on line 25
+[20-Aug-2014 11:50:14 UTC] PHP Warning:  require_once(ABSPATHwp-admin/includes/class-wp-list-table.php): failed to open stream: No such file or directory in /home/staging2/public_html/wp-content/plugins/jetpack/modules/omnisearch/omnisearch-posts.php on line 4
+[20-Aug-2014 11:50:14 UTC] PHP Fatal error:  require_once(): Failed opening required 'ABSPATHwp-admin/includes/class-wp-list-table.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/staging2/public_html/wp-content/plugins/jetpack/modules/omnisearch/omnisearch-posts.php on line 4
+[20-Aug-2014 12:01:21 UTC] PHP Fatal error:  Call to undefined function plugin_dir_path() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/contact-form/grunion-contact-form.php on line 13
+[20-Aug-2014 12:08:03 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/sso.php on line 20
+[20-Aug-2014 12:14:43 UTC] PHP Fatal error:  Call to undefined function apply_filters() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/holiday-snow.php on line 71
+[20-Aug-2014 12:45:54 UTC] PHP Fatal error:  Class 'Jetpack_Sync' not found in /home/staging2/public_html/wp-content/plugins/jetpack/modules/notes.php on line 14
+[20-Aug-2014 12:59:18 UTC] PHP Fatal error:  Call to undefined function add_filter() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/latex.php on line 101
+[20-Aug-2014 13:06:00 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/infinite-scroll.php on line 44
+[20-Aug-2014 13:55:21 UTC] PHP Fatal error:  Class 'Jetpack_Photon' not found in /home/staging2/public_html/wp-content/plugins/jetpack/modules/photon.php on line 12
+[20-Aug-2014 13:59:51 UTC] PHP Fatal error:  Class 'Jetpack' not found in /home/staging2/public_html/wp-content/plugins/jetpack/modules/shortcodes.php on line 45
+[20-Aug-2014 14:22:12 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/widgets.php on line 26
+[20-Aug-2014 14:24:27 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/vaultpress.php on line 13
+[20-Aug-2014 14:49:08 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/widget-visibility/widget-conditions.php on line 438
+[20-Aug-2014 15:02:39 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/monitor.php on line 21
+[20-Aug-2014 15:13:57 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/carousel/jetpack-carousel.php on line 26
+[20-Aug-2014 15:16:11 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/after-the-deadline.php on line 12
+[20-Aug-2014 15:25:10 UTC] PHP Fatal error:  Call to undefined function apply_filters() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/holiday-snow.php on line 71
+[20-Aug-2014 15:33:00 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/minileven.php on line 20
+[20-Aug-2014 15:35:15 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/related-posts.php on line 35
+[20-Aug-2014 15:37:30 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/verification-tools.php on line 20
+[20-Aug-2014 15:42:01 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/json-api.php on line 21
+[20-Aug-2014 15:44:16 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/gplus-authorship.php on line 13
+[20-Aug-2014 16:33:07 UTC] PHP Fatal error:  Call to undefined function add_filter() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/shortlinks.php on line 12
+[20-Aug-2014 17:09:01 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/stats.php on line 19
+[20-Aug-2014 17:29:17 UTC] PHP Warning:  require_once(/home/staging2/public_html/wp-content/plugins/jetpack/mu-plugins/keyring/keyring.php): failed to open stream: No such file or directory in /home/staging2/public_html/wp-content/plugins/jetpack/modules/publicize.php on line 32
+[20-Aug-2014 17:29:17 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/staging2/public_html/wp-content/plugins/jetpack/mu-plugins/keyring/keyring.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/staging2/public_html/wp-content/plugins/jetpack/modules/publicize.php on line 32
+[20-Aug-2014 17:58:13 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/gravatar-hovercards.php on line 34
+[20-Aug-2014 18:00:26 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/likes.php on line 28
+[20-Aug-2014 18:09:20 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/subscriptions.php on line 12
+[20-Aug-2014 18:24:53 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/videopress/videopress.php on line 25
+[20-Aug-2014 18:56:53 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/jetpack/modules/module-info.php on line 35

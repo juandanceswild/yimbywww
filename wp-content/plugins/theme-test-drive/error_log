@@ -1,0 +1,1 @@
+[19-Aug-2014 23:03:15 UTC] PHP Fatal error:  Call to undefined function trailingslashit() in /home/staging2/public_html/wp-content/plugins/theme-test-drive/themedrive.php on line 20

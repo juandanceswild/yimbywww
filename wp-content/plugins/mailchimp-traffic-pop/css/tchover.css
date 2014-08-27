@@ -1,0 +1,88 @@
+.tchover-wrapper{
+	position:relative;
+	overflow:hidden;
+	width:0px;
+	height:0px;
+	margin:0 0 15px 0;
+}
+
+.tchover-wrapper.tcleft{
+	float:left;
+	margin:0 20px 15px 0 !important;
+}
+
+.tchover-wrapper.tcright{
+	float:right;
+	margin:0 0 15px 20px !important;
+}
+
+.tchover-wrapper.tcmiddle{
+	margin:12px auto !important;
+}
+
+.tchover-wrapper img{
+	z-index:1;
+	position:relative;
+	max-width:100% !important;
+	max-width:100% !important;
+	margin:0px !important;
+	padding:0px !important;
+	border:none !important;
+	background:#ffffff;
+	filter: none !important;
+	-ms-filter:none !important;
+}
+
+.tchover-wrapper span.tchover-span{
+	display:none;
+	z-index:3;
+	height:100%;
+	width:100%;
+	position:absolute;
+	top:0;
+	float:left;
+}
+
+.tchover-wrapper span.tchover-span.dark1{background:url(../images/hover-dark1.png) repeat scroll center center transparent;}
+.tchover-wrapper span.tchover-span.dark2{background:url(../images/hover-dark2.png) repeat scroll center center transparent;}
+.tchover-wrapper span.tchover-span.dark3{background:url(../images/hover-dark3.png) repeat scroll center center transparent;}
+.tchover-wrapper span.tchover-span.dark4{background:url(../images/hover-dark4.png) repeat scroll center center transparent;}
+.tchover-wrapper span.tchover-span.light1{background:url(../images/hover-light1.png) repeat scroll center center transparent;}
+.tchover-wrapper span.tchover-span.light2{background:url(../images/hover-light2.png) repeat scroll center center transparent;}
+.tchover-wrapper span.tchover-span.light3{background:url(../images/hover-light3.png) repeat scroll center center transparent;}
+.tchover-wrapper span.tchover-span.light4{background:url(../images/hover-light4.png) repeat scroll center center transparent;}
+
+.tchover-wrapper span.tchover-span a.tchover-button{
+	background:url(../images/tchover.png) no-repeat transparent;
+	filter: none !important;
+	-ms-filter:none !important;
+	display:block;
+	width:24px;
+	height:24px;
+	float:left;
+	text-indent:-9999px;
+	margin-right:5px;
+	border:0px !important;
+	outline:none !important;
+}
+
+.tchover-wrapper span.tchover-span a.tchover-button.share{background-position:0 0;}
+.tcnosup .tchover-wrapper span.tchover-span a.tchover-button.share:hover{background-position:0 -25px;}
+.tchover-wrapper span.tchover-span a.tchover-button.tweet{background-position:0 -50px;}
+.tcnosup .tchover-wrapper span.tchover-span a.tchover-button.tweet:hover{background-position:0 -75px;}
+.tchover-wrapper span.tchover-span a.tchover-button.pin{background-position:0 -100px;}
+.tcnosup .tchover-wrapper span.tchover-span a.tchover-button.pin:hover{background-position:0 -125px;}
+.tchover-wrapper span.tchover-span a.tchover-button.plus{background-position:0 -150px;}
+.tcnosup .tchover-wrapper span.tchover-span a.tchover-button.plus:hover{background-position:0 -175px;}
+.tchover-wrapper span.tchover-span a.tchover-button.linkedin{background-position:0 -200px;}
+.tcnosup .tchover-wrapper span.tchover-span a.tchover-button.linkedin:hover{background-position:0 -225px;}
+.tchover-wrapper span.tchover-span a.tchover-button.flickr{background-position:0 -250px;}
+.tcnosup .tchover-wrapper span.tchover-span a.tchover-button.flickr:hover{background-position:0 -275px;}
+.tchover-wrapper span.tchover-span a.tchover-button.dribbble{background-position:0 -300px;}
+.tcnosup .tchover-wrapper span.tchover-span a.tchover-button.dribbble:hover{background-position:0 -325px;}
+.tchover-wrapper span.tchover-span a.tchover-button.close{background-position:0 -350px;}
+.tcnosup .tchover-wrapper span.tchover-span a.tchover-button.close:hover{background-position:0 -375px;}
+.tchover-wrapper span.tchover-span a.tchover-button.youtube{background-position:0 -400px;}
+.tcnosup .tchover-wrapper span.tchover-span a.tchover-button.youtube:hover{background-position:0 -425px;}
+.tchover-wrapper span.tchover-span a.tchover-button.digg{background-position:0 -450px;}
+.tcnosup .tchover-wrapper span.tchover-span a.tchover-button.digg:hover{background-position:0 -475px;}

@@ -1,0 +1,1 @@
+[20-Aug-2014 00:41:47 UTC] PHP Fatal error:  Call to undefined function plugin_dir_path() in /home/staging2/public_html/wp-content/plugins/mailchimp-traffic-pop/mailchimp-traffic-pop.php on line 22

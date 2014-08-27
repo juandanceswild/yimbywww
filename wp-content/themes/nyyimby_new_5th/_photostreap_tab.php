@@ -1,0 +1,45 @@
+<?php
+      
+        $items = get_posts( array(
+          'numberposts' => -1,
+          'orderby' => 'menu_order',
+          'order' => 'ASC',
+          'post_type' => 'photostream'
+        )); //array of objects returned
+        ?>
+<!-- start of sidebar_nav_inner -->
+   <div class="scroll_wrapper">
+   	<div class="padding content" style="padding-top: 28px; margin-top: 40px;" id="sidebar_nav_inner">
+
+
+   		<div class="test_inner">
+            <?php foreach ($items as $i => $item) :?>
+   			<?php  $current_date = the_date('l F jS, Y', '', '', false);?>
+
+   			<?php  if ($current_date) : ?>
+   			<?php if (!$first_date):?>
+   		</ul>
+   	<?php else:?>
+   	<?php $first_date = false;?>
+   <?php endif;?>
+   <ul class="media-list left_post_nav"  id="" > 
+   	<li class="date_heading <?php if ($first_date) echo 'first';?>" <?php if ($first) echo 'style="padding-top:0px;"';?>><?php echo $current_date;?></li>
+   <?php endif; ?>
+   <li class="media <?php if ($current_date) echo 'first';?>">
+   	<a class="pull-left" href="<?php echo get_permalink( $item->ID ); ?>" title="<?php echo $item->post_title; ?>" class="left_nav_link">
+         <?php echo get_the_post_thumbnail($item->ID, 'square_thumb');?>
+   	</a>
+   	<div class="media-body">
+   		<a href="<?php echo get_permalink( $item->ID ); ?>" title="<?php the_title_attribute(); ?>" class="left_nav_link">
+   			<p><?php echo $item->post_title; ?></p>
+   		</a>
+   	</div>
+   </li>
+   <?php $first = false;?>
+<?php endforeach;?>
+</ul>
+</div>
+<!-- end of test_inner -->
+</div>
+</div>
+<!-- end of sidebar_nav_inner -->

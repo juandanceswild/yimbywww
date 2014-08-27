@@ -1,0 +1,2 @@
+[20-Aug-2014 10:18:23 UTC] PHP Warning:  require_once(ABSPATH/wp-admin/includes/theme.php): failed to open stream: No such file or directory in /home/staging2/public_html/wp-content/plugins/infinite-scroll/includes/presets.php on line 24
+[20-Aug-2014 10:18:23 UTC] PHP Fatal error:  require_once(): Failed opening required 'ABSPATH/wp-admin/includes/theme.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/staging2/public_html/wp-content/plugins/infinite-scroll/includes/presets.php on line 24

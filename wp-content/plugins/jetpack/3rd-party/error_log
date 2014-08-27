@@ -1,0 +1,2 @@
+[20-Aug-2014 13:08:14 UTC] PHP Fatal error:  Call to undefined function add_filter() in /home/staging2/public_html/wp-content/plugins/jetpack/3rd-party/buddypress.php on line 3
+[20-Aug-2014 19:12:22 UTC] PHP Fatal error:  Call to undefined function add_filter() in /home/staging2/public_html/wp-content/plugins/jetpack/3rd-party/buddypress.php on line 3

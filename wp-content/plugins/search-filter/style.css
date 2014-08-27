@@ -1,0 +1,120 @@
+/* Search & Filter Styles */
+body
+{
+	display:block;
+}
+.searchandfilter p
+{
+	margin-top: 1em;
+	display:inline-block;
+}
+.searchandfilter ul
+{
+	display:inline-block;
+}
+.searchandfilter li
+{
+	list-style: none;
+	display:inline-block;
+	padding-right:10px;
+}
+
+/* If in a widget area make a single column by adding display block  */
+.widget-area .searchandfilter li, .widget-area .searchandfilter p
+{
+	display:block;
+}
+.searchandfilter label
+{
+	display:block;
+}
+.searchandfilter h4
+{
+	margin:15px 0;
+	font-size:16px;
+}
+
+.searchandfilter ul > li > ul:not(.children)
+{
+	margin-left:0;
+}
+
+ul.nav.main_menu_nav
+li:first-child a.dropdown-toggle
+{
+    padding-left: 0;
+}
+
+div#ascrail2001 {
+    top: 65px !important;
+}
+
+div.newsletter-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+}
+
+div.newsletter-modal {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 500px;
+    height: 290px;
+    background: #FFF;
+    border-radius: 5px !important;
+    z-index: 999999;
+}
+
+div.newsletter-container {
+    padding: 10px 15px;
+}
+
+div.newsletter-modal
+a.close {
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 24px;
+    height: 24px;
+    background: url('/wp-content/themes/nyyimby_new_5th/img/close.png') 0 0 no-repeat;
+    text-indent: -9999px;
+}
+
+div.newsletter-modal
+h1 {
+    font-size: 32px;
+    padding: 0;
+    margin: 0;
+}
+
+div.newsletter-modal
+h2 {
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+}
+
+input#address2 {
+    width: 97%;
+    margin: 20px 0;
+}
+
+input#newsletter-submit {
+    padding: 8px 30px;
+    border: 0;
+    background: #000;
+    color: #FFF;
+    font-weight: bold;
+    border-radius: 3px !important;
+}

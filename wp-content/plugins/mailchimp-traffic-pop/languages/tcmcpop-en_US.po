@@ -1,0 +1,320 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: MailChimp TrafficPop\n"
+"POT-Creation-Date: 2013-02-28 12:14-0500\n"
+"PO-Revision-Date: 2013-02-28 12:14-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: inc/submit.php:33
+msgid "Please enter a valid email address!"
+msgstr ""
+
+#: inc/submit.php:39 inc/submit.php:42
+msgid "Please enter your name!"
+msgstr ""
+
+#: inc/submit.php:49
+msgid ""
+"Make sure you have entered a valid MailChimp API Key and have selected a "
+"list!"
+msgstr ""
+
+#: inc/submit.php:76 inc/submit.php:84
+msgid "Close"
+msgstr ""
+
+#: inc/submit.php:84
+msgid ""
+"We noticed you have already subscribed and lost your cookies, you will not "
+"be double subscribed or anything like that!"
+msgstr ""
+
+#: inc/submit.php:89
+msgid "There was an error contacting mailchimp: "
+msgstr ""
+
+#: inc/tcf_bootstrap.php:215
+msgid "Or Close"
+msgstr ""
+
+#: inc/tcf_bootstrap.php:243
+msgid ""
+"You need to enter a valid API key and select a list in the MailChimp "
+"TrafficPop Settings panel."
+msgstr ""
+
+#: inc/tcf_bootstrap.php:250
+msgid "Your First Name"
+msgstr ""
+
+#: inc/tcf_bootstrap.php:251
+msgid "First Name"
+msgstr ""
+
+#: inc/tcf_bootstrap.php:255
+msgid "Your Last Name"
+msgstr ""
+
+#: inc/tcf_bootstrap.php:256
+msgid "Last Name"
+msgstr ""
+
+#: inc/tcf_bootstrap.php:260
+msgid "Your Email Address"
+msgstr ""
+
+#: inc/tcf_bootstrap.php:261
+msgid "Email Address"
+msgstr ""
+
+#: inc/tcf_bootstrap.php:266
+msgid "Sign Up"
+msgstr ""
+
+#: inc/tcf_settings_page.php:10
+msgid "MailChimp Traffic Pop Settings"
+msgstr ""
+
+#: inc/tcf_settings_page.php:10
+msgid "MailChimp TrafficPop"
+msgstr ""
+
+#: inc/tcf_settings_page.php:317
+msgid "MailChimp Traffic Pop"
+msgstr ""
+
+#: inc/tcf_settings_page.php:317
+msgid "View Plugin Documentation"
+msgstr ""
+
+#: inc/tcf_settings_page.php:345 inc/tcf_settings_page.php:572
+msgid "Save All Changes"
+msgstr ""
+
+#: inc/tcf_settings_page.php:346
+msgid "Options Page"
+msgstr ""
+
+#: inc/tcf_settings_page.php:355
+msgid "General Settings"
+msgstr ""
+
+#: inc/tcf_settings_page.php:356
+msgid "Popup Settings"
+msgstr ""
+
+#: inc/tcf_settings_page.php:357
+msgid "Template Settings"
+msgstr ""
+
+#: inc/tcf_settings_page.php:363
+msgid "Enable MailChimp Traffic Pop"
+msgstr ""
+
+#: inc/tcf_settings_page.php:367
+msgid "Enabled and Show on Home Page"
+msgstr ""
+
+#: inc/tcf_settings_page.php:368
+msgid "Enabled and Do Not Show on Home Page"
+msgstr ""
+
+#: inc/tcf_settings_page.php:369
+msgid "Disabled ( Off )"
+msgstr ""
+
+#: inc/tcf_settings_page.php:372
+msgid "Enable jQuery Loading"
+msgstr ""
+
+#: inc/tcf_settings_page.php:375
+msgid ""
+"Disable / Enable MailChimp Traffic Pop easily. You can also configure which "
+"side of the page the panel will come from, and pick your backgroung pattern "
+"here. Make sure you read the docs defore turning off jQuery."
+msgstr ""
+
+#: inc/tcf_settings_page.php:381
+msgid "MailChimp Setup"
+msgstr ""
+
+#: inc/tcf_settings_page.php:387
+msgid "You need to enter your API key before selecting a list!"
+msgstr ""
+
+#: inc/tcf_settings_page.php:393
+msgid ""
+"You need to create at least one email list on MailChimp before you can use "
+"the plugin."
+msgstr ""
+
+#: inc/tcf_settings_page.php:403
+msgid "Enable First Name Field"
+msgstr ""
+
+#: inc/tcf_settings_page.php:404
+msgid "Enable Last Name Field"
+msgstr ""
+
+#: inc/tcf_settings_page.php:407
+msgid ""
+"Enter your MailChimp API Key. This is required for the plugin to work! (Note "
+"that your Lists will not appear until a key is saved and the page is re-"
+"loaded)"
+msgstr ""
+
+#: inc/tcf_settings_page.php:413
+msgid "Page Setup"
+msgstr ""
+
+#: inc/tcf_settings_page.php:416
+msgid "Page Selector"
+msgstr ""
+
+#: inc/tcf_settings_page.php:418
+msgid "Show Only on Selected Pages"
+msgstr ""
+
+#: inc/tcf_settings_page.php:419
+msgid "Show on All Pages But Selected Pages"
+msgstr ""
+
+#: inc/tcf_settings_page.php:421
+msgid "Selected Pages"
+msgstr ""
+
+#: inc/tcf_settings_page.php:425
+msgid "Show Popup on Page Load"
+msgstr ""
+
+#: inc/tcf_settings_page.php:429
+msgid ""
+"First, choose how you want to use selected pages by either showing the popup "
+"on all pagees except for the ones you choose, or showing the popup on only "
+"the pages you choose. Then enter a comma seperated list of page / post / "
+"custom pot type IDs in the selected pages box. You can also choose to show "
+"the popup on page load, this is handy if you only want to show the popup "
+"with a click event."
+msgstr ""
+
+#: inc/tcf_settings_page.php:439
+msgid "Close Options"
+msgstr ""
+
+#: inc/tcf_settings_page.php:443
+msgid "Enable Close Button"
+msgstr ""
+
+#: inc/tcf_settings_page.php:444
+msgid "Enable Close Cookie"
+msgstr ""
+
+#: inc/tcf_settings_page.php:445
+msgid "Enable Advanced Close"
+msgstr ""
+
+#: inc/tcf_settings_page.php:446
+msgid "Auto Close On Successful Subscription"
+msgstr ""
+
+#: inc/tcf_settings_page.php:449
+msgid ""
+"Here you can enable/disable the close button and choose to use the advanced "
+"close features. If enabled they allow you to close the popup using the "
+"escape key or clicking anywhere outside of the popup. If auto close is "
+"enabled, the popup will close and fade out if a successful form submit is "
+"completed. You can also enable the Close Cookie so that the popup will no "
+"longer open after the user clicks close."
+msgstr ""
+
+#: inc/tcf_settings_page.php:455
+msgid "Countdown Timer"
+msgstr ""
+
+#: inc/tcf_settings_page.php:460
+msgid ""
+"Enter how long the countdown timer should run (in seconds) before the popup "
+"closes."
+msgstr ""
+
+#: inc/tcf_settings_page.php:466
+msgid "Popup Delay Timer"
+msgstr ""
+
+#: inc/tcf_settings_page.php:471
+msgid ""
+"Here you can enter a number of seconds the page will wait before the popup "
+"shows once the page is loaded. Enter 0 to show the popup as soon as the page "
+"is loaded."
+msgstr ""
+
+#: inc/tcf_settings_page.php:477
+msgid "Frequency (Wait) Timer"
+msgstr ""
+
+#: inc/tcf_settings_page.php:482
+msgid ""
+"Here you can enter the number of minutes the user will wait between seeing "
+"the popup. If you enter 0, the popup will show every page load until the "
+"user subscribes. If you entered 5 for example, the user will only see the "
+"popup once every 5 minutes they are on your site."
+msgstr ""
+
+#: inc/tcf_settings_page.php:488
+msgid "Background Opacity"
+msgstr ""
+
+#: inc/tcf_settings_page.php:493
+msgid ""
+"Here you can set the opacity of the background shadow used. Because the "
+"shadow for MailChimp Traffic Pop is white, its suggested you use a high "
+"value around the default of 90."
+msgstr ""
+
+#: inc/tcf_settings_page.php:499
+msgid "On-Click Class"
+msgstr ""
+
+#: inc/tcf_settings_page.php:504
+msgid ""
+"Here you can enter a class that will open the popup when clicked. Any "
+"element with this class will open the popup when clicked."
+msgstr ""
+
+#: inc/tcf_settings_page.php:514
+msgid "Background Pattern"
+msgstr ""
+
+#: inc/tcf_settings_page.php:527
+msgid "Here you can select the background pattern to use in your popup."
+msgstr ""
+
+#: inc/tcf_settings_page.php:533
+msgid "Popup Title"
+msgstr ""
+
+#: inc/tcf_settings_page.php:538
+msgid "Enter the title text for your popup."
+msgstr ""
+
+#: inc/tcf_settings_page.php:544
+msgid "Popup Message"
+msgstr ""
+
+#: inc/tcf_settings_page.php:549 inc/tcf_settings_page.php:560
+msgid ""
+"Here you can enter the message that will appear in the popup. Keep in mind "
+"the forum will be taller if you are using the name fields."
+msgstr ""
+
+#: inc/tcf_settings_page.php:555
+msgid "Success Message"
+msgstr ""

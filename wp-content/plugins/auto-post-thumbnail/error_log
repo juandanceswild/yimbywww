@@ -1,0 +1,1 @@
+[19-Aug-2014 19:14:11 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/auto-post-thumbnail/auto-post-thumbnail.php on line 30

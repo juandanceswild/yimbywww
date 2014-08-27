@@ -1,0 +1,2 @@
+[20-Aug-2014 16:51:03 UTC] PHP Fatal error:  Call to undefined function get_option() in /home/staging2/public_html/wp-content/plugins/mailchimp-traffic-pop/inc/tcf_settings_page.php on line 103
+[20-Aug-2014 17:31:30 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/staging2/public_html/wp-content/plugins/mailchimp-traffic-pop/inc/tcf_bootstrap.php on line 372

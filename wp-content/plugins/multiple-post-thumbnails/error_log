@@ -1,0 +1,1 @@
+[19-Aug-2014 18:12:34 UTC] PHP Fatal error:  Call to undefined function is_admin() in /home/staging2/public_html/wp-content/plugins/multiple-post-thumbnails/multi-post-thumbnails.php on line 454
