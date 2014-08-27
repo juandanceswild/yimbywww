@@ -16,6 +16,10 @@
 */
 
 // Define Environments
+
+
+// this environment switcher needs some attention.  we should have something called prouction or live...
+
 //define('WP_CACHE', true); //Added by WP-Cache Manager
 define( 'WPCACHEHOME', '/home/staging2/public_html/wp-content/plugins/wp-super-cache/' ); //Added by WP-Cache Manager
 $environments = array(
@@ -35,6 +39,11 @@ foreach($environments AS $key => $env){
 // If no environment is set default to production
 if(!defined('ENVIRONMENT')) define('ENVIRONMENT', 'staging');
 
+define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/');
+define('WP_HOME',    'http://' . $_SERVER['SERVER_NAME']);
+define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/wp-content');
+define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp-content');
+
 switch(ENVIRONMENT) {
     case 'development':
 
@@ -43,8 +52,8 @@ switch(ENVIRONMENT) {
         define('DB_PASSWORD', 'root');
         define('DB_HOST', 'localhost');
         define('WP_DEBUG', false);
-        define('WP_HOME',    'http://newyorkyimby.com/');
-        define('WP_SITEURL', 'http://newyorkyimby.com/');
+        //define('WP_HOME',    'http://newyorkyimby.com/');
+        //define('WP_SITEURL', 'http://newyorkyimby.com/');
         break;
 
     case 'staging':
@@ -54,8 +63,8 @@ switch(ENVIRONMENT) {
         define('DB_PASSWORD', 'WBDaODBy7x0nLnj');
         define('DB_HOST', 'localhost');
         define('WP_DEBUG', false);
-        define('WP_HOME',    'http://newyorkyimby.com/');
-        define('WP_SITEURL', 'http://newyorkyimby.com/');
+        //define('WP_HOME',    'http://newyorkyimby.com/');
+        //define('WP_SITEURL', 'http://newyorkyimby.com/');
         break;
 }
 
