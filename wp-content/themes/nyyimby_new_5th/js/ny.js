@@ -45,7 +45,7 @@ jQuery(document).ready(function()
                 dom.search.css('left', jQuery('div#cx').offset().left + jQuery('div#cx').width() + 25);
             });
 
-            jQuery('img').on('click', function(e)
+            jQuery('#post_main_content img').on('click', function(e)
             {
 
                 e.preventDefault();
