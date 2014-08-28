@@ -5,14 +5,29 @@
 
             <?php
                 global $post;
+
+                $post = get_next_post(); // this uses $post->ID
+                setup_postdata($post);
+                $curDate = the_date('l F jS, Y', '', '', false);
+                $post = get_previous_post(); // this uses $post->ID
+                setup_postdata($post);
+
                 $current_post = $post; // remember the current post
                 $current_date = the_date('l F jS, Y', '', '', false);
+
+                if (strcmp($curDate,$current_date)===false) {
+                    $noDate = 1;
+                }
+                //$noDate = pagination_noDate();
             ?>
 
             <ul class="media-list left_post_nav">
+              <?php 
+                if (empty($noDate)) : ?>
                 <li class="dateHeading">
                     <?php echo $current_date;?>
                 </li>
+              <?php endif; ?> 
 
                 <!-- Current post -->
                 <li class="media">
@@ -39,11 +54,12 @@
                 ?>
 
                 <?php // TODO: Fix the markup (spacing), and discuss best practies for seo and code commenting ?>
-                <?php if ( $curDate ) { ?>
+                <?php if ( $curDate ) {
+                if (empty($noDate)) : ?>
                     <li class="dateHeading">
                         <? echo $curDate; ?>
                     </li>
-                <? } ?>
+                <? endif; } ?>
 
                 <li class="media">
                     <a class="pull-left" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="left_nav_link">
