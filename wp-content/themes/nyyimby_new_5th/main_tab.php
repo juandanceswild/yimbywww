@@ -38,7 +38,7 @@
                     $curDate = the_date('l F jS, Y', '', '', false);
                 ?>
 
-                <!-- TODO: Fix the markup (spacing) -->
+                <?php // TODO: Fix the markup (spacing), and discuss best practies for seo and code commenting ?>
                 <?php if ( $curDate ) { ?>
                     <li class="dateHeading">
                         <? echo $curDate; ?>
