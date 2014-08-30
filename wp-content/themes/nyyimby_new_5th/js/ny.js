@@ -128,45 +128,36 @@ jQuery(document).ready(function()
      * http://www.paulirish.com/2008/release-infinite-scroll-com-jquery-and-wordpress-plugins/
      */
 
-    jQuery('div#sidebar_nav_inner').bind('scroll', function()
+    (function()
     {
+
+        var device        =  {};
+            device.isIOS  =  navigator.userAgent.match(/(iPad|iPhone|iPod)/g);
 
         var pager        =  jQuery('ul.pager')
           , nextPage     =  pager.last().find('li.next a').attr('href')
           , preloader    =  jQuery('div#preloader')
           , isNotSearch  =  !jQuery('body').hasClass('search');
 
-        if ( isNotSearch )
+        if ( !device.isIOS && jQuery(window).width() >= 480 )
         {
 
-            pager.fadeOut();
-
-            if( $(this).scrollTop() + $(this).innerHeight() >= this.scrollHeight )
+            var iasjj = $.ias(
             {
+                container   :  '#sidebar_nav_inner',
+                item        :  '.media-list li',
+                pagination  :  '.pager .next',
+                next        :  '.pager .previous'
+            });
 
-                $('<div/>').load(nextPage + ' div.test_inner_news', function()
-                {
-
-
-                    $(this).appendTo('div#sidebar_nav_inner').addClass('appended');
-                    preloader.fadeOut();
-
-                    // Update niceScroll
-                    jQuery('.sidebar_nav_inner_news').getNiceScroll().resize();
-
-                    // Re-init sidebar
-                    delete sidebar;
-
-                    var sidebar = new Sidebar();
-                        sidebar.initialize();
-                        sidebar.home();
-                });
-
-            }
-
+            iasjj.extension(new IASTriggerExtension({
+                offset: 100
+            }));
+            iasjj.extension(new IASSpinnerExtension());
+            iasjj.extension(new IASPagingExtension());
+            //iasjj.extension(new IASHistoryExtension({ prev: '.prev a' }));
         }
-
-    });
+    })();
 
 
 
