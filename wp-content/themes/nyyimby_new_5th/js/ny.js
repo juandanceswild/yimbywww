@@ -142,20 +142,17 @@ jQuery(document).ready(function()
         if ( !device.isIOS && jQuery(window).width() >= 480 )
         {
 
-            var iasjj = $.ias(
-            {
-                container   :  '#sidebar_nav_inner',
+            var iasjj = $('#sidebar_nav_inner').ias({
                 item        :  '.media-list li',
-                pagination  :  '.pager .next',
-                next        :  '.pager .previous'
+                next        :  '.pager .next'
             });
 
             iasjj.extension(new IASTriggerExtension({
-                offset: 100
+                offset: 200
             }));
             iasjj.extension(new IASSpinnerExtension());
             iasjj.extension(new IASPagingExtension());
-            //iasjj.extension(new IASHistoryExtension({ prev: '.prev a' }));
+            iasjj.extension(new IASHistoryExtension({ prev: '.prev a' }));
         }
     })();
 
