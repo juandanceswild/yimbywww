@@ -90,14 +90,14 @@
             <!-- Pagination -->
             <ul class="pager hidden">
                 <li class="next">
-                    <a href="<?php echo home_url(); ?>/page/<?php echo $paged+2;?>"  class="next_link">
+                    <a href="<?php echo home_url(); ?>/page/<?php echo (($paged-1>0) ? ($paged+1) : 2); ?>"  class="next_link">
                         <span class="meta-nav">&larr;</span> Older posts
                     </a>
                 </li>
 
                 <?php if ($paged > 0) :?>
                     <li class="previous">
-                        <a href="<?php echo home_url(); ?>/page/<?php echo $paged-1;?>">
+                        <a href="<?php echo home_url(); ?>/page/<?php echo (($paged-1>0) ? ($paged-1) : 1); ?>">
                             Newer posts
                             <span class="meta-nav">&rarr;</span>
                         </a>
