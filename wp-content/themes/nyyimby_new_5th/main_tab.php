@@ -88,7 +88,7 @@
             </ul>
 
             <!-- Pagination -->
-            <ul class="pager">
+            <ul class="pager hidden">
                 <li class="next">
                     <a href="<?php echo home_url(); ?>/page/<?php echo $paged+2;?>"  class="next_link">
                         <span class="meta-nav">&larr;</span> Older posts
