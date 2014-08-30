@@ -6,19 +6,24 @@
             <?php
                 global $post;
 
-                $post = get_next_post(); // this uses $post->ID
-                setup_postdata($post);
-                $curDate = the_date('l F jS, Y', '', '', false);
-                $post = get_previous_post(); // this uses $post->ID
-                setup_postdata($post);
-
                 $current_post = $post; // remember the current post
+
+                // to know if we should display a date or not...look here
+                $post = get_next_post(); // this uses $post->ID
+                if (empty($post)) {
+                    $post = $current_post; // this uses $post->ID
+                } else {
+                    setup_postdata($post);
+                    $curDate = the_date('l F jS, Y', '', '', false);
+                    $post = get_previous_post(); // this uses $post->ID
+                }
+
+                setup_postdata($post);
                 $current_date = the_date('l F jS, Y', '', '', false);
 
-                if (strcmp($curDate,$current_date)===false) {
+                if (strcmp($curDate,$current_date)===false && $paged>1) {
                     $noDate = 1;
                 }
-                //$noDate = pagination_noDate();
             ?>
 
             <ul class="media-list left_post_nav">
@@ -84,14 +89,14 @@
             <!-- Pagination -->
             <ul class="pager" style="display:block;visibility:hidden;position:absolute;">
                 <li class="next">
-                    <a href="<?php echo home_url(); ?>/page/<?php echo $paged+2;?>"  class="next_link">
+                    <a href="<?php echo home_url(); ?>/page/<?php echo $paged+1; ?>" class="next_link">
                         <span class="meta-nav">&larr;</span> Older posts
                     </a>
                 </li>
 
                 <?php if ($paged > 0) :?>
                     <li class="previous">
-                        <a href="<?php echo home_url(); ?>/page/<?php echo $paged-1;?>">
+                        <a href="<?php echo home_url(); ?>/page/<?php echo $paged-1; ?>">
                             Newer posts
                             <span class="meta-nav">&rarr;</span>
                         </a>
