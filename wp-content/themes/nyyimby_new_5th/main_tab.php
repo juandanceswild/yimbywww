@@ -7,25 +7,33 @@
             <?php
                 global $post;
 
-                $post = get_next_post(); // this uses $post->ID
-                setup_postdata($post);
-                $curDate = the_date('l F jS, Y', '', '', false);
-                $post = get_previous_post(); // this uses $post->ID
-                setup_postdata($post);
-
                 $current_post = $post; // remember the current post
+
+                $post = get_next_post(); // this uses $post->ID
+                if (empty($post)) {
+                    $post = $current_post;
+                } else {
+
+                    setup_postdata($post);
+                    $curDate = the_date('l F jS, Y', '', '', false);
+
+                    $post = get_previous_post();;
+                }
+
+                setup_postdata($post);
                 $current_date = the_date('l F jS, Y', '', '', false);
 
-                if (strcmp($curDate,$current_date)===false) {
+                $noDate = 0;
+                $paged = (integer) $paged;
+                if (strcmp($curDate,$current_date)===false && $paged>1) {
                     $noDate = 1;
                 }
-                //$noDate = pagination_noDate();
             ?>
 
               <?php 
                 if (empty($noDate)) : ?>
                 <li class="dateHeading">
-                    <?php echo $current_date;?>
+                    <?php echo $current_date; ?>
                 </li>
               <?php endif; ?> 
 
@@ -57,7 +65,7 @@
                     <li class="dateHeading">
                         <? echo $curDate; ?>
                     </li>
-                <? endif; } ?>
+                <?php endif; } ?> 
 
                 <li class="media">
                     <a class="pull-left" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="left_nav_link">
