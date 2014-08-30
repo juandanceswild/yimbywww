@@ -2,6 +2,7 @@
 <div class="scroll_wrapper">
     <div class="padding content sidebar_nav_inner_news" id="sidebar_nav_inner">
         <div class="test_inner_news">
+            <ul class="media-list left_post_nav">
 
             <?php
                 global $post;
@@ -21,7 +22,6 @@
                 //$noDate = pagination_noDate();
             ?>
 
-            <ul class="media-list left_post_nav">
               <?php 
                 if (empty($noDate)) : ?>
                 <li class="dateHeading">
@@ -43,9 +43,7 @@
                         </a>
                     </div> <!-- // div.media-body -->
                 </li>
-            </ul>
 
-            <ul class="media-list left_post_nav">
                 <?php
                     for($i = 1; $i <= 19; $i++) {
                     $post = get_previous_post(); // this uses $post->ID
