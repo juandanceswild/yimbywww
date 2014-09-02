@@ -103,7 +103,6 @@ get_header(); ?>
     </div>
     <style>
 
-
         #related_updates {
             background-color: #FFFFFF;
         }
@@ -120,25 +119,6 @@ get_header(); ?>
             color: #00000;
         }
 
-        /*RULES TO DISPLAY MENU IN DESKTOP VIEW*/
-        @media (min-width: 600px) {
-            ul.nav.main_menu_nav.hidden {
-                visibility: visible !important;
-                /*left: 368px !important;*/
-            }
-
-            /*RULES TO ALLOW FOR CONTENT SCROLL*/
-            body {
-                overflow: scroll;
-            }
-
-            /********FIX TO SHOW CONTACT PAGE CONTENT******************/
-            .main, .row-fluid {
-                height: 0% !important;
-            }
-        }
-
-
     </style>
-    </div>
+
 <?php get_footer(); ?>
