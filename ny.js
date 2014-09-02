@@ -1,0 +1,1 @@
+wp-content/themes/nyyimby_new_5th/js/ny.js
