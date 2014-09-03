@@ -79,15 +79,15 @@
 
 
     // Fixed social icons
-    /*var social = new FixedSocial();
+    var social = new FixedSocial();
 
-    // Sidebar
+    /*/ Sidebar
     var sidebar = new Sidebar();
         sidebar.initialize();
-        sidebar.home();
+        sidebar.home();*/
 
     // Advanced search
-    var search = new AdvancedSearch();*/
+    var search = new AdvancedSearch();
 
     // Navigation
     (function()
