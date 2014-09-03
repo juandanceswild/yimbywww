@@ -92,8 +92,9 @@ foreach ($terms_to_exclude as $t)
 <?php $terms = get_terms('neighborhoods', 'hide_empty=true');?>
 <?php $type_terms = get_terms('types');?>
 <?php $categories = get_categories( array('number'=>10));?>
-<body <?php body_class(); ?>  data-spy="scroll" data-target=".bs-docs-sidebar" data-offset="10" >
+<body <?php body_class(); ?>>
 <?php include('ga.php');?>
+
 <div class="navbar navbar-inverse navbar-relative-top visible-phone visible-tablet">
     <div class="navbar-inner" style="">
         <div class="container" style="">
@@ -194,6 +195,5 @@ foreach ($terms_to_exclude as $t)
     </div><!-- /.container -->
 </div><!-- /navbar-inner -->
 <!--</div>-->
-
 <!-- End Header -->
 <!-- Begin Template Content -->

@@ -79,7 +79,7 @@
 
 
     // Fixed social icons
-    var social = new FixedSocial();
+    /*var social = new FixedSocial();
 
     // Sidebar
     var sidebar = new Sidebar();
@@ -87,7 +87,7 @@
         sidebar.home();
 
     // Advanced search
-    var search = new AdvancedSearch();
+    var search = new AdvancedSearch();*/
 
     // Navigation
     (function()
@@ -123,13 +123,13 @@
 */
 
  
-    $('#cx').infinitescroll({
+/*    $('#cx').infinitescroll({
         //selector for the paged navigation (it will be hidden)
         navSelector  : "",
         // selector for the NEXT link (to page 2)
         nextSelector : ".navx-links a[rel=prev]",
         itemSelector : ".post"
-    });
+    });*/
 
 });
 

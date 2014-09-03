@@ -1,4 +1,3 @@
-<!-- start of sidebar_nav_inner -->
 <div class="scroll_wrapper">
     <div class="padding content sidebar_nav_inner_news" id="sidebar_nav_inner">
         <div class="test_inner_news">
@@ -87,7 +86,7 @@
             </ul>
 
             <!-- Pagination -->
-            <ul class="pager" style="display:block;visibility:hidden;position:absolute;">
+            <ul class="pager">
                 <li class="next">
                     <a href="<?php echo home_url(); ?>/page/<?php echo $paged+1; ?>" class="next_link">
                         <span class="meta-nav">&larr;</span> Older posts

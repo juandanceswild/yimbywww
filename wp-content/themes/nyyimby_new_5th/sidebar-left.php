@@ -1,4 +1,3 @@
-
     
      <?php $first_date = true;?>
      <?php $first = true;?>
