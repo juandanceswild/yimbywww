@@ -29,14 +29,20 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
             </div>
 
             <div class="my-col span3">
-                ads go here
-                <div style="height:3000px; width:200px;"></div>
+                <?php if ( is_active_sidebar( 'sidebar-page' ) ) : ?>
+                    <?php dynamic_sidebar( 'sidebar-page' ); ?>
+                <?php endif; ?>
             </div>
             <br class="clr">
         </div>
 
 <style>
 .my-col {
+  height:auto;
+  overflow-x:hidden;
+  overflow-y:scroll;
+}
+@media only screen and (min-width: 767px) {
   height:100%;
   overflow-x:hidden;
   overflow-y:scroll;
