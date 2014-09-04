@@ -82,8 +82,9 @@ var FixedSocial = FixedSocial || (function()
         {
 
             var desktopOffsetLeft = jQuery('div#cx').offset().left + jQuery('div#cx').width() - 22;
+            var desktopOffsetTop = jQuery('div#cx').offset().top;
             desktopOffsetLeft-=30;
-            this.dom.icons.attr('style', 'position: fixed; top: 78px; left: ' + desktopOffsetLeft + 'px !important');
+            this.dom.icons.attr('style', 'position: fixed; top: ' + desktopOffsetTop + 'px; left: ' + desktopOffsetLeft + 'px !important');
 
             // console.log( 'Desktop, add fixded right positioning.' );
         }
