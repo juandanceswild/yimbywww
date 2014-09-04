@@ -22,16 +22,15 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
                 <?php get_sidebar('leftTABS');?>
             </div>
 
-            <div class="my-col span6">
-                <div class="row-fluid">
+            <div class="my-col span9 row-fluid">
+                <div class="span8">
                     <?php get_template_part('content', 'post'); ?>
                 </div>
-            </div>
-
-            <div class="my-col span3 hidden-phone">
-                <?php if ( is_active_sidebar( 'sidebar-page' ) ) : ?>
-                    <?php dynamic_sidebar( 'sidebar-page' ); ?>
-                <?php endif; ?>
+                <div class="my-col-noscroll span4 hidden-phone">
+                    <?php if ( is_active_sidebar( 'sidebar-page' ) ) : ?>
+                        <?php dynamic_sidebar( 'sidebar-page' ); ?>
+                    <?php endif; ?>
+                </div>
             </div>
             <br class="clr">
         </div>
@@ -45,6 +44,10 @@ body {
   overflow-x:hidden;
   overflow-y:scroll;
   padding-bottom:10%;
+}
+.my-col-noscroll {
+  height:auto;
+  overflow:hidden
 }
 .clr {
   clear:both;
