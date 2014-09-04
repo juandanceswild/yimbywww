@@ -41,17 +41,16 @@ body {
   overflow:hidden;
 }
 .my-col {
-  height:100%;
+  height:90%;
   overflow-x:hidden;
   overflow-y:scroll;
+  padding-bottom:10%;
 }
 .clr {
   clear:both;
 }
 .pt-top {
-  padding-top:4%;
-  padding-bottom:2%;
-  height:94%;
+  height:100%;
 }
 .white {
   background-color:#fff;

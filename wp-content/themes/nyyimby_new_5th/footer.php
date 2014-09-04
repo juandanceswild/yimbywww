@@ -41,6 +41,7 @@
 <script type="text/javascript" src="/wp-content/themes/nyyimby_new_5th/js/nicescroll.js"></script>
 <script type="text/javascript" src="/wp-content/themes/nyyimby_new_5th/js/inf.js"></script>
 <script type="text/javascript" src="/wp-content/themes/nyyimby_new_5th/js/cookie.js"></script>
+<script type="text/javascript" src="/wp-content/themes/nyyimby_new_5th/js/jscroll.min.js"></script>
 <script type="text/javascript" src="/wp-content/themes/nyyimby_new_5th/js/ny.js"></script>
 
 <script type="text/javascript">

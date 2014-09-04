@@ -154,8 +154,8 @@ foreach ($terms_to_exclude as $t)
                 </ul>
             </div>
 
-            <ul class="nav main_menu_nav hidden" style="max-width: 585px; float: left;">
-                <!-- <li><a href="<?php echo get_site_url();?>" class="active">HOME</a></li> -->
+            <div class="span6">
+              <ul class="nav main_menu_nav row-fluid">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
                         NEIGHBORHOOD

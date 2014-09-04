@@ -81,56 +81,25 @@
     // Fixed social icons
     var social = new FixedSocial();
 
-    /*/ Sidebar
-    var sidebar = new Sidebar();
-        sidebar.initialize();
-        sidebar.home();*/
-
     // Advanced search
     var search = new AdvancedSearch();
 
     // Navigation
-    (function()
-    {
-
-/*
-        var nav    = jQuery('div.nav-collapse')
-          , body   = jQuery('body')
-          , button = jQuery('button.btn-navbar');
-
-        var trigger = function(ev)
-        {
-
-            ev.preventDefault();
-
-            function show()
-            {
-
-                nav.animate({'height' : jQuery(window).height() + 3}, 1000).fadeIn();
-            }
-
-            function hide()
-            {
-
-                nav.animate({'height' : 0}, 1000).fadeOut();
-            }
-
-            nav.height() < 120  ?  show()  :  hide();
-        };
-
-        button.on('click', { ev : 'ev' }, trigger);
-    })();
-*/
-
- 
-/*    $('#cx').infinitescroll({
+    $(document).on('ready', function() {
+      /*$('#cx').infinitescroll({
         //selector for the paged navigation (it will be hidden)
         navSelector  : "",
         // selector for the NEXT link (to page 2)
         nextSelector : ".navx-links a[rel=prev]",
         itemSelector : ".post"
-    });*/
-
+      });*/
+$('#cx').jscroll({
+    loadingHtml: "",
+    padding: 20,
+    nextSelector : ".navx-links a[rel=prev]",
+    contentSelector: ".post",
+    debug: true
 });
+   });
 
 

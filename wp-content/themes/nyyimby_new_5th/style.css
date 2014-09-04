@@ -165,11 +165,14 @@ html, body {
     text-shadow: none !important;
 }
 
-#header {
-    text-align: center;
+.header {
     background-color: #000000;
     font-family: 'PT Sans', serif;
-
+    padding: 10px 10px 10px 20px;
+    color:#fff;
+}
+.header a {
+    color:#fff;
 }
 
 a, a:focus, a:hover, a:active {
@@ -370,6 +373,12 @@ div.aligncenter {
 
 .main_menu_nav {
     margin-top: 14px !important;
+    font-size: 13px;
+    white-space: nowrap;
+}
+.main_menu_nav li {
+    display:inline-block;
+    margin-right: 7px;
 }
 
 .ad img {
@@ -478,9 +487,10 @@ div.aligncenter {
 }
 
 #s {
+    margin-top: 8px;
     background: url(img/searchicon_white.png) no-repeat left center;
     padding-left: 30px;
-    width: 100%;
+    width: 80%;
     padding-bottom: 5px !important;
     font-style: italic;
 }
@@ -852,7 +862,7 @@ body.error404
 /* searchform.php */
 
 form.navbar-search {
-    margin-top: 0;
+    margin-top: 8px;
     margin-right: 1px;
 }
 
