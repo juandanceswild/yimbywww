@@ -95,55 +95,8 @@ foreach ($terms_to_exclude as $t)
 <body <?php body_class(); ?>>
 <?php include('ga.php');?>
 
-<div class="navbar navbar-inverse navbar-relative-top visible-phone visible-tablet">
-    <div class="navbar-inner" style="">
-        <div class="container" style="">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="<?php echo get_site_url();?>" class="brand"><img src="<?php bloginfo('template_directory'); ?>/img/yimby_logo.png"  /></a>
 
-            <div class="nav-collapse collapse">
-                <ul class="nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            NEIGHBORHOOD
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <?php foreach ($terms as $term): ?>
-                                <?php if (!in_array($term->term_id, $exTerms)) : ?>
-
-                                    <li><a style="padding:2px 0 !important;margin:0px; !important;" href="<?php echo get_term_link($term->slug, 'neighborhoods');?>"><?php echo $term->name;?></a></li>
-                                <?php endif;?>
-                            <?php endforeach;?>
-
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-                            PROJECT TYPE
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <?php foreach ($type_terms as $term):?>
-                                <li><a href="<?php echo get_term_link($term->slug, 'types');?>"><?php echo $term->name;?></a></li>
-                            <?php endforeach;?>
-                        </ul>
-                    </li>
-                    <li><a href="/all-building/">ALL PROJECTS</a></li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<div class="navbar  navbar-inverse navigation hidden-phone hidden-tablet">
-    <div class="navbar-inner navbar-in">
-        <div class="row-fluid">
+        <div class="row-fluid header">
 
             <div class="span3 columns">
                 <a href="<?php echo get_site_url();?>" class="brand"><img src="<?php bloginfo('template_directory'); ?>/img/yimby_logo.png"  /></a>
@@ -181,19 +134,14 @@ foreach ($terms_to_exclude as $t)
                         <?php endforeach;?>
                     </ul>
                 </li>
-                <li><a href="/all-building">ALL PROJECTS</a></li>
-                <li><a href="http://yimbyforums.com" target="_blank">FORUMS</a></li>
-                <li><a href="/search">ADVANCED SEARCH</a></li>
-            </ul>
+                <li class=""><a href="/all-building">ALL PROJECTS</a></li>
+                <li class=""><a href="http://yimbyforums.com" target="_blank">FORUMS</a></li>
+                <li class=""><a href="/search">ADVANCED SEARCH</a></li>
+              </ul>
+            </div>
 
-            <div class="hidden-tablet search-in hidden">
+            <div class="span3 hidden-tablet">
                 <?php get_search_form( ); ?>
             </div>
 
-            </ul>
-        </div><!-- /.nav-collapse -->
-    </div><!-- /.container -->
-</div><!-- /navbar-inner -->
-<!--</div>-->
-<!-- End Header -->
-<!-- Begin Template Content -->
+        </div>
