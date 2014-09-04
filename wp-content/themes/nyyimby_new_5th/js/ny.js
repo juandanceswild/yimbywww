@@ -86,20 +86,26 @@
 
     // Navigation
     $(document).on('ready', function() {
-      /*$('#cx').infinitescroll({
-        //selector for the paged navigation (it will be hidden)
-        navSelector  : "",
-        // selector for the NEXT link (to page 2)
-        nextSelector : ".navx-links a[rel=prev]",
-        itemSelector : ".post"
-      });*/
-$('#cx').jscroll({
-    loadingHtml: "",
-    padding: 20,
-    nextSelector : ".navx-links a[rel=prev]",
-    contentSelector: ".post",
-    debug: true
-});
+
+        $('#sidebar_nav_inner').jscroll({
+            //nextSelector : ".navx-links a[rel=prev]",
+            padding: 20,
+            nextSelector: ".next_link",
+            contentSelector: "div.test_inner_news",
+            autoTrigger: false,
+            callback: menu_page_loaded,
+            debug: true
+        });
+        $('#main_tab').scroll(function() {
+            if (mt_to == undefined && $(this).scrollTop() + $(this).innerHeight()>=$(this)[0].scrollHeight) {
+                mt_to = setTimeout('$(".next_link").trigger("click");', 100);
+            }
+        });
+
    });
 
-
+   // global scope:
+   var mt_to = undefined;
+   function menu_page_loaded() {
+        mt_to=undefined;
+   }

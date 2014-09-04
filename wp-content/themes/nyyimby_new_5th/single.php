@@ -18,7 +18,7 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
 ?>
 
        <div class="row-fluid white pt-top">
-            <div class="my-col span3 hidden-phone hidden-tablet">
+            <div class="my-col span3 hidden-phone hidden-tablet" id="main_tab">
                 <?php get_sidebar('leftTABS');?>
             </div>
 
@@ -40,10 +40,9 @@ body {
   overflow:hidden;
 }
 .my-col {
-  height:90%;
+  height:100%;
   overflow-x:hidden;
   overflow-y:scroll;
-  padding-bottom:10%;
 }
 .my-col-noscroll {
   height:auto;
