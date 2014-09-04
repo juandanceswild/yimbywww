@@ -1,5 +1,0 @@
-[20-Aug-2014 09:56:32 UTC] PHP Fatal error:  Call to undefined function __() in /home/staging2/public_html/wp-content/plugins/infinite-scroll/templates/preset-prompt.php on line 7
-[20-Aug-2014 10:58:40 UTC] PHP Fatal error:  Call to undefined function _e() in /home/staging2/public_html/wp-content/plugins/infinite-scroll/templates/options.php on line 8
-[20-Aug-2014 12:41:27 UTC] PHP Fatal error:  Call to undefined function __() in /home/staging2/public_html/wp-content/plugins/infinite-scroll/templates/submit-prompt.php on line 10
-[20-Aug-2014 14:44:40 UTC] PHP Fatal error:  Call to undefined function _e() in /home/staging2/public_html/wp-content/plugins/infinite-scroll/templates/submit.php on line 8
-[20-Aug-2014 17:04:31 UTC] PHP Fatal error:  Call to undefined function is_multisite() in /home/staging2/public_html/wp-content/plugins/infinite-scroll/templates/manage-presets.php on line 8
