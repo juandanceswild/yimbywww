@@ -18,7 +18,7 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
 ?>
 
        <div class="row-fluid white pt-top">
-            <div class="my-col span3">
+            <div class="my-col span3 hidden-phone hidden-tablet">
                 <?php get_sidebar('leftTABS');?>
             </div>
 
@@ -28,7 +28,7 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
                 </div>
             </div>
 
-            <div class="my-col span3">
+            <div class="my-col span3 hidden-phone">
                 <?php if ( is_active_sidebar( 'sidebar-page' ) ) : ?>
                     <?php dynamic_sidebar( 'sidebar-page' ); ?>
                 <?php endif; ?>
@@ -37,12 +37,10 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
         </div>
 
 <style>
-.my-col {
-  height:auto;
-  overflow-x:hidden;
-  overflow-y:scroll;
+body {
+  overflow:hidden;
 }
-@media only screen and (min-width: 767px) {
+.my-col {
   height:100%;
   overflow-x:hidden;
   overflow-y:scroll;
