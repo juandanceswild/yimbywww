@@ -1033,7 +1033,7 @@ div.soc {
         position: relative;
         width: 100%;
         left: 0 !important;
-        margin: 0;
+        margin: 0 0 0 7px;
         float: none;
         top: 0;
     }
