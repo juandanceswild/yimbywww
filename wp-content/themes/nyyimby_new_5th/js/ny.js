@@ -96,6 +96,11 @@
             callback: menu_page_loaded,
             debug: true
         });
+
+        if ($('#sidebar_nav_inner').innerHeight()+', '+$('#main_tab').innerHeight()) {
+            $(".next_link").trigger("click");
+        }
+
         $('#main_tab').scroll(function() {
             if (mt_to == undefined && $(this).scrollTop() + $(this).innerHeight()>=$(this)[0].scrollHeight) {
                 mt_to = setTimeout('$(".next_link").trigger("click");', 100);
