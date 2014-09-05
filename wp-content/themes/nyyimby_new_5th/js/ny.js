@@ -97,15 +97,10 @@
             debug: true
         });
 
-        if ($('#sidebar_nav_inner').innerHeight()+', '+$('#main_tab').innerHeight()) {
-            $(".next_link").trigger("click");
-        }
-
         $('#main_tab').scroll(function() {
-            if (mt_to == undefined && $(this).scrollTop() + $(this).innerHeight()>=$(this)[0].scrollHeight) {
-                mt_to = setTimeout('$(".next_link").trigger("click");', 100);
-            }
+            get_next_posts(100);
         });
+        get_next_posts(0);
 
    });
 
@@ -113,4 +108,30 @@
    var mt_to = undefined;
    function menu_page_loaded() {
         mt_to=undefined;
+   }
+   function get_next_posts(to) {
+        var bottom_load_pixel_height = 250;
+        var inrange = 0, protect_lg = 0;
+
+        // is the page still not able to have jscroll attached to it??
+        if ($(this)[0].scrollHeight == undefined) inrange = 1;
+
+        // is the page scrolled almost all the way down?
+        if ($(this).scrollTop() + $(this).innerHeight() + bottom_load_pixel_height >= $(this)[0].scrollHeight) inrange = 1;
+
+        // is the page not tall enough to trigger a scroll?
+        if ($('#sidebar_nav_inner').innerHeight()<$('#main_tab').innerHeight()) {
+            protect_lg = 1;
+            inrange = 1;
+        }
+
+        //console.log('in desktop range: '+inrange);
+        //if (inrange) console.log('protecting lg: '+protect_lg);
+
+        if (mt_to == undefined && inrange) {
+            if (protect_lg) setTimeout('console.log("hmm");get_next_posts(42)', 42);
+            mt_to = setTimeout('$(".next_link").trigger("click");', to);
+        } else if (inrange) {
+          if (to==42) setTimeout('console.log("hmm 2");get_next_posts(42)', 42);
+        }
    }
