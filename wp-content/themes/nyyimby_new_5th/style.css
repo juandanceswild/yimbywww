@@ -1550,3 +1550,28 @@ div.post
 p a {
     color: #0088cc;
 }
+
+
+/* these styles arose during the rework of the site */
+
+body {
+  overflow:hidden;
+}
+.my-col {
+  height:100%;
+  overflow-x:hidden;
+  overflow-y:scroll;
+}
+.my-col-noscroll {
+  height:auto;
+  overflow:hidden
+}
+.clr {
+  clear:both;
+}
+.pt-top {
+  height:100%;
+}
+.white {
+  background-color:#fff;
+}

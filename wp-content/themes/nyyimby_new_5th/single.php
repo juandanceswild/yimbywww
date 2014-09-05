@@ -35,28 +35,4 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
             <br class="clr">
         </div>
 
-<style>
-body {
-  overflow:hidden;
-}
-.my-col {
-  height:100%;
-  overflow-x:hidden;
-  overflow-y:scroll;
-}
-.my-col-noscroll {
-  height:auto;
-  overflow:hidden
-}
-.clr {
-  clear:both;
-}
-.pt-top {
-  height:100%;
-}
-.white {
-  background-color:#fff;
-}
-</style>
-
 <?php get_footer();?>
