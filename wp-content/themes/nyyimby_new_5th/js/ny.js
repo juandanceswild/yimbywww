@@ -87,6 +87,8 @@
     // Navigation
     $(document).on('ready', function() {
 
+        $('.my-col').niceScroll({cursorcolor:"#333"});
+
         $('#sidebar_nav_inner').jscroll({
             //nextSelector : ".navx-links a[rel=prev]",
             padding: 20,
@@ -110,14 +112,16 @@
         mt_to=undefined;
    }
    function get_next_posts(to) {
-        var bottom_load_pixel_height = 250;
+        check_frame_height();
+        var bottom_load_pixel_height = 500;
         var inrange = 0, protect_lg = 0;
+        var maintab = $('#main_tab');
 
         // is the page still not able to have jscroll attached to it??
-        if ($(this)[0].scrollHeight == undefined) inrange = 1;
+        if ($(maintab)[0].scrollHeight == undefined) inrange = 1;
 
         // is the page scrolled almost all the way down?
-        if ($(this).scrollTop() + $(this).innerHeight() + bottom_load_pixel_height >= $(this)[0].scrollHeight) inrange = 1;
+        if ($(maintab).scrollTop() + $(maintab).innerHeight() + bottom_load_pixel_height >= $(maintab)[0].scrollHeight) inrange = 1;
 
         // is the page not tall enough to trigger a scroll?
         if ($('#sidebar_nav_inner').innerHeight()<$('#main_tab').innerHeight()) {
@@ -134,4 +138,12 @@
         } else if (inrange) {
           if (to==42) setTimeout('console.log("hmm 2");get_next_posts(42)', 42);
         }
+   }
+   function check_frame_height() {
+        var vis = $(window).height();
+        var hdr = $('div.header').height();
+        var per = hdr / vis * 100;
+        per = 100 - per;
+        per = Math.round( per );
+        $('.my-col').css('height', per+'%');
    }
