@@ -22,7 +22,8 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
                 <?php get_sidebar('leftTABS');?>
             </div>
 
-            <div class="my-col span9 row-fluid">
+            <div class="my-col cx span9 row-fluid">
+              <div class="scroll_wrapper">
                 <div class="span8">
                     <?php get_template_part('content', 'post'); ?>
                 </div>
@@ -31,6 +32,7 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
                         <?php dynamic_sidebar( 'sidebar-page' ); ?>
                     <?php endif; ?>
                 </div>
+              </div>
             </div>
             <br class="clr">
         </div>
