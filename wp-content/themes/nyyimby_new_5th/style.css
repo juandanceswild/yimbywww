@@ -1032,7 +1032,7 @@ div.soc {
     /*margin: -12px 0 40px 0;*/
     margin: 2px 0 40px 0;
     position: fixed;
-    z-index: 10000;
+    z-index: 1;
     /*top: 78px;*/
 }
 
@@ -1107,7 +1107,7 @@ h1 span {
 
     div.navbar {
 
-        z-index: 3000;
+        z-index: 3;
     }
 
     div.fixed-social-icons {
@@ -1208,7 +1208,7 @@ div.overlay {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 11000;
+    z-index: 11;
     overflow-y: scroll;
     background: rgba(0, 0, 0, 0.85);
 }
@@ -1222,7 +1222,7 @@ div.modal-content {
     margin: 80px auto;
     padding: 12px 15px;
     background: #FFF;
-    z-index: 12000;
+    z-index: 12;
 }
 
 div.modal-content
