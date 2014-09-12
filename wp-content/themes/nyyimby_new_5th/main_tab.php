@@ -41,7 +41,7 @@
                     if (!empty($post->ID)) : ?>
 
                 <li class="media">
-                    <a class="pull-left" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="left_nav_link">
+                    <a class="pull-left on-page-menu" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="left_nav_link" data-id="post-<?php echo $post->ID; ?>">
                         <?php echo the_post_thumbnail('square_thumb');  ?>
                     </a>
 

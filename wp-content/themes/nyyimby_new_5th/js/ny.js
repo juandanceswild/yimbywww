@@ -1,3 +1,5 @@
+// go to line 88 to skip mail chimp
+
     /**
      * MailChimp AJAX newsletter signup
      * https://github.com/scdoshi/jquery-ajaxchimp
@@ -84,6 +86,10 @@
     // Advanced search
     var search = new AdvancedSearch();
 
+    // Social icon link and active menu highlight vars
+    var posts_on_page;
+    var menus_on_page; 
+
     // Navigation
     $(document).on('ready', function() {
 
@@ -118,7 +124,22 @@
         });
         get_next_post(0);
 
+        reset_post_menu_vars('post');
+        reset_post_menu_vars('menu');
+        set_share_link_post_hover();
+
    });
+
+   function reset_post_menu_vars(pm) {
+        if (pm=='post') posts_on_page = $('.on-page-post');
+        else menus_on_page = $('.on-page-menu'); 
+   }
+
+   function set_share_link_post_hover() {
+        $('.posts-count').html(posts_on_page.length);
+        $('.menus-count').html(menus_on_page.length);
+        setTimeout(set_share_link_post_hover, 5000);
+   }
 
    // global scope:
    var bottom_load_pixel_height = 500;
@@ -130,6 +151,7 @@
    function page_loaded() { pt_to=undefined; }
    function menu_page_loaded() { mt_to=undefined; }
 
+   // single post
    function get_next_post(to) {
         check_frame_height();
         var bottom_load_pixel_height = 100;
@@ -154,13 +176,23 @@
         if (pt_to == undefined && inrange) {
             if (protect_lg) setTimeout('get_next_post(42)', 42);
             pt_to = setTimeout('$(".navx-links a[rel=prev]").trigger("click");', to);
+            reset_post_menu_vars('post');
         } else if (inrange) {
           if (to==42) setTimeout('get_next_post(42)', 42);
         }
 
    }
 
+   // menus of posts
    function get_next_posts(to) {
+        // check to see if we even have a menu showing!        
+
+        var el = $('#main_tab:visible');
+        if (el.length < 1) {
+             $('#main_tab').remove();
+             return false;
+        }
+
         check_frame_height();
         var bottom_load_pixel_height = 100;
         var inrange = 0, protect_lg = 0;
@@ -184,6 +216,7 @@
         if (mt_to == undefined && inrange) {
             if (protect_lg) setTimeout('get_next_posts(42)', 42);
             mt_to = setTimeout('$(".next_link").trigger("click");', to);
+            reset_post_menu_vars('menu');
         } else if (inrange) {
           if (to==42) setTimeout('get_next_posts(42)', 42);
         }

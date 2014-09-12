@@ -17,7 +17,7 @@ get_header(); ?>
 $paged = (get_query_var('page')) ? get_query_var('page') : 1;
 ?>
 
-       <div class="row-fluid white pt-top">
+       <div class="row-fluid white pt-top pl-phone">
             <div class="my-col span3 hidden-phone hidden-tablet" id="main_tab">
                 <?php get_sidebar('leftTABS');?>
             </div>

@@ -2,7 +2,7 @@
       $catKey = "primary_cat";
       $related_category = get_category_by_slug(get_post_meta($post->ID, $catKey, true));
       ?>
-      <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+      <div id="post-<?php the_ID(); ?>" <?php post_class('on-page-post'); ?>>
 
 
         <div class="post-wrapper">

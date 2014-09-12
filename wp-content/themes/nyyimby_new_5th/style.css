@@ -1572,6 +1572,14 @@ body {
 .pt-top {
   height:100%;
 }
+.pl-phone {
+  padding:0px;
+}
+@media (max-width: 1026px) {
+    .pl-phone {
+        padding:25px;
+    }
+}
 .white {
   background-color:#fff;
 }
