@@ -101,7 +101,7 @@
             contentSelector: "div.post",
             autoTrigger: false,
             callback: page_loaded,
-            debug: true
+            debug: false
         });
 
         $('#sidebar_nav_inner').jscroll({
@@ -111,7 +111,7 @@
             contentSelector: "div.test_inner_news",
             autoTrigger: false,
             callback: menu_page_loaded,
-            debug: true
+            debug: false
         });
 
         $('#main_tab').scroll(function() {
