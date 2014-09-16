@@ -1583,6 +1583,11 @@ body {
 .white {
   background-color:#fff;
 }
+.active-menu-post {
+  background-color:#ededed;
+  font-weight:bold
+}
+
 .thumbnail > img.w100 {
   max-width:unset !important;
   width:100%;
