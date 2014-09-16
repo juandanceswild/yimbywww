@@ -1556,6 +1556,121 @@ p a {
 }
 
 
+
+
+
+/* these were from custom.css */
+
+body {
+    background: #f1f0ef;
+}
+
+.modal {
+    display: none;
+}
+
+#disqus_thread {
+    max-width: 640px;
+    margin: auto;
+}
+
+.related_posts ul {
+    display: none;
+}
+
+.sidefooter form {
+    text-align: center;
+}
+
+.sidefooter input {
+    /*width: 298px;*/
+    /*width: 248px;*/
+    width: 280px;
+    border: 1px solid #000;
+    text-align: center;
+    padding: 2px 0;
+    color: #000;
+    font-size: 15px;
+    font-style: italic;
+    margin-bottom: 0px !important;
+}
+
+.sidefooter input:focus {
+    box-shadow: none !important;
+    border-color: #000 !important;
+    outline: none;
+    color: #000 !important;
+}
+
+.sidefooter li {
+    float: left;
+    margin-left: 10px !important;
+    border-right: 1px solid #999;
+    padding-right: 10px;
+}
+
+.sidefooter li a {
+    text-decoration: underline;
+}
+
+.sidefooter li:last-child {
+    border-right: none;
+    padding-right: 10px
+}
+
+#mc_embed_signup {
+    display: none;
+}
+
+.separator {
+    display: block;
+    margin-top: 30px;
+    border: 1px dashed #666;
+    margin-bottom: 30px;
+}
+
+#tcmcpop-bg {
+    background-color: #000000 !important;
+}
+
+@media only screen and (max-width: 767px) {
+    .modal {
+        display: none;
+    }
+}
+
+.related_posts .widget {
+    /*margin-top: 15px;*/
+    margin-top: 0;
+}
+
+.sidefooter ul {
+    width: 100%;
+}
+
+.related_posts .widget:first-child {
+    margin-top: 10px;
+}
+
+.wp-caption-text,
+#photo_caption {
+    font-style: italic;
+    font-size: 13px !important;
+}
+
+.sidefooter li:first-child {
+    margin-left: 50px !important;
+}
+
+body.page-template-page-all-buildings-php {
+    background: #FFF;
+}
+
+
+
+
+
+
 /* these styles arose during the rework of the site */
 
 body {
