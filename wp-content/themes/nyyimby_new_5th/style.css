@@ -510,8 +510,6 @@ div.aligncenter {
     }
 
     #footer form {
-        margin-bottom: -10px;
-        margin-top: -12px;
     }
 
     #footer input[type="email"] {
@@ -579,8 +577,6 @@ div.aligncenter {
 }
 
 .related_posts .widget {
-    margin-top: -10px;
-    margin-left: 0px;
 }
 
 .related-post .widget:first-child,
