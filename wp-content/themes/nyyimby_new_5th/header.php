@@ -143,7 +143,7 @@ foreach ($terms_to_exclude as $t)
               </ul>
             </div>
 
-            <div class="span3 hidden-tablet">
+            <div class="span3 hidden-tablet hidden-phone">
                 <?php get_search_form( ); ?>
             </div>
 
