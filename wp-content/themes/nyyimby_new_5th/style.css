@@ -1714,6 +1714,7 @@ body {
 }
 
 .thumbnail > img.w75 {
+  display:inline-block !important;
   max-width:100%;
   width:75%;
   text-align:left;
