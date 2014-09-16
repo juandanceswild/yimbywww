@@ -95,7 +95,7 @@ html, body {
     padding-left: 0px !important;
 }
 
-#main_image_wrapper {
+.main_image_wrapper {
     position: relative;
     clear: both;
 }
@@ -1582,4 +1582,12 @@ body {
 }
 .white {
   background-color:#fff;
+}
+.thumbnail > img.w100 {
+  max-width:unset !important;
+  width:100%;
+}
+
+.main_image_wrapper .thumbnail {
+  padding:0 !important;
 }
