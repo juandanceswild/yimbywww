@@ -26,7 +26,7 @@
 
               <div class="main_image_wrapper">
                 <a href="#" class="thumbnail">
-                  <?php echo the_post_thumbnail('full', array('class'=>'img-responsive w100'));  ?>
+                  <?php echo the_post_thumbnail('full', array('class'=>'w75'));  ?>
                   <?php $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "full" ); ?>
                 </a>
                 <div id="main_image_thumbnails">

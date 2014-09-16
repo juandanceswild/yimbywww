@@ -1014,8 +1014,8 @@ div.fixed-social-icons.is_stuck {
 
 div.post-wrapper {
     float: left;
-    /*width: 96%;*/
-    width: 91%;
+    width:75%;
+    margin:0 7% 0 7%;
 }
 
 div.soc a,
@@ -1713,12 +1713,19 @@ body {
   width:100%;
 }
 
+.thumbnail > img.w75 {
+  max-width:100%;
+  width:75%;
+  text-align:left;
+  margin-left:unset !important;
+  margin-right:unset !important;
+}
 
 .main_image_wrapper .thumbnail {
   padding:0 !important;
 }
 .summerville {
-  max-width:1280px; margin:0 auto;
+  max-width:1780px; margin:0 auto;
 }
 
 
