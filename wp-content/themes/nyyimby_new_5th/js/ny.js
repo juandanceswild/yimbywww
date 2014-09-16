@@ -99,6 +99,7 @@
         $('.my-col').niceScroll({cursorcolor:"#333"});
 
         $('#cx').jscroll({
+            loadingHtml: '<img src="/wp-content/themes/nyyimby_new_5th/img/jjloader.gif" alt="Loading">',
             padding: 20,
             nextSelector : ".navx-links a[rel=prev]",
             contentSelector: "div.post",
@@ -109,6 +110,7 @@
 
         $('#sidebar_nav_inner').jscroll({
             //nextSelector : ".navx-links a[rel=prev]",
+            loadingHtml: '<img src="/wp-content/themes/nyyimby_new_5th/img/jjloader.gif" alt="Loading">',
             padding: 20,
             nextSelector: ".next_link",
             contentSelector: "div.test_inner_news",
