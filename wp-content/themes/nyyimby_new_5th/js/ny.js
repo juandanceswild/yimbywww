@@ -290,8 +290,9 @@
    function check_frame_height() {
         var vis = $(window).height();
         var hdr = $('div.header').height();
-        var per = hdr / vis * 98;
+        $('.my-col').css('height', (vis - hdr)+'px');
+        /*var per = hdr / vis * 98;
         per = 100 - per;
         per = Math.round( per );
-        $('.my-col').css('height', per+'%');
+        $('.my-col').css('height', per+'%');*/
    }

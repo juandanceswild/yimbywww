@@ -17,6 +17,8 @@ get_header(); ?>
 $paged = (get_query_var('page')) ? get_query_var('page') : 1;
 ?>
 
+<div class="summerville">
+
        <div class="row-fluid white pt-top pl-phone">
             <div class="my-col span3 hidden-phone hidden-tablet" id="main_tab">
 
@@ -145,7 +147,7 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
                         <div id="cx">
                             <div class="post">
                                 <div class="left_post_navasd">
-                        <?php get_template_part('content', 'post'); ?>
+                        <?php get_template_part('content', 'entry'); ?>
                                 </div>
                                 <div class="navx-links" style="display: none;">
                         <?php previous_post_link(); ?>
@@ -174,5 +176,7 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
             </div>
             <br class="clr">
         </div>
+
+</div>
 
 <?php get_footer();?>

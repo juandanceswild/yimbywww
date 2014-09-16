@@ -401,7 +401,6 @@ div.aligncenter {
 }
 
 #s {
-    font-size: 14px;
 }
 
 .navbar .nav {
@@ -476,6 +475,10 @@ div.aligncenter {
     color: #fff;
 }
 
+
+.widget_adrotate_widgets .thumbnail {
+  padding: 0 !important;
+}
 .thumbnail {
     margin: 0px 0px;
     padding: 0px 4px !important;
@@ -489,10 +492,11 @@ div.aligncenter {
 #s {
     margin-top: 8px;
     background: url(img/searchicon_white.png) no-repeat left center;
-    padding-left: 30px;
-    width: 80%;
+    padding-left: 10%;
+    width: 85%;
     padding-bottom: 5px !important;
     font-style: italic;
+    font-size: 14px;
 }
 
 /*@media handheld, only screen and (max-width: 979px) {*/
@@ -586,8 +590,7 @@ div.aligncenter {
 
 .sidefooter {
     padding-left: 0px;
-    width: 300px;
-    margin: 0 0 0 4px;
+    margin: 0 auto;
     overflow: hidden;
 }
 
@@ -640,6 +643,7 @@ div.aligncenter {
     text-align: center;
     list-style: none;
     margin: 0px auto;
+    width:250px;
 }
 
 .sidefooter ul li {
@@ -864,6 +868,7 @@ body.error404
 form.navbar-search {
     margin-top: 8px;
     margin-right: 1px;
+    margin-left: 8px;
 }
 
 /* sidebar-archive.php */
@@ -1588,11 +1593,16 @@ body {
   font-weight:bold
 }
 
-.thumbnail > img.w100 {
+.thumbnail > img.w100, .widget_adrotate_widgets .thumbnail > img {
+  max-height:unset !important;
   max-width:unset !important;
   width:100%;
 }
 
+
 .main_image_wrapper .thumbnail {
   padding:0 !important;
+}
+.summerville {
+  max-width:1280px; margin:0 auto;
 }

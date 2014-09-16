@@ -99,7 +99,9 @@ foreach ($terms_to_exclude as $t)
 <?php include('ga.php');?>
 
 
-        <div class="row-fluid header">
+<div class="summerville">
+    <div class="header">
+        <div class="row-fluid">
 
             <div class="span3 columns">
                 <a href="<?php echo get_site_url();?>" class="brand"><img src="<?php bloginfo('template_directory'); ?>/img/yimby_logo.png"  /></a>
@@ -110,24 +112,27 @@ foreach ($terms_to_exclude as $t)
                 </ul>
             </div>
 
-            <div class="span6">
-              <ul class="nav main_menu_nav row-fluid">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-                        NEIGHBORHOOD
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <?php $count=0; foreach ($terms as $term): ?>
-                            <?php if (!in_array($term->term_id, $exTerms)) : $count++;?>
-                                <li class="<?php if($count%2==0){echo "right-aligned";}else{echo "left-aligned";}?>"><a href="<?php echo get_term_link($term->slug, 'neighborhoods');?>"><?php echo $term->name;?></a></li>
-                            <?php endif;?>
-                        <?php endforeach;?>
-                    </ul>
-                </li>
+            <div class="span9">
+              <div class="row-fluid">
+                <div class="span8">
 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                  <ul class="nav main_menu_nav row-fluid">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                            NEIGHBORHOOD
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <?php $count=0; foreach ($terms as $term): ?>
+                                <?php if (!in_array($term->term_id, $exTerms)) : $count++;?>
+                                    <li class="<?php if($count%2==0){echo "right-aligned";}else{echo "left-aligned";}?>"><a href="<?php echo get_term_link($term->slug, 'neighborhoods');?>"><?php echo $term->name;?></a></li>
+                                <?php endif;?>
+                            <?php endforeach;?>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
                         PROJECT TYPE
                         <b class="caret"></b>
                     </a>
@@ -136,15 +141,18 @@ foreach ($terms_to_exclude as $t)
                             <li><a href="<?php echo get_term_link($term->slug, 'types');?>"><?php echo $term->name;?></a></li>
                         <?php endforeach;?>
                     </ul>
-                </li>
-                <li class=""><a href="/all-building">ALL PROJECTS</a></li>
-                <li class=""><a href="http://yimbyforums.com" target="_blank">FORUMS</a></li>
-                <li class=""><a href="/search">ADVANCED SEARCH</a></li>
-              </ul>
-            </div>
+                    </li>
+                    <li class=""><a href="/all-building">ALL PROJECTS</a></li>
+                    <li class=""><a href="http://yimbyforums.com" target="_blank">FORUMS</a></li>
+                    <li class=""><a href="/search">ADVANCED SEARCH</a></li>
+                  </ul>
+                </div>
 
-            <div class="span3 hidden-tablet hidden-phone">
-                <?php get_search_form( ); ?>
-            </div>
+                <div class="span4 hidden-tablet hidden-phone">
+                    <?php get_search_form( ); ?>
+                </div>
+              </div>
 
         </div>
+    </div>
+</div>
