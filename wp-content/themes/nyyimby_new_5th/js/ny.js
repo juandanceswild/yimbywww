@@ -126,6 +126,7 @@
 
         $('.my-col.cx').scroll(function() {
             get_next_post(100);
+            sticky_tops();
         });
         get_next_post(0);
 
@@ -292,9 +293,15 @@
    function check_frame_height() {
         var vis = $(window).height();
         var hdr = $('div.header').height();
-        $('.my-col').css('height', (vis - hdr)+'px');
+        $('.my-col, .my-col-noscroll').css('height', (vis - hdr)+'px');
         /*var per = hdr / vis * 98;
         per = 100 - per;
         per = Math.round( per );
         $('.my-col').css('height', per+'%');*/
+   }
+   function sticky_tops() {
+        $('.my-col-noscroll').each(function() {
+            var mom = $(this).parents('.my-col').scrollTop();
+            $(this).css('margin-top', mom);
+        });
    }

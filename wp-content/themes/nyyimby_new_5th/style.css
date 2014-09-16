@@ -817,7 +817,6 @@ li a {
 div#sidebar_nav_inner,
 div#sidebar-news {
     padding-top: 0;
-    background: #FFF;
 }
 
 div.content-page {
@@ -1605,4 +1604,21 @@ body {
 }
 .summerville {
   max-width:1280px; margin:0 auto;
+}
+
+
+@media (min-width: 1026px) {
+  .rb {
+    background:transparent url('/wp-content/themes/nyyimby_new_5th/img/bg-vr.png') repeat-y 0;
+  }
+  .row-fluid [class*="span"].my-col.rb, .row-fluid [class*="span"].my-col-noscroll.rb {
+    margin-left:0 !important;
+    padding-left:2.12766%;
+  }
+  .row-fluid .span9.rb {
+    width:76.4681%;
+  }
+  .row-fluid .span4.rb {
+    width:33.9149%;
+  }
 }

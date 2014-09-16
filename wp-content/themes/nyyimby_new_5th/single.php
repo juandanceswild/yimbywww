@@ -139,7 +139,7 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
 
             </div>
 
-            <div class="my-col cx span9 row-fluid">
+            <div class="my-col rb cx span9 row-fluid">
               <div class="scroll_wrapper">
                 <div class="span8">
 
@@ -167,7 +167,7 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
 
 
                 </div>
-                <div class="my-col-noscroll span4 hidden-phone">
+                <div class="my-col-noscroll rb span4 hidden-phone">
                     <?php if ( is_active_sidebar( 'sidebar-page' ) ) : ?>
                         <?php dynamic_sidebar( 'sidebar-page' ); ?>
                     <?php endif; ?>
