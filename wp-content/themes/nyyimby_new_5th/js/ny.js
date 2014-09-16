@@ -133,6 +133,8 @@
         reset_post_menu_vars('menu');
         set_share_link_post_hover();
 
+        $(window).resize(check_frame_height);
+
    });
 
    function reset_post_menu_vars(pm) {
