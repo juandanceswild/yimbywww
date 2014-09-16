@@ -1744,3 +1744,13 @@ body {
     width:33.9149%;
   }
 }
+
+.p-sm {
+  padding:10px;
+}
+.p-md {
+  padding:20px;
+}
+.p-lg {
+  padding:30px;
+}

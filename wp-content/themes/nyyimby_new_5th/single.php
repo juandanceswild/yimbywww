@@ -50,7 +50,7 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
 <?php // this was the beginning of main_tab.php ?>
 <div class="scroll_wrapper">
     <div class="padding content sidebar_nav_inner_news" id="sidebar_nav_inner">
-        <div class="test_inner_news">
+        <div class="test_inner_news p-sm">
 
             <ul class="media-list left_post_nav">
 
@@ -167,15 +167,18 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
 
 
                 </div>
-                <div class="my-col-noscroll rb span4 hidden-phone">
+                <div class="my-col-noscroll rb span4 hidden-phone p-sm">
                     <?php if ( is_active_sidebar( 'sidebar-page' ) ) : ?>
                         <?php dynamic_sidebar( 'sidebar-page' ); ?>
                     <?php endif; ?>
                 </div>
+                <br class="clr">
               </div>
+              <br class="clr">
             </div>
             <br class="clr">
         </div>
+        <br class="clr">
 
 </div>
 
