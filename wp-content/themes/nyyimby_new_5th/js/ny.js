@@ -90,6 +90,9 @@
     var posts_on_page;
     var menus_on_page; 
 
+    // set the percentage that changes the active post
+    var window_active_post_line = .5;
+
     // Navigation
     $(document).on('ready', function() {
 
@@ -135,10 +138,65 @@
         else menus_on_page = $('.on-page-menu'); 
    }
 
+   var set_share_link_post_hover_loop = 500;
    function set_share_link_post_hover() {
+        // for debugging purposes...only show in test
         $('.posts-count').html(posts_on_page.length);
         $('.menus-count').html(menus_on_page.length);
-        setTimeout(set_share_link_post_hover, 5000);
+
+        var cur_post_id = get_post_id();
+        if (cur_post_id !== undefined) {
+
+            // turn off active for all menu post choices
+            $('.on-page-menu').parent().removeClass('active-menu-post');
+
+            // get the menu post
+            var el = $('a[data-id='+cur_post_id+']').parent();
+
+            // set it to active
+            el.addClass('active-menu-post');
+
+            // set the share icon stuff
+//console.log('setting share stuff: '+cur_post_id);
+//console.log(addthis_share);
+//            addthis_share.url    =  'test';
+//            addthis_share.title  =  $('#'+cur_post_id).find('h1').text();
+//            addthis.toolbox('.addthis_sharing_toolbox', addthis_config, addthis_share);
+        }
+
+        // the active one should always be in the middle if it can
+        //$('#main_tab').scrollTo(el);
+
+        setTimeout(set_share_link_post_hover, set_share_link_post_hover_loop);
+   }
+
+   function get_post_id() {
+        var post_id = 0;
+        $.each(posts_on_page, function() {
+            if (isElementInViewport($(this))) {
+                post_id = $(this).attr('id');
+                return false;
+            }
+        });
+        return post_id;
+   }
+
+   // adpated from http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
+   function isElementInViewport (el) {
+        //special bonus for those using jQuery
+        if (el instanceof jQuery) {
+            el = el[0];
+        }
+        var rect = el.getBoundingClientRect();
+        var win_ht = parseInt($(window).height());
+        var myline = win_ht * window_active_post_line;
+
+        var one = (rect.top <= myline && rect.bottom >= myline);
+
+        // console.log('id: '+el.id+' top: '+rect.top+' bottom: '+rect.bottom+' myline: '+myline+' and...'+one);
+
+        var retval = (one);
+        return retval;
    }
 
    // global scope:
@@ -148,13 +206,20 @@
    var pt_to = undefined;
    var mt_to = undefined;
 
-   function page_loaded() { pt_to=undefined; }
-   function menu_page_loaded() { mt_to=undefined; }
+   function page_loaded() {
+        pt_to=undefined; 
+        reset_post_menu_vars('post');
+   }
+   function menu_page_loaded() {
+        mt_to=undefined;
+        reset_post_menu_vars('menu');
+   }
 
    // single post
    function get_next_post(to) {
         check_frame_height();
-        var bottom_load_pixel_height = 100;
+        var ht = $(window).height()/2;
+        var bottom_load_pixel_height = ht || 200;
         var inrange = 0, protect_lg = 0;
 
         // TODO: this is case and pasted from get_next_posts...encapsulate this into something reusable
@@ -176,7 +241,6 @@
         if (pt_to == undefined && inrange) {
             if (protect_lg) setTimeout('get_next_post(42)', 42);
             pt_to = setTimeout('$(".navx-links a[rel=prev]").trigger("click");', to);
-            reset_post_menu_vars('post');
         } else if (inrange) {
           if (to==42) setTimeout('get_next_post(42)', 42);
         }
@@ -216,7 +280,6 @@
         if (mt_to == undefined && inrange) {
             if (protect_lg) setTimeout('get_next_posts(42)', 42);
             mt_to = setTimeout('$(".next_link").trigger("click");', to);
-            reset_post_menu_vars('menu');
         } else if (inrange) {
           if (to==42) setTimeout('get_next_posts(42)', 42);
         }
@@ -225,7 +288,7 @@
    function check_frame_height() {
         var vis = $(window).height();
         var hdr = $('div.header').height();
-        var per = hdr / vis * 100;
+        var per = hdr / vis * 98;
         per = 100 - per;
         per = Math.round( per );
         $('.my-col').css('height', per+'%');
