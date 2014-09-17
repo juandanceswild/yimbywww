@@ -827,6 +827,12 @@ div.content-page {
 .white {
     background: #FFF !important;
 }
+.gray {
+    background: #F1F0EF !important;
+}
+.gray-right-100 {
+    /*background: #FFF url('/wp-content/themes/nyyimby_new_5th/img/gray.gif') -100px 0 repeat !important;*/
+}
 
 #related_updates {
     background-color: #f1f0ef;
