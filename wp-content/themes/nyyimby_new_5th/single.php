@@ -52,7 +52,7 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
 
 
                 </div>
-                <div class="my-col-noscroll rb span4 hidden-phone p-sm">
+                <div class="my-col-noscroll rb-gray span4 hidden-phone p-sm">
                     <?php if ( is_active_sidebar( 'sidebar-page' ) ) : ?>
                         <?php dynamic_sidebar( 'sidebar-page' ); ?>
                     <?php endif; ?>
