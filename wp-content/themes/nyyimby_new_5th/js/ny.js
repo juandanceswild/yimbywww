@@ -217,10 +217,12 @@
    function page_loaded() {
         pt_to=undefined; 
         reset_post_menu_vars('post');
+        check_frame_height();
    }
    function menu_page_loaded() {
         mt_to=undefined;
         reset_post_menu_vars('menu');
+        check_frame_height();
    }
 
    // single post
