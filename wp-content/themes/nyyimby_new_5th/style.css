@@ -158,12 +158,12 @@ html, body {
     width: 120px;
 }
 
-* {
+/* {
     -webkit-border-radius: 0 !important;
     -moz-border-radius: 0 !important;
     border-radius: 0 !important;
     text-shadow: none !important;
-}
+}*/
 
 .header {
     background-color: #000000;
