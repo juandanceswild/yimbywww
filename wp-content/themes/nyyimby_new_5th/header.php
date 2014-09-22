@@ -115,6 +115,42 @@ foreach ($terms_to_exclude as $t)
               <div class="row-fluid">
                 <div class="span8">
 
+
+<?php /*
+<nav id="site-navigation" class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="#"><?php bloginfo( 'name' ); ?></a>
+</div>
+<!--<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', '_s' ); ?></a>-->
+<?php wp_nav_menu( array(
+'theme_location' => 'primary',
+'container' => 'div',
+'container_class' => 'collapse navbar-collapse',
+'container_id' => 'main-navbar-collapse',
+'menu_class' => 'nav navbar-nav',
+'menu_id' => '',
+'echo' => true,
+'fallback_cb' => 'wp_page_menu',
+'before' => '',
+'after' => '',
+'link_before' => '',
+'link_after' => '',
+'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+'depth' => 0,
+'walker' => ''
+)); ?>
+</div>
+</nav><!-- #site-navigation -->
+*/ ?>
+
+
                   <ul class="nav main_menu_nav row-fluid">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
