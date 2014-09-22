@@ -26,8 +26,7 @@ function twenty_twelve_infinite_scroll_init() {
 }
 //add_action( 'after_setup_theme', 'twenty_twelve_infinite_scroll_init' );
 
-if (!defined('BOOTSTRAPWP_VERSION'))
-  define('BOOTSTRAPWP_VERSION', '.90');
+
 
  /**
  * Declaring the content width based on the theme's design and stylesheet.
@@ -68,9 +67,9 @@ endif;
 ################################################################################
 function bootstrapwp_css_loader() {
    // wp_enqueue_style('bootstrapwp', get_template_directory_uri().'/css/bootstrapwp.css', false ,'0.90', 'all' );
-  wp_enqueue_style('bootstrap', get_template_directory_uri().'/css/bootstrap.css', false ,'0.90', 'all' );
-  wp_enqueue_style('bootstrapwp-default', get_stylesheet_uri());
-  wp_enqueue_style('bootstrap-resposnive', get_template_directory_uri().'/css/bootstrap-responsive.css', false ,'1.0', 'all' );
+  //wp_enqueue_style('bootstrap', get_template_directory_uri().'/css/bootstrap.css', false ,'0.90', 'all' );
+  //wp_enqueue_style('bootstrapwp-default', get_stylesheet_uri());
+  //wp_enqueue_style('bootstrap-resposnive', get_template_directory_uri().'/css/bootstrap-responsive.css', false ,'1.0', 'all' );
 
   //wp_enqueue_style('prettify', get_template_directory_uri().'/js/google-code-prettify/prettify.css', false ,'1.0', 'all' );
   //wp_enqueue_style('nanoscroll', get_template_directory_uri().'/css/nanoscroller.css', false ,'1.0', 'all' );

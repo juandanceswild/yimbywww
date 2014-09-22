@@ -51,7 +51,10 @@
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <?php wp_head(); ?>
+
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/fancybox.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/wp-content/themes/nyyimby_new_5th/style.css?r=<?php echo rand(1000,9999); ?>">
 
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53b1bb1e1b4b9a65&async=1"></script>
 
@@ -93,16 +96,16 @@ foreach ($terms_to_exclude as $t)
 <?php $categories = get_categories( array('number'=>10));?>
 <body <?php body_class(); ?>>
 <?php if (strpos($_SERVER['HTTP_HOST'], 'webjuju')!==false) : ?>
-  <div class="row-fluid counts" style="position:absolute;top:5px;right:-5px;"> <div class="col-xs-1 menus-count"></div> <div class="col-xs-1 posts-count"></div> <br class="clr"></div>
+  <div class="container counts" style="position:absolute;top:5px;right:-5px;"> <div class="col-xs-1 menus-count"></div> <div class="col-xs-1 posts-count"></div> <br class="clr"></div>
 <?php endif; ?>
 <?php include('ga.php');?>
 
 
 <div class="summerville">
     <div class="header">
-        <div class="row-fluid">
+        <div class="container">
 
-            <div class="span3 columns">
+            <div class="col-sm-3 columns">
                 <a href="<?php echo get_site_url();?>" class="brand"><img src="<?php bloginfo('template_directory'); ?>/img/yimby_logo.png"  /></a>
                 <ul class="pull-left inline header_social_links hidden-tablet"  style="" >
                     <li><a href="https://www.facebook.com/NewYorkYimby" target=_blank><img src="<?php bloginfo('template_directory'); ?>/img/social_facebook.png" /></a></li>
@@ -111,9 +114,9 @@ foreach ($terms_to_exclude as $t)
                 </ul>
             </div>
 
-            <div class="span9">
-              <div class="row-fluid">
-                <div class="span8">
+            <div class="col-sm-9">
+              <div class="container">
+                <div class="col-sm-8">
 
 
 <?php /*
@@ -151,7 +154,7 @@ foreach ($terms_to_exclude as $t)
 */ ?>
 
 
-                  <ul class="nav main_menu_nav row-fluid">
+                  <ul class="nav main_menu_nav container">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
                             NEIGHBORHOOD
@@ -183,7 +186,7 @@ foreach ($terms_to_exclude as $t)
                   </ul>
                 </div>
 
-                <div class="span4 hidden-tablet hidden-phone">
+                <div class="col-sm-4 hidden-tablet hidden-phone">
                     <?php get_search_form( ); ?>
                 </div>
               </div>

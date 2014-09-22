@@ -6,8 +6,6 @@ html, body {
     height: 100%;
 }
 
-
-
 .container-fluid {
     padding-right: 0;
     padding-left: 0;
@@ -1734,6 +1732,7 @@ body {
 
 @media (min-width: 1026px) {
   .rb-gray {
+    margin-left:17px !important; padding-left:17px !important; margin-right:-27px !important;
     background:transparent url('/wp-content/themes/nyyimby_new_5th/img/bg-vr-gray.png') repeat-y 0;
   }
   .rb {
@@ -1759,4 +1758,38 @@ body {
 }
 .p-lg {
   padding:30px;
+}
+
+.nopd {
+  padding:0;
+}
+
+.col-sm-1,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12 {
+    padding-left:0;
+}
+
+.col-nopd .col-sm-1,
+.col-nopd .col-sm-2,
+.col-nopd .col-sm-3,
+.col-nopd .col-sm-4,
+.col-nopd .col-sm-5,
+.col-nopd .col-sm-6,
+.col-nopd .col-sm-7,
+.col-nopd .col-sm-8,
+.col-nopd .col-sm-9,
+.col-nopd .col-sm-10,
+.col-nopd .col-sm-11,
+.col-nopd .col-sm-12 {
+    padding:0;
 }

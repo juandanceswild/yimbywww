@@ -47,7 +47,7 @@
 <script type="text/javascript" src="/wp-content/themes/nyyimby_new_5th/js/jscroll.min.js"></script>
 <script type="text/javascript" src="/wp-content/themes/nyyimby_new_5th/js/ny.js"></script>
 
-<?php // i've just had it with this crappy jasny bs, we're going to twitter bs or risk failure ?>
+<?php // i've just had it with this out of date bs v2, we're going to twitter bs or risk failure ?>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">

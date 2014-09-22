@@ -19,14 +19,14 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
 
 <div class="summerville">
 
-       <div class="row-fluid white pt-top pl-phone">
-            <div class="my-col span3 hidden-phone hidden-tablet" id="main_tab">
+       <div class="white pt-top pl-phone">
+            <div class="my-col col-sm-3 hidden-xs hidden-sm" id="main_tab">
 <?php include('page-pager-menu.php'); ?>
             </div>
 
-            <div class="my-col rb cx span9 row-fluid">
+            <div class="my-col rb cx col-sm-9 container">
               <div class="scroll_wrapper">
-                <div class="span8">
+                <div class="col-sm-8">
 
                   <div id="stuff" class="jj">
                         <div id="cx">
@@ -41,21 +41,13 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
                         </div>
                   </div>
 
-                  <div id="related_updates" class="jj hidden-desktop">
-                    <div class="related_posts">
-                    <!-- get related info for here -->
-                    <?php if ( is_active_sidebar( 'sidebar-page' ) ) : ?>
-                        <?php dynamic_sidebar( 'sidebar-page' ); ?>
-                    <?php endif; ?>
-                    </div>
-                  </div>
-
-
                 </div>
-                <div class="my-col-noscroll rb-gray span4 hidden-phone p-sm">
+                <div class="col-sm-4 hidden-xs p-sm rb-gray">
+                <div class="my-col-noscroll" style="border:3px dashed #00F;">
                     <?php if ( is_active_sidebar( 'sidebar-page' ) ) : ?>
                         <?php dynamic_sidebar( 'sidebar-page' ); ?>
                     <?php endif; ?>
+                </div>
                 </div>
                 <br class="clr">
               </div>

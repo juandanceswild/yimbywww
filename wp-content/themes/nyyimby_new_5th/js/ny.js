@@ -52,11 +52,15 @@
         });
         get_next_post(0);
 
+        // TODO: find out why bs 3 affix would not work...i think it's because it expects a more shallow canvas
+        //setTimeout("console.log('yay');jQuery('.affix').affix({offset:{top:100}});console.log('boo');",5000);
+
         reset_post_menu_vars('post');
         reset_post_menu_vars('menu');
         set_share_link_post_hover();
 
         $(window).resize(check_frame_height);
+        check_frame_height();
 
    });
 
@@ -215,17 +219,34 @@
    }
 
    function check_frame_height() {
+        // try to scroll the page by 0
+
         var vis = $(window).height();
         var hdr = $('div.header').height();
+
+        // this has to be there or cols have no scrolling height
         $('.my-col, .my-col-noscroll').css('height', (vis - hdr)+'px');
+
+// this is useful as a start to affixing the ads panel
+        //var stp = $('div.a-ffix').scrollTop();
+//        $('.my-col-noscroll').css('height', (vis - hdr)+'px')
+ //       .animate({'margin-top':(stp-hdr)});
+
+
+//this needs to be thrown away:
         /*var per = hdr / vis * 98;
         per = 100 - per;
         per = Math.round( per );
         $('.my-col').css('height', per+'%');*/
    }
    function sticky_tops() {
-        $('.my-col-noscroll').each(function() {
-            var mom = $(this).parents('.my-col').scrollTop();
-            $(this).css('margin-top', mom);
-        });
+        console.log('sticky_tops');
+        /*jQuery('.my-col-noscroll').each(function() {
+            var mom = $(this).parent('div');
+            var mom_ht = mom.height();
+            var mom_wt = mom.width();
+            mom.css({'min-height':mom_ht, 'height':mom_ht});
+            mom.css({'min-width' :mom_wt, 'width' :mom_wt});
+            //$(this).css({'position':'fixed', 'width':mom_wt+'px', 'height':mom_ht+'px'});
+        });*/
    }
