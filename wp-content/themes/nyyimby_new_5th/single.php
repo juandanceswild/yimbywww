@@ -20,13 +20,13 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
 <div class="summerville">
 
        <div class="white pt-top pl-phone">
-            <div class="my-col col-sm-3 hidden-xs hidden-sm" id="main_tab">
+            <div class="my-col col-md-3 hidden-xs hidden-sm" id="main_tab">
 <?php include('page-pager-menu.php'); ?>
             </div>
 
-            <div class="my-col rb cx col-sm-9 container">
+            <div class="my-col rb cx col-sm-12 col-md-9 container">
               <div class="scroll_wrapper">
-                <div class="col-sm-8">
+                <div class="col-sm-12 col-md-8">
 
                   <div id="stuff" class="jj">
                         <div id="cx">
@@ -42,7 +42,7 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
                   </div>
 
                 </div>
-                <div class="col-sm-4 hidden-xs p-sm rb-gray">
+                <div class="col-md-4 hidden-xs p-sm rb-gray">
                 <div class="my-col-noscroll" style="border:3px dashed #00F;">
                     <?php if ( is_active_sidebar( 'sidebar-page' ) ) : ?>
                         <?php dynamic_sidebar( 'sidebar-page' ); ?>
