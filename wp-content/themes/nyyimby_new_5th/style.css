@@ -152,9 +152,6 @@ html, body {
     /*text-align: center;*/
 }
 
-.header_search_input {
-    width: 120px;
-}
 
 /* {
     -webkit-border-radius: 0 !important;
@@ -175,6 +172,15 @@ html, body {
 
 a, a:focus, a:hover, a:active {
     color: #000000;
+}
+
+.nav > li > a {
+    background-color:#000 !important;
+    color:#eee;
+}
+.nav > li > a:hover {
+    background-color:#000 !important;
+    color:#fff;
 }
 
 #logo_row {
@@ -292,10 +298,15 @@ li.media.first {
 .header_search_input:focus,
 .header_search_input {
     color: #FFFFFF !important;
-    padding-bottom: 0px !important;
     background-color: #000000 !important;
     margin: 0 0 0 40px !important;
     box-shadow: none;
+    padding:5px 0 0 25px !important;
+    border-top-color:#ccc;
+    border-right-color:#ccc;
+    border-bottom-color:#ccc;
+    border-left-color:#ccc;
+    border-width:1px;
 }
 
 .navbar {

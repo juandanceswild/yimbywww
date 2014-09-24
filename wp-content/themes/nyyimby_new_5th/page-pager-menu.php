@@ -27,8 +27,8 @@
 
 <?php // this was the beginning of main_tab.php ?>
 <div class="scroll_wrapper">
-    <div class="padding content sidebar_nav_inner_news" id="sidebar_nav_inner">
-        <div class="test_inner_news p-sm">
+    <div class="sidebar_nav_inner_news" id="sidebar_nav_inner">
+        <div class="test_inner_news">
 
             <ul class="media-list left_post_nav">
 
