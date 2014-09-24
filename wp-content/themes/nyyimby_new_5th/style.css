@@ -294,9 +294,12 @@ li.media.first {
     color: #FFFFFF !important;
     padding-bottom: 0px !important;
     background-color: #000000 !important;
-    margin: 0px !important;
+    margin: 0 0 0 40px !important;
     box-shadow: none;
-    height: 14px !important;
+}
+
+.navbar {
+    margin-bottom:0 !important;
 }
 
 .navbar-search {
@@ -1792,4 +1795,8 @@ body {
 .col-nopd .col-sm-11,
 .col-nopd .col-sm-12 {
     padding:0;
+}
+
+.ctr {
+    text-align:center;
 }

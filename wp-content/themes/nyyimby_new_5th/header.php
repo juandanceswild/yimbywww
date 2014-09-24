@@ -96,16 +96,16 @@ foreach ($terms_to_exclude as $t)
 <?php $categories = get_categories( array('number'=>10));?>
 <body <?php body_class(); ?>>
 <?php if (strpos($_SERVER['HTTP_HOST'], 'webjuju')!==false) : ?>
-  <div class="container counts" style="position:absolute;top:5px;right:-5px;"> <div class="col-xs-1 menus-count"></div> <div class="col-xs-1 posts-count"></div> <br class="clr"></div>
+  <div class="counts" style="position:absolute;top:5px;right:-5px;"> <div class="col-xs-1 menus-count"></div> <div class="col-xs-1 posts-count"></div> <br class="clr"></div>
 <?php endif; ?>
 <?php include('ga.php');?>
 
 
 <div class="summerville">
     <div class="header">
-        <div class="container">
+        <div class="row">
 
-            <div class="col-sm-3 columns">
+            <div class="col-xs-3 col-lg-2">
                 <a href="<?php echo get_site_url();?>" class="brand"><img src="<?php bloginfo('template_directory'); ?>/img/yimby_logo.png"  /></a>
                 <ul class="pull-left inline header_social_links hidden-tablet"  style="" >
                     <li><a href="https://www.facebook.com/NewYorkYimby" target=_blank><img src="<?php bloginfo('template_directory'); ?>/img/social_facebook.png" /></a></li>
@@ -114,47 +114,26 @@ foreach ($terms_to_exclude as $t)
                 </ul>
             </div>
 
-            <div class="col-sm-9">
-              <div class="container">
-                <div class="col-sm-8">
+            <div class="col-xs-9 col-lg-10">
+              <div class="row">
+                <div class="col-lg-8">
 
 
-<?php /*
-<nav id="site-navigation" class="navbar navbar-default navbar-fixed-top" role="navigation">
-<div class="container">
-<div class="navbar-header">
-<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar-collapse">
-<span class="sr-only">Toggle navigation</span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-</button>
-<a class="navbar-brand" href="#"><?php bloginfo( 'name' ); ?></a>
-</div>
-<!--<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', '_s' ); ?></a>-->
-<?php wp_nav_menu( array(
-'theme_location' => 'primary',
-'container' => 'div',
-'container_class' => 'collapse navbar-collapse',
-'container_id' => 'main-navbar-collapse',
-'menu_class' => 'nav navbar-nav',
-'menu_id' => '',
-'echo' => true,
-'fallback_cb' => 'wp_page_menu',
-'before' => '',
-'after' => '',
-'link_before' => '',
-'link_after' => '',
-'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-'depth' => 0,
-'walker' => ''
-)); ?>
-</div>
-</nav><!-- #site-navigation -->
-*/ ?>
+<nav id="site-navigation" class="navbar navbar-pills" role="navigation">
+  <div class="row">
+    <div class="navbar-header hidden">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><?php bloginfo( 'name' ); ?></a>
+    </div>
+    <!--<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', '_s' ); ?></a>-->
+    <div class="">
 
-
-                  <ul class="nav main_menu_nav container">
+                  <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
                             NEIGHBORHOOD
@@ -184,9 +163,12 @@ foreach ($terms_to_exclude as $t)
                     <li class=""><a href="http://yimbyforums.com" target="_blank">FORUMS</a></li>
                     <li class=""><a href="/search">ADVANCED SEARCH</a></li>
                   </ul>
-                </div>
+    </div>
+  </div>
+</nav>
 
-                <div class="col-sm-4 hidden-tablet hidden-phone">
+                </div>
+                <div class="col-lg-4 visible-lg">
                     <?php get_search_form( ); ?>
                 </div>
               </div>
