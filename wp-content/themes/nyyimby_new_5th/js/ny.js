@@ -223,7 +223,9 @@
 
         // this has to be there or cols have no scrolling height
         $('.my-col, .my-col-noscroll').css('height', (vis - hdr)+'px');
+        $('.rb-gray').css('height', $('#stuff').height()+'px');
 
+        $('.ads-col img').addClass('img-responsive');
 // this is useful as a start to affixing the ads panel
         //var stp = $('div.a-ffix').scrollTop();
 //        $('.my-col-noscroll').css('height', (vis - hdr)+'px')

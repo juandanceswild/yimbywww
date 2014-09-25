@@ -43,11 +43,13 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
 
                 </div>
                 <div class="col-lg-4 visible-lg p-sm rb-gray">
-                <div class="my-col-noscroll" style="border:3px dashed #00F;">
+                  <div class="my-col-noscroll ads-col" data-spy="affix">
                     <?php if ( is_active_sidebar( 'sidebar-page' ) ) : ?>
-                        <?php dynamic_sidebar( 'sidebar-page' ); ?>
+                      <?php dynamic_sidebar( 'sidebar-page' ); ?>
                     <?php endif; ?>
-                </div>
+                    <br class="clr">
+                  </div>
+                  <br class="clr">
                 </div>
                 <br class="clr">
               </div>
