@@ -183,7 +183,6 @@
 
         var el = $('#main_tab:visible');
         if (el.length < 1) {
-             $('#main_tab').remove();
              return false;
         }
 
