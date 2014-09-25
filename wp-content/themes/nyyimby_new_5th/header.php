@@ -119,9 +119,9 @@ foreach ($terms_to_exclude as $t)
                 <div class="col-lg-8">
 
 
-<nav id="site-navigation" class="navbar navbar-pills" role="navigation">
+<nav id="site-navigation" class="nav nav-pills<?php // this is the fix: navbar-fixed-top ?>" role="navigation">
   <div class="row">
-    <div class="navbar-header hidden">
+    <div class="navbar-header hidden" class="fixed-top-content">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -163,8 +163,11 @@ foreach ($terms_to_exclude as $t)
                     <li class=""><a href="http://yimbyforums.com" target="_blank">FORUMS</a></li>
                     <li class=""><a href="/search">ADVANCED SEARCH</a></li>
                   </ul>
+      <br class="clr">
     </div>
+    <br class="clr">
   </div>
+  <br class="clr">
 </nav>
 
                 </div>
