@@ -1019,75 +1019,30 @@ div.post {
     position: relative;
 }
 
-div.fixed-social-icons {
-    position: absolute;
-    right: -16px;
-}
-
-div.fixed-social-icons.is_stuck {
-    right: 359px;
-}
-
 div.post-wrapper {
     float: left;
-    width:75%;
+    width:84%;
     margin:0 7% 0 7%;
 }
 
-div.soc a,
-div.soc span {
-    display: block;
-    float: none !important;
-    margin: 0 0 6px 0;
-}
+
 
 div#atstbx {
     display: none !important;
 }
 
-div.soc {
-    width: 32px;
-    float: right;
-    padding: 0 0 0 0;
-    /*margin: -12px 0 40px 0;*/
-    margin: 2px 0 40px 0;
-    position: fixed;
-    z-index: 1;
-    /*top: 78px;*/
-}
+
 
 @media (max-width: 1240px) {
-
-    div.soc {
-        /*display: none;*/
-        position: relative;
-        width: 100%;
-        left: 0 !important;
-        margin: 0 0 0 7px;
-        float: none;
-        top: 0;
-    }
 
     div.search-in {
         display: none;
     }
 
-    div.soc a,
-    div.soc span {
-        float: left !important;
-        margin: 5px 3px 10px 0;
-    }
 }
 
 div.left_post_navasd form.navbar-search {
     margin-right: 30px;
-}
-
-div.fixed-social-icons a,
-div.fixed-social-icons span {
-    display: block;
-    float: none !important;
-    margin: 0 0 6px 0;
 }
 
 h1 span {
@@ -1130,10 +1085,6 @@ h1 span {
         z-index: 3;
     }
 
-    div.fixed-social-icons {
-
-        display: none;
-    }
 }
 
 /* Results */
@@ -1301,9 +1252,6 @@ div#related_updates {
         display: none;
     }
 
-    div.fixed-social-icons {
-        display: none;
-    }
 
 }
 
@@ -1415,8 +1363,7 @@ h4 {
     margin: 20px 0 10px;
 }
 
-body.search
-div.fixed-social-icons {
+body.search {
     display: none;
 }
 
@@ -1515,12 +1462,27 @@ div {
     display: none !important;
 }
 
-div.nav-collapse {
-    display: none;
+div.soc {
+    height: 32px;
+    float: left;
+    padding: 0 0 0 0;
+    margin: 0 0 14px 0;
+}
+div.soc a {
+    display: block;
+    float: left;
+    margin: 0 5px 0 0;
 }
 
-div.nav-collapse.collapse {
-    overflow: scroll !important;
+@media (min-width: 1240px) {
+  div.soc {
+    margin-top: 7px;
+    width: 32px;
+    height: auto;
+  }
+  div.soc a, div.soc span {
+    margin: 0 3px 3px 20px;
+  }
 }
 
 html.locked,
