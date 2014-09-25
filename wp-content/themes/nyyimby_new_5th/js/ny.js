@@ -15,10 +15,7 @@
     // Navigation
     $(document).on('ready', function() {
 
-        $('.my-col').niceScroll({
-            autohidemode: false,
-            cursorwidth: 10,
-            cursorcolor:"#333"});
+        setTimeout("jQuery('.my-col').niceScroll({ autohidemode: false, cursorwidth: 10, cursorcolor:'#333'});", 250);
 
         $('#cx').jscroll({
             loadingHtml: '<img src="/wp-content/themes/nyyimby_new_5th/img/jjloader.gif" alt="Loading">',
