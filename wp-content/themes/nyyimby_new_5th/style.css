@@ -302,11 +302,13 @@ li.media.first {
     margin: 0 0 0 40px !important;
     box-shadow: none;
     padding:5px 0 0 25px !important;
+    border-collapse:collapse;
     border-top-color:#ccc;
     border-right-color:#ccc;
     border-bottom-color:#ccc;
     border-left-color:#ccc;
     border-width:1px;
+    width:296px !important;
 }
 
 .navbar {
@@ -1818,4 +1820,13 @@ body {
 }
 .col-lg-8 {
     width:61.6667% !important;
+}
+
+@media (min-width: 1220px) {
+    .pl-xs-lg {
+        padding-left:10px !important;
+    }
+    .col-lg-4.pl-xs-lg {
+        padding-left:25px !important;
+    }
 }

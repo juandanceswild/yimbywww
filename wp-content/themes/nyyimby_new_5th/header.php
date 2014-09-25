@@ -168,7 +168,7 @@ foreach ($terms_to_exclude as $t)
 </nav>
 
                 </div>
-                <div class="col-lg-4 visible-lg">
+                <div class="col-lg-4 visible-lg pl-xs-lg">
                     <?php get_search_form( ); ?>
                 </div>
               </div>
