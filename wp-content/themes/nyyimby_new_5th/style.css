@@ -806,21 +806,11 @@ div.search-in {
     margin-right: 29px;
 }
 
-div.nav-collapse.collapse {
-    z-index: 999;
-}
 
 ul.neighbourhood-drop
 li a {
     padding: 2px 0 !important;
     margin: 0 !important;
-}
-
-.navbar-in {
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-    height: 64px;
 }
 
 /* main_tab.php */
@@ -1078,11 +1068,6 @@ h1 span {
         box-shadow: none;
         -webkit-box-shadow: none;
         margin: auto;
-    }
-
-    div.navbar {
-
-        z-index: 3;
     }
 
 }
