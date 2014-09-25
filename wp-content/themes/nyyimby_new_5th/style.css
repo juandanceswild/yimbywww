@@ -1698,7 +1698,7 @@ body {
 .my-col-noscroll {
   height:auto;
   overflow:hidden;
-  max-width:270px;
+  max-width:310px;
 }
 .clr {
   clear:both;
@@ -1811,4 +1811,11 @@ body {
 
 .ctr {
     text-align:center;
+}
+
+.col-lg-4 {
+    width:38.3333% !important;
+}
+.col-lg-8 {
+    width:61.6667% !important;
 }

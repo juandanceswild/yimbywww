@@ -17,48 +17,40 @@ get_header(); ?>
 $paged = (get_query_var('page')) ? get_query_var('page') : 1;
 ?>
 
-<div class="summerville">
+<div class="main main-content" style="min-width:1002px;">
+    <div class="box" style="min-width:1002px;">
+        <div class="row-fluid">
+            <?php get_sidebar('leftTABS');?>
 
-       <div class="white pt-top pl-phone">
-            <div class="my-col col-md-3 visible-md visible-lg" id="main_tab">
-<?php include('page-pager-menu.php'); ?>
-            </div>
-
-            <div class="my-col rb cx col-md-9">
-              <div class="scroll_wrapper">
-                <div class="col-lg-8">
-
-                  <div id="stuff" class="jj">
-                        <div id="cx">
-                            <div class="post">
-                                <div class="left_post_navasd">
-                        <?php get_template_part('content', 'entry'); ?>
-                                </div>
-                                <div class="navx-links" style="display: none;">
-                        <?php previous_post_link(); ?>
-                                </div>
-                            </div>
-                        </div>
-                  </div>
-
+            <div id="right-col">
+                <div class="post_content_area">
+                    <?php get_template_part('content', 'post'); ?>
                 </div>
-                <div class="col-lg-4 visible-lg p-sm rb-gray">
-                  <div class="my-col-noscroll ads-col" data-spy="affix">
-                    <?php if ( is_active_sidebar( 'sidebar-page' ) ) : ?>
-                      <?php dynamic_sidebar( 'sidebar-page' ); ?>
-                    <?php endif; ?>
-                    <br class="clr">
-                  </div>
-                  <br class="clr">
-                </div>
-                <br class="clr">
-              </div>
-              <br class="clr">
             </div>
-            <br class="clr">
         </div>
-        <br class="clr">
-
+    </div>
 </div>
+
+
+
+<?php if ($image_data[1]<600):?>
+    <style>
+        #main_image_wrapper {
+            width: <?php echo $image_data[1];?>px;
+            height: <?php echo $image_data[2];?>px;
+            margin: 0 auto;
+        }
+    </style>
+<?php endif;?>
+
+<script>
+
+    jQuery(document).ready(function()
+    {
+
+        var singlePageCycle = new ImageCycle();
+    });
+
+</script>
 
 <?php get_footer();?>
