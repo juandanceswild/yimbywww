@@ -255,7 +255,7 @@
    function toggle_nav() {
            if ($('#main-navbar-collapse').hasClass('in')) {
                 var ht = $('#site-navigation').height();
-                $('.my-col').hide();
+                $('.my-col').fadeOut();
                 $('body').css({'height':ht,'overflow-y':'scroll'});
             } else {
                 $('body').css({'height':'100%', 'overflow-y':'hidden'});
