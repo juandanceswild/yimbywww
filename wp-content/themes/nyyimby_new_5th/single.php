@@ -19,7 +19,7 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
 
 <div class="summerville">
 
-       <div class="white pt-top pl-phone">
+       <div class="white pt-top">
             <div class="my-col col-md-3 visible-md visible-lg" id="main_tab">
 <?php include('page-pager-menu.php'); ?>
             </div>

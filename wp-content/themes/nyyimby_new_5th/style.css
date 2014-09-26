@@ -174,9 +174,15 @@ a, a:focus, a:hover, a:active {
     color: #000000;
 }
 
+#main-navbar-collapse .nav > li:first-child {
+    margin-left:-35px;
+}
+
 .nav > li > a {
+    font-size:13px;
     background-color:#000 !important;
     color:#eee;
+    padding:17px 10px 17px 10px !important;
 }
 .nav > li > a:hover {
     background-color:#000 !important;
@@ -297,17 +303,21 @@ li.media.first {
 .header_search_input:active,
 .header_search_input:focus,
 .header_search_input {
+    background:#000 url(img/searchicon_white.png) no-repeat left -2px !important;
+    font-style: italic;
+    font-size: 14px;
     color: #FFFFFF !important;
-    background-color: #000000 !important;
-    margin: 0 0 0 40px !important;
+    margin: 5px 0 0 0 !important;
+    height:27px;
     box-shadow: none;
-    padding:5px 0 0 25px !important;
+    padding:5px 0 5px 25px !important;
     border-collapse:collapse;
     border-top-color:#ccc;
     border-right-color:#ccc;
     border-bottom-color:#ccc;
     border-left-color:#ccc;
     border-width:1px;
+    border-style:solid;
     width:296px !important;
 }
 
@@ -320,9 +330,9 @@ li.media.first {
 }
 
 .navbar-search .icon-search {
-    position: absolute;
+/*    position: absolute;
     top: 7px;
-    right: 11px;
+    right: 11px;*/
 }
 
 .header_social_links {
@@ -503,16 +513,6 @@ div.aligncenter {
     margin-bottom: 15px;
 }
 
-#s {
-    margin-top: 8px;
-    background: url(img/searchicon_white.png) no-repeat left center;
-    padding-left: 10%;
-    width: 85%;
-    padding-bottom: 5px !important;
-    font-style: italic;
-    font-size: 14px;
-}
-
 /*@media handheld, only screen and (max-width: 979px) {*/
 @media handheld, only screen and (max-width: 1025px) {
     #footer {
@@ -580,22 +580,11 @@ div.aligncenter {
     padding-top: 0
 }
 
-#related_updates .ad, #lower_ad {
-    /*width: 322px !important;*/
-    /*width: 254px !important;*/
-    width: 300px !important;
-}
-
 #ascrail2000 {
     opacity: 1 !important
 }
 
 .related_posts .widget {
-}
-
-.related-post .widget:first-child,
-.related-post .widget:last-child {
-    height: 300px;
 }
 
 .sidefooter {
@@ -1647,7 +1636,7 @@ body {
 .my-col-noscroll {
   height:auto;
   overflow:hidden;
-  max-width:310px;
+  max-width:100%;
 }
 .clr {
   clear:both;
@@ -1674,7 +1663,7 @@ body {
 .thumbnail > img.w100, .widget_adrotate_widgets .thumbnail > img {
   max-height:unset !important;
   max-width:unset !important;
-  width:100%;
+  width:300px;
 }
 
 .thumbnail > img.w75 {
@@ -1762,7 +1751,7 @@ body {
     text-align:center;
 }
 
-@media (min-width: 1220px) {
+@media (min-width: 1200px) {
   .col-lg-4 {
     width:38.3333% !important;
   }
@@ -1772,4 +1761,35 @@ body {
   .pl-xs-lg {
     padding-left:10px !important;
   }
+  .pl-sm-lg {
+    padding-left:30px !important;
+  }
+}
+
+/* from bs 2 blieve it or not */
+label, input, button, select, textarea {
+    font-size: 14px !important;;
+    font-weight: normal !important;
+    line-height: 20px !important;
+}
+input, button, select, textarea {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+}
+.navbar-toggle {
+    background: #444444 !important;
+    background: -moz-linear-gradient(top,  #444444 0%, #222222 16%, #444444 52%, #000000 100%) !important;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#444444), color-stop(16%,#222222), color-stop(52%,#444444), color-stop(100%,#000000)) !important;
+    background: -webkit-linear-gradient(top,  #444444 0%,#222222 16%,#444444 52%,#000000 100%) !important;
+    background: -o-linear-gradient(top,  #444444 0%,#222222 16%,#444444 52%,#000000 100%) !important;
+    background: -ms-linear-gradient(top,  #444444 0%,#222222 16%,#444444 52%,#000000 100%) !important;
+    background: linear-gradient(to bottom,  #444444 0%,#222222 16%,#444444 52%,#000000 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#444444', endColorstr='#000000',GradientType=0 ) !important;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.navbar-toggle .icon-bar {
+    background-color: #eee !important;
+}
+.navbar-toggle .icon-bar:hover {
+    background-color: #fff !important;
 }

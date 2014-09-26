@@ -105,7 +105,7 @@ foreach ($terms_to_exclude as $t)
     <div class="header">
         <div class="row">
 
-            <div class="col-xs-3 col-lg-2">
+            <div class="col-xs-3">
                 <a href="<?php echo get_site_url();?>" class="brand"><img src="<?php bloginfo('template_directory'); ?>/img/yimby_logo.png"  /></a>
                 <ul class="pull-left inline header_social_links hidden-tablet"  style="" >
                     <li><a href="https://www.facebook.com/NewYorkYimby" target=_blank><img src="<?php bloginfo('template_directory'); ?>/img/social_facebook.png" /></a></li>
@@ -114,15 +114,15 @@ foreach ($terms_to_exclude as $t)
                 </ul>
             </div>
 
-            <div class="col-xs-9 col-lg-10">
+            <div class="col-xs-9">
               <div class="row">
-                <div class="col-lg-8 col-md-12">
+                <div class="col-lg-8">
 
 
 <nav id="site-navigation" class="nav nav-pills<?php // this is the fix: navbar-fixed-top ?>" role="navigation">
-  <div class="row">
-    <div class="navbar-header hidden" class="fixed-top-content">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar-collapse">
+  <div class="row" id="mobinav">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -131,7 +131,7 @@ foreach ($terms_to_exclude as $t)
       <a class="navbar-brand" href="#"><?php bloginfo( 'name' ); ?></a>
     </div>
     <!--<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', '_s' ); ?></a>-->
-    <div class="">
+    <div class="collapse navbar-collapse" id="main-navbar-collapse">
 
                   <ul class="nav navbar-nav">
                     <li class="dropdown">
@@ -163,19 +163,17 @@ foreach ($terms_to_exclude as $t)
                     <li class=""><a href="http://yimbyforums.com" target="_blank">FORUMS</a></li>
                     <li class=""><a href="/search">ADVANCED SEARCH</a></li>
                   </ul>
-      <br class="clr">
     </div>
-    <br class="clr">
   </div>
-  <br class="clr">
 </nav>
 
                 </div>
-                <div class="col-lg-4 visible-lg pl-xs-lg">
+                <div class="col-lg-4 visible-lg">
+                  <div class="pl-xs-lg">
                     <?php get_search_form( ); ?>
+                  </div>
                 </div>
               </div>
-
         </div>
     </div>
 </div>
