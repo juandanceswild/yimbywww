@@ -1762,15 +1762,14 @@ body {
     text-align:center;
 }
 
-.col-lg-4 {
-    width:38.3333% !important;
-}
-.col-lg-8 {
-    width:61.6667% !important;
-}
-
 @media (min-width: 1220px) {
-    .pl-xs-lg {
-        padding-left:10px !important;
-    }
+  .col-lg-4 {
+    width:38.3333% !important;
+  }
+  .col-lg-8 {
+    width:61.6667% !important;
+  }
+  .pl-xs-lg {
+    padding-left:10px !important;
+  }
 }
