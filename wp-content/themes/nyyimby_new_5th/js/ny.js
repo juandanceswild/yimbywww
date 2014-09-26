@@ -17,6 +17,10 @@
 
         setTimeout("jQuery('.my-col').niceScroll({ autohidemode: false, cursorwidth: 10, cursorcolor:'#333'});", 250);
 
+        $('.navbar-toggle').on('click', function() {
+          setTimeout('toggle_nav()', 1000);
+        });
+
         $('#cx').jscroll({
             loadingHtml: '<img src="/wp-content/themes/nyyimby_new_5th/img/jjloader.gif" alt="Loading">',
             padding: 20,
@@ -238,7 +242,7 @@
         $('.my-col').css('height', per+'%');*/
    }
    function sticky_tops() {
-        console.log('sticky_tops');
+        //console.log('sticky_tops');
         /*jQuery('.my-col-noscroll').each(function() {
             var mom = $(this).parent('div');
             var mom_ht = mom.height();
@@ -248,3 +252,13 @@
             //$(this).css({'position':'fixed', 'width':mom_wt+'px', 'height':mom_ht+'px'});
         });*/
    }
+   function toggle_nav() {
+           if ($('#main-navbar-collapse').hasClass('in')) {
+                var ht = $('#site-navigation').height();
+                $('.my-col').hide();
+                $('body').css({'height':ht,'overflow-y':'scroll'});
+            } else {
+                $('body').css({'height':'100%', 'overflow-y':'hidden'});
+                $('.my-col').fadeIn();
+            }
+    }

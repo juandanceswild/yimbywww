@@ -105,7 +105,7 @@ foreach ($terms_to_exclude as $t)
     <div class="header">
         <div class="row">
 
-            <div class="col-xs-3">
+            <div class="col-sm-3 pull-left-xs">
                 <a href="<?php echo get_site_url();?>" class="brand"><img src="<?php bloginfo('template_directory'); ?>/img/yimby_logo.png"  /></a>
                 <ul class="pull-left inline header_social_links hidden-tablet"  style="" >
                     <li><a href="https://www.facebook.com/NewYorkYimby" target=_blank><img src="<?php bloginfo('template_directory'); ?>/img/social_facebook.png" /></a></li>
@@ -114,7 +114,7 @@ foreach ($terms_to_exclude as $t)
                 </ul>
             </div>
 
-            <div class="col-xs-9">
+            <div class="col-sm-9">
               <div class="row">
                 <div class="col-lg-8">
 
@@ -139,29 +139,27 @@ foreach ($terms_to_exclude as $t)
                             NEIGHBORHOOD
                             <b class="caret"></b>
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu ul600">
                             <?php $count=0; foreach ($terms as $term): ?>
                                 <?php if (!in_array($term->term_id, $exTerms)) : $count++;?>
-                                    <li class="<?php if($count%2==0){echo "right-aligned";}else{echo "left-aligned";}?>"><a href="<?php echo get_term_link($term->slug, 'neighborhoods');?>"><?php echo $term->name;?></a></li>
+                                    <li class="neighborhoods"><a href="<?php echo get_term_link($term->slug, 'neighborhoods');?>"><?php echo $term->name;?></a></li>
                                 <?php endif;?>
                             <?php endforeach;?>
                         </ul>
                     </li>
 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-                        PROJECT TYPE
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <?php foreach ($type_terms as $term):?>
-                            <li><a href="<?php echo get_term_link($term->slug, 'types');?>"><?php echo $term->name;?></a></li>
-                        <?php endforeach;?>
-                    </ul>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"> PROJECT TYPE <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu ul500">
+                            <?php foreach ($type_terms as $term):?>
+                                <li><a href="<?php echo get_term_link($term->slug, 'types');?>"><?php echo $term->name;?></a></li>
+                            <?php endforeach;?>
+                        </ul>
                     </li>
-                    <li class=""><a href="/all-building">ALL PROJECTS</a></li>
-                    <li class=""><a href="http://yimbyforums.com" target="_blank">FORUMS</a></li>
-                    <li class=""><a href="/search">ADVANCED SEARCH</a></li>
+                    <li><a href="/all-building">ALL PROJECTS</a></li>
+                    <li class="hidden-xs"><a href="http://yimbyforums.com" target="_blank">FORUMS</a></li>
+                    <li class="hidden-xs"><a href="/search">ADVANCED SEARCH</a></li>
                   </ul>
     </div>
   </div>
