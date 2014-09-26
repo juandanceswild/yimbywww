@@ -96,7 +96,7 @@ foreach ($terms_to_exclude as $t)
 <?php $categories = get_categories( array('number'=>10));?>
 <body <?php body_class(); ?>>
 <?php if (strpos($_SERVER['HTTP_HOST'], 'webjuju')!==false) : ?>
-  <div class="counts" style="position:absolute;top:5px;right:-5px;"> <div class="col-xs-1 menus-count"></div> <div class="col-xs-1 posts-count"></div> <br class="clr"></div>
+  <div class="counts" style="position:absolute;top:5px;right:-5px;font-size:8px;"><div class="col-xs-1 menus-count"></div><div class="col-xs-1 posts-count"></div></div>
 <?php endif; ?>
 <?php include('ga.php');?>
 
