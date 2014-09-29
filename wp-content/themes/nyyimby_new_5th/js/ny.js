@@ -224,6 +224,10 @@
         var vis = $(window).height();
         var hdr = $('div.header').height();
 
+        // firstly (because it's quick) hide the ads based on height
+        if (vis < 725) $('#adrotate_widgets-3').fadeOut();
+        if (vis > 725) $('#adrotate_widgets-3').fadeIn();
+
         // this has to be there or cols have no scrolling height
         $('.my-col, .my-col-noscroll').css('height', (vis - hdr)+'px');
         $('.rb-gray').css('height', $('#stuff').height()+'px');
