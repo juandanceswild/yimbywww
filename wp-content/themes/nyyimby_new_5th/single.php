@@ -30,7 +30,7 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
 
                   <div id="stuff" class="jj">
                         <div id="cx">
-                            <div class="post">
+                            <div class="post bordered">
                                 <div class="left_post_navasd">
                         <?php get_template_part('content', 'entry'); ?>
                                 </div>

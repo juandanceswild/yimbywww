@@ -389,7 +389,7 @@ li.media.first {
 
 h4.by_line {
     font-size: 12px !important;
-    color: #bdbdbd;
+    color: #000;
 }
 
 .aligncenter,
@@ -1873,9 +1873,6 @@ h4 {
     font-size: 12px !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
-}
-h4 .updated {
-    color: #168dd9 !important;
 }
 p {
     font-size: 15px !important;
