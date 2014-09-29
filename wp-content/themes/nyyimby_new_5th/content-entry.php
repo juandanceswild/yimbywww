@@ -5,7 +5,7 @@
       <div id="post-<?php the_ID(); ?>" <?php post_class('on-page-post'); ?>>
 
 
-        <div class="post-wrapper">
+        <div class="post-wrapper bordered">
               <h1 class="entry-title"><?php the_title();?></h1>
               <span class="vcard author post-author">
                   <span class="fn">
