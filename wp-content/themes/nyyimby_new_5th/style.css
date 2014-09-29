@@ -4,6 +4,7 @@ Theme Name: Yimby 5th - New 2014
 
 html, body {
     height: 100%;
+    font-family: "PT Sans",serif !important;
 }
 
 .container-fluid {
@@ -762,7 +763,7 @@ p.posted {
 #mc_embed_signup {
     background: transparent;
     clear: left;
-    font: 14px Helvetica, Arial, sans-serif;
+    font: 14px helvetica, arial, sans-serif;
 }
 
 div.hidden {
@@ -1450,14 +1451,14 @@ div.soc a {
     margin: 0 5px 0 0;
 }
 
-@media (min-width: 1240px) {
+@media (min-width: 1200px) {
   div.soc {
-    margin-top: 7px;
+    margin-top: 20px;
     width: 32px;
     height: auto;
   }
   div.soc a, div.soc span {
-    margin: 0 3px 3px 20px;
+    margin: 0 3px 3px 26px;
   }
 }
 
@@ -1860,4 +1861,23 @@ input, button, select, textarea {
 }
 .navbar-toggle .icon-bar:hover {
     background-color: #fff !important;
+}
+
+
+
+h1 {
+    font-weight: 700 !important;
+    font-size: 30px !important;
+}
+h4 {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+}
+h4 .updated {
+    color: #168dd9 !important;
+}
+p {
+    font-size: 15px !important;
+    color: #000000 !important;
 }
