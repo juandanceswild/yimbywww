@@ -1019,8 +1019,8 @@ div.post {
 
 div.post-wrapper {
     float: left;
-    width:84%;
-    margin:0 7% 0 7%;
+    width:95%;
+    margin:0 auto 0 auto;
 }
 
 
