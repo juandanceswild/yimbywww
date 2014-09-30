@@ -12,6 +12,9 @@
     // set the percentage that changes the active post
     var window_active_post_line = .5;
 
+    // for use in js optimization
+    var last_post_id = 0;
+
     // Navigation
     $(document).on('ready', function() {
 
@@ -70,16 +73,20 @@
    }
 
    var set_share_link_post_hover_loop = 500;
-   var last_post_id = 0;
+
    function set_share_link_post_hover() {
         // for debugging purposes...only show in test
         $('.posts-count').html(posts_on_page.length);
         $('.menus-count').html(menus_on_page.length);
 
         var cur_post_id = get_post_id();
-        if (cur_post_id !== undefined) {
+        var same = (cur_post_id == last_post_id) ? true : false;
+        if (! same) {
 
-            if (cur_post_id == last_post_id) return;
+            //console.log('yay, now a new post because '+cur_post_id+' != '+last_post_id);
+            //console.log('cur_post_id: '+cur_post_id);
+            //console.log('last_post_id: '+last_post_id);
+
             last_post_id = cur_post_id;
 
             // turn off active for all menu post choices
@@ -91,12 +98,7 @@
             // set it to active
             el.addClass('active-menu-post');
 
-            // all the original code (updated slightly) that updates the url, calls google, and share icons
-            var state = {};
-
-            if (!window.history || !window.history.replaceState) {
-                return;
-            }
+            /* this is mostly all the original code (updated slightly) that updates the url, calls google, and share icons */ var state = {}; if (!window.history || !window.history.replaceState) { return; }
 
             var currentURL    = el.find('.media-body > a').attr('href');
             var currentTitle  = el.find('.media-body > a > p').text();
@@ -108,11 +110,17 @@
 
             window.document.title = currentTitle;
 
+            /* and this the last of it interesting..it likely was a 89% solution to a problem...but this also is where the multiple addthis bars popping up was coming from.  so this culprit then is also solved */
             setTimeout(function() {
                 addthis_share.url    =  currentURL;
                 addthis_share.title  =  currentTitle;
-                //addthis.toolbox('.addthis_sharing_toolbox', addthis_config, addthis_share);
             },500);
+
+
+        } else {
+            //console.log('we don\'t do anything because '+cur_post_id+' == '+last_post_id);
+            //console.log('cur_post_id: '+cur_post_id);
+            //console.log('last_post_id: '+last_post_id);
         }
 
 
