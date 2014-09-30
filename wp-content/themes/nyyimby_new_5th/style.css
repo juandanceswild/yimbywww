@@ -1442,7 +1442,7 @@ div {
 div.soc {
     float: left;
     padding: 0 0 0 0;
-    margin: 20px 0 14px 0;
+    margin: 20px 0 14px 26px;
     width: 32px;
     height: auto;
 }
