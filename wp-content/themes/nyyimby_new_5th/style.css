@@ -1419,11 +1419,12 @@ input[type="date"]::-webkit-inner-spin-button {
     display: none;
 }
 
-h1.archive-title {
+.archive-title {
     font-size: 22px;
     line-height: 20px;
     text-transform: capitalize;
     padding: 0 0 0 10px;
+    font-weight:700;
 }
 
 #atstbx2,

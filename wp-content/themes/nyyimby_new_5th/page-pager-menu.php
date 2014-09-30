@@ -13,12 +13,52 @@
         $single = false;
     }
 
+    // the args for the query should vary
+    $args = false;
+    $queried_object = get_queried_object();
+
+    // arg set: neighborhood taxonomy
+    $term_taxo = $queried_object->taxonomy;
+    if (!empty($term_taxo)) :
+        $term_slug = $queried_object->slug;
+        $term_name = $queried_object->name;
+        $temp_post = $post; // Storing the object temporarily
+        $args = array(
+            'post_type' => 'post', 'showposts' => $postsperpage, 'paged' => $paged,
+            'taxonomy'=>$term_taxo,
+            'term'=>$term_slug,
+        ); 
+        echo '<h2 class="archive-title">'.$term_name.'</h2>';
+    endif;
+
+    // arg set: specific post (load posts from that post back)
+    if (!empty($queried_object->ID)) :
+        $d = strtotime($queried_object->post_date)+86400;
+        $args = array(
+            'post_type' => 'post', 'showposts' => $postsperpage, 'paged' => $paged,
+            'date_query' => array(
+                array(
+                    'before'    => array(
+                        'year'  => date('Y', $d),
+                        'month' => date('m', $d),
+                        'day'   => date('d', $d),
+                    ),
+                    'inclusive' => true,
+                ),
+            ),
+        ); 
+        //echo '<h2 class="archive-title">'.$term_name.'</h2>';
+    endif;
+
 
     $temp_post = $post; // Storing the object temporarily
     $temp = $wp_query;
     $wp_query = null;
     $wp_query = new WP_Query();
-    $wp_query->query('showposts='.$postsperpage.'&post_type=post&post_status=publish'.'&paged='.$paged);
+
+    // have a default set of args that just pull in all posts
+    $args = ($args) ?: 'showposts='.$postsperpage.'&post_type=post&post_status=publish'.'&paged='.$paged;
+    $wp_query->query($args);
 
     $first_date = true;
     $first = true;
