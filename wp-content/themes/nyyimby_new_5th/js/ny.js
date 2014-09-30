@@ -18,7 +18,7 @@
     // Navigation
     $(document).on('ready', function() {
 
-        setTimeout('fix_body_width();', 500);
+        setTimeout('fix_body_width();', 1000);
 
         setTimeout("jQuery('.my-col').niceScroll({ autohidemode: false, cursorwidth: 10, cursorcolor:'#333'});", 250);
 
@@ -118,8 +118,10 @@
 
             /* and this the last of it interesting..it likely was a 89% solution to a problem...but this also is where the multiple addthis bars popping up was coming from.  so this culprit then is also solved */
             setTimeout(function() {
+                addthis_share = {};
                 addthis_share.url    =  currentURL;
                 addthis_share.title  =  currentTitle;
+                addthis.toolbox('#soc', null, addthis_share);
             },500);
 
 
