@@ -263,7 +263,8 @@
 
         // this has to be there or cols have no scrolling height
         $('.my-col, .my-col-noscroll').css('height', (vis - hdr)+'px');
-        $('.rb-gray').css('height', $('#stuff').height()+'px');
+        var bht = ($('#stuff').height() > vis) ? $('#stuff').height() : vis; 
+        $('.rb-gray').css('height', bht+'px');
    }
    function toggle_nav() {
            if ($('#main-navbar-collapse').hasClass('in')) {
