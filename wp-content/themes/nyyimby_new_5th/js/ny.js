@@ -89,6 +89,9 @@
 
             last_post_id = cur_post_id;
 
+            // go get some new ads, finally
+            $.ajax({'url':'/ad_rotate.php'}).done(function(r){$('#ads').html(r)});
+
             // turn off active for all menu post choices
             $('.on-page-menu').parent().removeClass('active-menu-post');
 
