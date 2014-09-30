@@ -37,6 +37,7 @@
 
     if (empty($args) && !empty($_SESSION['wpdb_args'])) :
         $args = $_SESSION['wpdb_args'];
+        $args['paged'] = $paged;
     endif;
 
     // arg set: neighborhood taxonomy
