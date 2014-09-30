@@ -41,10 +41,12 @@ function store_user_stuff() {
 
     foreach ($wp_query->posts as $p) {
       if (empty($_SESSION['posts_seen'][strtotime($p->post_date)])) {
-        $_SESSION['posts_seen'][$wp_query->query_vars_hash][strtotime($p->post_date)] = $p;
+        $_SESSION['posts_seen'][strtotime($p->post_date)] = $p;
       }
     }
-    krsort($_SESSION['posts_seen'][$wp_query->query_vars_hash]);
+    if (!empty($_SESSION['posts_seen'][strtotime($p->post_date)])) {
+      krsort($_SESSION['posts_seen']);
+    }
 }
 
 function get_sus($key,$value,$parent='') {
