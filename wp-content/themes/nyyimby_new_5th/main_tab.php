@@ -61,6 +61,9 @@
             ?>
             </ul>
 
+<?php
+  if (!empty($once)) :
+?>
             <!-- Pagination -->
             <ul>
                 <li class="next">
@@ -71,6 +74,9 @@
             </ul>
 
             <div id="preloader"></div>
+<?php
+  endif;
+?>
 
         </div> <!-- // div.test_inner_news -->
     </div> <!-- // div.content -->
