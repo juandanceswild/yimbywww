@@ -1442,26 +1442,25 @@ input[type="date"]::-webkit-inner-spin-button {
     display: none !important;
 }
 
-div.soc
+div#soc
 div.addthis_sharing_toolbox
 div {
     display: none !important;
 }
 
-div.soc {
-    float: left;
+div#soc {
+    position: fixed;
     padding: 0 0 0 0;
-    margin: 20px 0 14px 26px;
+    margin: 0 0 0 -9999px;
     width: 32px;
     height: auto;
 }
-div.soc a {
+div#soc a {
     display: block;
-    float: left;
-    margin: 0 3px 3px 26px;
+    margin: 0 3px 3px 0;
 }
 @media only screen and (max-width: 1024px) {
-  div.soc {
+  div#soc {
     margin-left:14px;
   }
 }

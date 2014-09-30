@@ -13,17 +13,6 @@
                   </span>
               </span>
 
-            <div class="soc">
-                <div class="addthis_sharing_toolbox addthis_32x32_style">
-                    <a class="addthis_button_facebook"></a>
-                    <a class="addthis_button_twitter"></a>
-                    <a class="addthis_button_pinterest_share"></a>
-                    <a class="addthis_button_google_plusone_share"></a>
-                    <a class="addthis_button_reddit"></a>
-                    <a class="addthis_button_linkedin"></a>
-                </div>
-            </div>
-
               <div class="main_image_wrapper">
                 <a href="#" class="thumbnail">
                   <?php echo the_post_thumbnail('full', array('class'=>'w75'));  ?>

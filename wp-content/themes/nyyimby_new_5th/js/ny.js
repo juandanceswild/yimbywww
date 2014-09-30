@@ -1,6 +1,6 @@
 
     // Fixed social icons
-    var social = new FixedSocial();
+//    var social = new FixedSocial();
 
     // Advanced search
     var search = new AdvancedSearch();
@@ -18,7 +18,7 @@
     // Navigation
     $(document).on('ready', function() {
 
-        fix_body_width();
+        setTimeout('fix_body_width();', 500);
 
         setTimeout("jQuery('.my-col').niceScroll({ autohidemode: false, cursorwidth: 10, cursorcolor:'#333'});", 250);
 
@@ -267,8 +267,13 @@
         $('.my-col, .my-col-noscroll').css('height', (vis - hdr)+'px');
         var bht = ($('#stuff').height() > vis) ? $('#stuff').height() : vis; 
         $('.rb-gray').css('height', bht+'px');
+
+        // set the share icons location
+        $('#stuff').prepend($('#soc'));
+        $('#soc').css({'left':'','margin-left':$('#stuff').width(), 'margin-top': '20px'});
    }
    function fix_body_width() {
+        addthis.init();
         jQuery("html,body").on({
           'swipe': function(e) {
             e.preventDefault()
