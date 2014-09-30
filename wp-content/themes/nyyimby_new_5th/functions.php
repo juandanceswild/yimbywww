@@ -32,16 +32,19 @@ function display_ads() {
 // oh yeah, don't forget the anchor links
 add_action('wp', 'store_user_stuff');
 function store_user_stuff() {
+    global $wp_query;
+
     @$_SESSION['loads']++;
+
     //error_log('this user has loaded their session '.$_SESSION['loads'].' times', 3, '/home/webjuju/nyyimby/error_log');
     // leave that debuggin line...this will be amazing if it works and hell if it doesn't
-    global $wp_query;
+
     foreach ($wp_query->posts as $p) {
       if (empty($_SESSION['posts_seen'][strtotime($p->post_date)])) {
-        $_SESSION['posts_seen'][strtotime($p->post_date)] = $p;
+        $_SESSION['posts_seen'][$wp_query->query_vars_hash][strtotime($p->post_date)] = $p;
       }
     }
-    krsort($_SESSION['posts_seen']);
+    krsort($_SESSION['posts_seen'][$wp_query->query_vars_hash]);
 }
 
 function get_sus($key,$value,$parent='') {
