@@ -27,6 +27,7 @@ var FixedSocial = FixedSocial || (function()
     var initialize = function()
     {
 
+        if (jQuery('.soc').length < 1) return;
         addthis.init();
 
         views.call(this);
