@@ -1459,11 +1459,6 @@ div#soc a {
     display: block;
     margin: 0 3px 3px 0;
 }
-@media only screen and (max-width: 1024px) {
-  div#soc {
-    margin-left:14px;
-  }
-}
 
 
 html.locked,
