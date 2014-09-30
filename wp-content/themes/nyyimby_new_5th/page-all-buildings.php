@@ -14,36 +14,16 @@
 
 get_header(); ?>
 
-    <div class="main">
+<div class="summerville">
 
-        <div class="box">
+       <div class="white pt-top">
+            <div class="my-col col-md-3 visible-md visible-lg" id="main_tab">
+            </div>
 
-            <div class="row-fluid">
-
-                <?php // get_sidebar('leftTABS');?>
-
-                <div class="column left_col nano all-proj-sidebar" id="sidebar-news">
-                    <div class="tab-content visible">
-
-                        <div class="tab-pane active" id="news">
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="column all-proj" id="right_col">
-
-                    <div class="padding inner content">
-
-                        <div class="full" id="right_wrapper">
-                            <div class="row-fluid">
-                                <div id="post_main_content" class="post-content-proj">
-                                    <div id="entry-content" class="post_main_content_class">
-                                        <div class="test_inner_newsa">
-
-
+            <div class="my-col rb cx col-md-9">
+              <div class="scroll_wrapper">
+                <div class="col-lg-8">
                                             <?php $categories = get_categories(); ?>
-
 
                                             <div id="cx">
                                                 <div class="post">
@@ -67,40 +47,25 @@ get_header(); ?>
                                             </div>
 
 
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/end of post left column-->
-
-
-                                <div id="related_updates">
-                                    <div class="related_posts">
-
-
-                                        <!-- get related info for here -->
-
-                                        <?php if (is_active_sidebar('sidebar-page')) : ?>
-
-                                            <?php dynamic_sidebar('sidebar-page'); ?>
-
-                                        <?php endif; ?>
-
-                                    </div>
-
-                                </div>
-                                <!--/end of post right column-->
-
-
-                            </div>
-                            <!--/row-->
-
-                        </div>
-
-
-                    </div>
                 </div>
+                <div class="col-lg-4 visible-lg p-md rb-gray">
+                  <div class="my-col-noscroll ads-col pl-xs-lg" data-spy="affix">
+
+                    <div id="ads"></div>
+
+                    <br class="clr">
+                  </div>
+                  <br class="clr">
+                </div>
+                <br class="clr">
+              </div>
+              <br class="clr">
             </div>
+            <br class="clr">
         </div>
-    </div>
+        <br class="clr">
+
+</div>
+
 
 <? get_footer(); ?>
