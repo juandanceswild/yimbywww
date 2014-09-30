@@ -185,6 +185,8 @@
         var bottom_load_pixel_height = ht || 200;
         var inrange = 0, protect_lg = 0;
 
+        if ($(posttab)[0] == undefined) return;
+
         // TODO: this is case and pasted from get_next_posts...encapsulate this into something reusable
         // is the page still not able to have jscroll attached to it??
         if ($(posttab)[0].scrollHeight == undefined) inrange = 1;
@@ -222,6 +224,8 @@
         check_frame_height();
         var bottom_load_pixel_height = 100;
         var inrange = 0, protect_lg = 0;
+
+        if ($(maintab)[0] == undefined) return;
 
         // is the page still not able to have jscroll attached to it??
         if ($(maintab)[0].scrollHeight == undefined) inrange = 1;
