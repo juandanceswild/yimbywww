@@ -1,12 +1,13 @@
-<?php // start of sidebar_leftTABS.php ?>
 <?php
-//die('<pre>'.print_r($_SERVER['REQUEST_URI'],true));
+
     preg_match('!pager-menu\/([0-9]*)!', $_SERVER['REQUEST_URI'], $matches);
+
     $paged = @$matches[1];
     $postsperpage = 22;
+
     if (!$paged) $paged = 1;
-    if ( is_single() )
-    {
+
+    if ( is_single() ) {
         $current_post = $post->ID;
         $single = true;
     } else {
@@ -27,7 +28,7 @@
             'post_type' => 'post', 'showposts' => $postsperpage, 'paged' => $paged,
             'category_name'=>$term_slug,
         ); 
-        echo '<h2 class="archive-title category">Category: '.$queried_object->query['category_name'].'</h2>';
+        echo '<h2 class="archive-title category">'.$queried_object->query['category_name'].'</h2>';
     endif;
 
     // arg set: existing, active ajaxing
@@ -159,13 +160,15 @@
             </ul>
 
             <!-- Pagination -->
+<?php if (!empty($once)) : ?>
             <ul>
                 <li class="next">
                     <a href="<?php echo home_url(); ?>/pager-menu/<?php echo $paged+1; ?>" class="next_link">
-                        <span class="meta-nav">&larr;</span> More posts
+                        <span class="meta-nav">&larr;</span> More Posts
                     </a>
                 </li>
             </ul>
+<?php endif; ?>
 
             <div id="preloader"></div>
 
