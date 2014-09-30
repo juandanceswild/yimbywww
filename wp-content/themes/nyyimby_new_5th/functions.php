@@ -20,7 +20,9 @@ session_start();
 add_action('template_redirect', 'display_ads');
 function display_ads() {
     if (strpos($_SERVER['REQUEST_URI'], 'ad_rotate.php')!==false) {
+        header('HTTP/1.0 200');
         require(TEMPLATEPATH.'/_ad_rotate.php');
+        exit();
     }
 }
 
