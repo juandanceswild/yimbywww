@@ -16,6 +16,13 @@
 
 session_start();
 
+// adding on-the-fly ads rotation page
+add_action('template_redirect', 'display_ads');
+function display_ads() {
+    if (strpos($_SERVER['REQUEST_URI'], 'ad_rotate.php')!==false) {
+        require(TEMPLATEPATH.'/_ad_rotate.php');
+    }
+}
 
  /**
  * Declaring the content width based on the theme's design and stylesheet.
