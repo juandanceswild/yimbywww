@@ -44,7 +44,9 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
                 </div>
                 <div class="col-lg-4 visible-lg p-md rb-gray">
                   <div class="my-col-noscroll ads-col pl-xs-lg" data-spy="affix">
-                    <?php require('_ad_rotate.php'); ?>
+
+                    <div id="ads"></div>
+
                     <br class="clr">
                   </div>
                   <br class="clr">
