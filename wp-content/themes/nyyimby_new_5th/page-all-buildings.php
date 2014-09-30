@@ -43,7 +43,7 @@ get_header(); ?>
                 <div class="my-col-noscroll col-lg-4 visible-lg p-md rb-gray">
                   <div class="ads-col pl-xs-lg" data-spy="affix">
 
-                    <div id="ads"><?php include('_ad_rotate.php'); ?></div>
+                    <div id="ads"></div>
 
                     <br class="clr">
                   </div>
