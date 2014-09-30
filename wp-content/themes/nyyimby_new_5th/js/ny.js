@@ -65,7 +65,6 @@
         reset_post_menu_vars('post');
         reset_post_menu_vars('menu');
         set_share_link_post_hover();
-        $.ajax({'url':'/ad_rotate.php'}).done(function(r){$('#ads').html(r)});
 
         $(window).resize(check_frame_height);
         check_frame_height();
