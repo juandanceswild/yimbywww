@@ -70,6 +70,7 @@
    }
 
    var set_share_link_post_hover_loop = 500;
+   var last_post_id = 0;
    function set_share_link_post_hover() {
         // for debugging purposes...only show in test
         $('.posts-count').html(posts_on_page.length);
@@ -77,6 +78,9 @@
 
         var cur_post_id = get_post_id();
         if (cur_post_id !== undefined) {
+
+            if (cur_post_id == last_post_id) return;
+            last_post_id = cur_post_id;
 
             // turn off active for all menu post choices
             $('.on-page-menu').parent().removeClass('active-menu-post');
