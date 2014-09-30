@@ -16,17 +16,6 @@
 
 session_start();
 
-function twenty_twelve_infinite_scroll_init() {
-    add_theme_support( 'infinite-scroll', array(
-		'container' =>'entry-content',
-                'render'      => 'content-entry',
-		'type'           => 'scroll',
-		
-    ) );
-}
-//add_action( 'after_setup_theme', 'twenty_twelve_infinite_scroll_init' );
-
-
 
  /**
  * Declaring the content width based on the theme's design and stylesheet.
