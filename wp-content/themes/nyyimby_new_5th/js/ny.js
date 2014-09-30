@@ -272,7 +272,8 @@
 
         // set the share icons location
         $('#stuff').prepend($('#soc'));
-        $('#soc').css({'left':'','margin-left':$('#stuff').width()-14, 'margin-top': '20px'});
+        var x = ($(window).width() < 1025) ? 14 : 0;
+        $('#soc').css({'left':'','margin-left':$('#stuff').width()-x, 'margin-top': '20px'});
    }
    function fix_body_width() {
         addthis.init();
