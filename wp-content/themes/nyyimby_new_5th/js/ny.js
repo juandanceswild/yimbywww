@@ -88,16 +88,30 @@
             // set it to active
             el.addClass('active-menu-post');
 
-            // set the share icon stuff
-//console.log('setting share stuff: '+cur_post_id);
-//console.log(addthis_share);
-//            addthis_share.url    =  'test';
-//            addthis_share.title  =  $('#'+cur_post_id).find('h1').text();
-//            addthis.toolbox('.addthis_sharing_toolbox', addthis_config, addthis_share);
+            // all the original code (updated slightly) that updates the url, calls google, and share icons
+            var state = {};
+
+            if (!window.history || !window.history.replaceState) {
+                return;
+            }
+
+            var currentURL    = el.find('.media-body > a').attr('href');
+            var currentTitle  = el.find('.media-body > a > p').text();
+
+            history.pushState({"pageTitle":currentTitle}, '', currentURL);
+
+            // Google Analytics
+            _gaq.push(['_trackPageview', currentURL]);
+
+            window.document.title = currentTitle;
+
+            setTimeout(function() {
+                addthis_share.url    =  currentURL;
+                addthis_share.title  =  currentTitle;
+                //addthis.toolbox('.addthis_sharing_toolbox', addthis_config, addthis_share);
+            },500);
         }
 
-        // the active one should always be in the middle if it can
-        //$('#main_tab').scrollTo(el);
 
         setTimeout(set_share_link_post_hover, set_share_link_post_hover_loop);
    }
