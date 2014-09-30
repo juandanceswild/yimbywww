@@ -16,10 +16,32 @@
     // the args for the query should vary
     $args = false;
     $queried_object = get_queried_object();
+    // TODO: perhaps we can put the pre-jax in here:
+    //if (!empty($queried_object)) $_SESSION['qo'] = $queried_object;
+
+    // arg set: category
+    $cat = @$queried_object->query['category_name'];
+    if (empty($args) && !empty($cat)) :
+        $term_slug = $queried_object->slug;
+        $args = array(
+            'post_type' => 'post', 'showposts' => $postsperpage, 'paged' => $paged,
+            'category_name'=>$term_slug,
+        ); 
+        echo '<h2 class="archive-title category">Category: '.$queried_object->query['category_name'].'</h2>';
+    endif;
+
+    // arg set: existing, active ajaxing
+    if ($paged===1) :
+        unset($_SESSION['wpdb_args']);
+    endif;
+
+    if (empty($args) && !empty($_SESSION['wpdb_args'])) :
+        $args = $_SESSION['wpdb_args'];
+    endif;
 
     // arg set: neighborhood taxonomy
     $term_taxo = $queried_object->taxonomy;
-    if (!empty($term_taxo)) :
+    if (empty($args) && !empty($term_taxo)) :
         $term_slug = $queried_object->slug;
         $term_name = $queried_object->name;
         $temp_post = $post; // Storing the object temporarily
@@ -32,7 +54,7 @@
     endif;
 
     // arg set: specific post (load posts from that post back)
-    if (!empty($queried_object->ID)) :
+    if (empty($args) && !empty($queried_object->ID)) :
         $d = strtotime($queried_object->post_date)+86400;
         $args = array(
             'post_type' => 'post', 'showposts' => $postsperpage, 'paged' => $paged,
@@ -57,7 +79,13 @@
     $wp_query = new WP_Query();
 
     // have a default set of args that just pull in all posts
-    $args = ($args) ?: 'showposts='.$postsperpage.'&post_type=post&post_status=publish'.'&paged='.$paged;
+    if (empty($args)) {
+        $args = 'showposts='.$postsperpage.'&post_type=post&post_status=publish'.'&paged='.$paged;
+        unset($_SESSION['wpdb_args']);
+    }
+    // plan to be able to pick up the args later if they exist
+    $_SESSION['wpdb_args'] = $args;
+
     $wp_query->query($args);
 
     $first_date = true;
