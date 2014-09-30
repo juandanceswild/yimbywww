@@ -105,7 +105,7 @@ foreach ($terms_to_exclude as $t)
     <div class="header">
         <div class="row">
 
-            <div class="col-sm-3 pull-left-xs">
+            <div class="col-sm-3 pull-left-xs pl-xs">
                 <a href="<?php echo get_site_url();?>" class="brand"><img src="<?php bloginfo('template_directory'); ?>/img/yimby_logo.png"  /></a>
                 <ul class="pull-left inline header_social_links hidden-tablet"  style="" >
                     <li><a href="https://www.facebook.com/NewYorkYimby" target=_blank><img src="<?php bloginfo('template_directory'); ?>/img/social_facebook.png" /></a></li>

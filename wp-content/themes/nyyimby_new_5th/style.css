@@ -1635,6 +1635,17 @@ body {
 .clr {
   clear:both;
 }
+
+.pl-xs {
+  padding-left:10px !important;
+}
+.pl-sm {
+  padding-left:20px !important;
+}
+.pl-md {
+  padding-left:30px !important;
+}
+
 .pt-top {
   height:100%;
 }
