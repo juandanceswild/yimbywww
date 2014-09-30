@@ -175,6 +175,13 @@ a, a:focus, a:hover, a:active {
     color: #000000;
 }
 
+.post-wrapper a, .post-wrapper a:focus, .post-wrapper a:hover, .post-wrapper a:active {
+    color: #168dd9 !important;
+}
+.post-wrapper a:focus, .post-wrapper a:hover, .post-wrapper a:active {
+    text-decoration:underline;
+}
+
 @media (min-width: 768px) {
   #main-navbar-collapse .nav > li:first-child {
     margin-left:35px;
@@ -1351,6 +1358,10 @@ label input {
 form.searchandfilter
 h4 {
     margin: 20px 0 10px;
+}
+
+h4 {
+   clear:left;
 }
 
 .sidebar_nav_inner_news.no-padding {
