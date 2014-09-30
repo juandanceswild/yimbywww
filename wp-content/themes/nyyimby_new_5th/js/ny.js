@@ -49,7 +49,6 @@
 
         $('.my-col.cx').scroll(function() {
             get_next_post(100);
-            sticky_tops();
         });
         get_next_post(0);
 
@@ -245,30 +244,6 @@
         // this has to be there or cols have no scrolling height
         $('.my-col, .my-col-noscroll').css('height', (vis - hdr)+'px');
         $('.rb-gray').css('height', $('#stuff').height()+'px');
-
-        //$('.ads-col img').addClass('img-responsive');
-// this is useful as a start to affixing the ads panel
-        //var stp = $('div.a-ffix').scrollTop();
-//        $('.my-col-noscroll').css('height', (vis - hdr)+'px')
- //       .animate({'margin-top':(stp-hdr)});
-
-
-//this needs to be thrown away:
-        /*var per = hdr / vis * 98;
-        per = 100 - per;
-        per = Math.round( per );
-        $('.my-col').css('height', per+'%');*/
-   }
-   function sticky_tops() {
-        //console.log('sticky_tops');
-        /*jQuery('.my-col-noscroll').each(function() {
-            var mom = $(this).parent('div');
-            var mom_ht = mom.height();
-            var mom_wt = mom.width();
-            mom.css({'min-height':mom_ht, 'height':mom_ht});
-            mom.css({'min-width' :mom_wt, 'width' :mom_wt});
-            //$(this).css({'position':'fixed', 'width':mom_wt+'px', 'height':mom_ht+'px'});
-        });*/
    }
    function toggle_nav() {
            if ($('#main-navbar-collapse').hasClass('in')) {
