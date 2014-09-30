@@ -18,6 +18,8 @@
     // Navigation
     $(document).on('ready', function() {
 
+        fix_body_width();
+
         setTimeout("jQuery('.my-col').niceScroll({ autohidemode: false, cursorwidth: 10, cursorcolor:'#333'});", 250);
 
         $('.navbar-toggle').on('click', function() {
@@ -265,6 +267,11 @@
         $('.my-col, .my-col-noscroll').css('height', (vis - hdr)+'px');
         var bht = ($('#stuff').height() > vis) ? $('#stuff').height() : vis; 
         $('.rb-gray').css('height', bht+'px');
+   }
+   function fix_body_width() {
+        jQuery("html,body").on('swipe',function(e) {
+          e.preventDefault()
+        });
    }
    function toggle_nav() {
            if ($('#main-navbar-collapse').hasClass('in')) {

@@ -48,6 +48,8 @@
 <?php // i've just had it with this out of date bs v2, we're going to twitter bs or risk failure ?>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
+<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+
 <script type="text/javascript">
 var _qevents = _qevents || [];
 
