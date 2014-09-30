@@ -1440,27 +1440,18 @@ div {
 }
 
 div.soc {
-    height: 32px;
     float: left;
     padding: 0 0 0 0;
-    margin: 0 0 14px 0;
+    margin: 20px 0 14px 0;
+    width: 32px;
+    height: auto;
 }
 div.soc a {
     display: block;
     float: left;
-    margin: 0 5px 0 0;
+    margin: 0 3px 3px 26px;
 }
 
-@media (min-width: 1200px) {
-  div.soc {
-    margin-top: 20px;
-    width: 32px;
-    height: auto;
-  }
-  div.soc a, div.soc span {
-    margin: 0 3px 3px 26px;
-  }
-}
 
 html.locked,
 body.locked {

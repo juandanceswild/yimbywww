@@ -63,7 +63,7 @@ var FixedSocial = FixedSocial || (function()
     {
 
         this.state            =  {};
-        this.state.isDesktop  =  this.dom.window.width() >= 1200;
+        this.state.isDesktop  =  this.dom.window.width() >= 119;
     };
 
 
@@ -76,9 +76,9 @@ var FixedSocial = FixedSocial || (function()
     var pin = function()
     {
 
-        this.state.isDesktop  =  this.dom.window.width() >= 1200;
+        this.state.isDesktop  =  this.dom.window.width() >= 119;
 
-        if ( jQuery(window).width() >= 1200 && !jQuery('body').hasClass('page-template-default') )
+        if ( jQuery(window).width() >= 119 && !jQuery('body').hasClass('page-template-default') )
         {
 
             var desktopOffsetLeft = jQuery('div#cx').offset().left + jQuery('div#cx').width() - 22;
