@@ -26,6 +26,31 @@ function display_ads() {
     }
 }
 
+// try to tap into the process of getting the posts so we know what is being queried!
+// then use what is being queried to track in session vars what history has been shown
+// then use the history shown to augment the prejax
+// oh yeah, don't forget the anchor links
+add_action('wp', 'store_user_stuff');
+function store_user_stuff() {
+    @$_SESSION['loads']++;
+    //error_log('this user has loaded their session '.$_SESSION['loads'].' times', 3, '/home/webjuju/nyyimby/error_log');
+    // leave that debuggin line...this will be amazing if it works and hell if it doesn't
+    global $wp_query;
+    foreach ($wp_query->posts as $p) {
+      if (empty($_SESSION['posts_seen'][strtotime($p->post_date)])) {
+        $_SESSION['posts_seen'][strtotime($p->post_date)] = $p;
+      }
+    }
+    krsort($_SESSION['posts_seen']);
+}
+
+function get_sus($key,$value,$parent='') {
+//    $wp = get_sus($wp->request);
+//    set_sus($wp->request, $wp);
+}
+function set_sus($key,$value,$parent='') {
+}
+
  /**
  * Declaring the content width based on the theme's design and stylesheet.
  */
