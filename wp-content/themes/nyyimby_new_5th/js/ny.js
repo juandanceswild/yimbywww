@@ -18,6 +18,8 @@
     // Navigation
     $(document).on('ready', function() {
 
+        addthis.init();
+
         setTimeout('fix_body_width();', 1000);
 
         setTimeout("jQuery('.my-col').niceScroll({ autohidemode: false, cursorwidth: 10, cursorcolor:'#333'});", 250);
@@ -276,7 +278,6 @@
         $('#soc').css({'left':'','margin-left':$('#stuff').width()-x, 'margin-top': '20px'});
    }
    function fix_body_width() {
-        addthis.init();
         jQuery("html,body").on({
           'swipe': function(e) {
             e.preventDefault()
