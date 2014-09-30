@@ -17,46 +17,39 @@ get_header(); ?>
 <div class="summerville">
 
        <div class="white pt-top">
-            <div class="my-col col-md-3 visible-md visible-lg" id="main_tab">
+            <div class="col-md-3 visible-md visible-lg" id="main_tab">
             </div>
 
             <div class="my-col rb cx col-md-9">
               <div class="scroll_wrapper">
                 <div class="col-lg-8">
-                                            <?php $categories = get_categories(); ?>
 
-                                            <div id="cx">
-                                                <div class="post">
-                                                    <div class="post-wrapper">
-                                                        <h1>All Projects</h1>
+                  <div id="stuff" class="jj">
+                    <?php $categories = get_categories(); ?>
 
-                                                        <div class="res">
-                                                            <ul class="nav nav-list nav-proj">
-                                                                <?php foreach ($categories as $category): ?>
-                                                                    <li>
-                                                                        <a href="<?php echo get_category_link($category->term_id); ?>">
-                                                                            <?php echo $category->name; ?>
-                                                                        </a>
-                                                                    </li>
-                                                                <?php endforeach; // end of the loop. ?>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
+                    <h1>All Projects</h1>
 
-                                                </div>
-                                            </div>
+                    <ul class="ul600 ul-projects nav nav-list nav-proj" style="width:100%;">
+                    <?php foreach ($categories as $category): ?>
+                      <li><a href="<?php echo get_category_link($category->term_id); ?>">
+                        <?php echo $category->name; ?>
+                      </a></li>
+                    <?php endforeach; // end of the loop. ?>
+                    </ul>
 
-
+                    <br class="clr">
+                  </div>
                 </div>
-                <div class="col-lg-4 visible-lg p-md rb-gray">
-                  <div class="my-col-noscroll ads-col pl-xs-lg" data-spy="affix">
+                <div class="my-col-noscroll col-lg-4 visible-lg p-md rb-gray">
+                  <div class="ads-col pl-xs-lg" data-spy="affix">
 
-                    <div id="ads"></div>
+                    <div id="ads"><?php include('_ad_rotate.php'); ?></div>
 
                     <br class="clr">
                   </div>
                   <br class="clr">
                 </div>
+
                 <br class="clr">
               </div>
               <br class="clr">

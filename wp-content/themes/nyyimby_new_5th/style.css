@@ -192,6 +192,17 @@ a, a:focus, a:hover, a:active {
     color:#fff;
 }
 
+.nav.nav-proj > li > a {
+    font-size:12px;
+    background-color:#fff !important;
+    color:#168dd9 !important;
+    padding:3px 15px !important;
+    white-space:wrap;
+}
+.nav.nav-proj > li > a:hover {
+    background-color:#f1f0ef !important;
+}
+
 #logo_row {
     margin: 24px 0;
 }
@@ -1398,14 +1409,13 @@ div.res {
 }
 
 .nav-proj ul {
-    width: 155px;
-    float: left;
     list-style: none;
-    margin: 10px 0 30px;
+    margin: 10px;
     padding: 0;
 }
 
 .nav-proj li {
+    
     max-width: 120px;
     /*padding-right: 2em;*/
     line-height: 1.5em;
