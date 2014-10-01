@@ -1,7 +1,4 @@
-<?php
-      $catKey = "primary_cat";
-      $related_category = get_category_by_slug(get_post_meta($post->ID, $catKey, true));
-      ?>
+
       <div id="post-<?php the_ID(); ?>" <?php post_class('on-page-post'); ?>>
 
 
@@ -51,7 +48,7 @@
             <div class="text-center">
               <p id="photo_caption"><?php echo get_post(get_post_thumbnail_id())->post_excerpt; ?></p>
             </div>
-            <p><?php the_content();?>
+            <p><?php wp_reset_query(); the_content();?>
 
             <p style="margin-top:14px;">Posted in <?php the_category(' | '); ?></p>
                 <?php if(is_archive()): ?>
