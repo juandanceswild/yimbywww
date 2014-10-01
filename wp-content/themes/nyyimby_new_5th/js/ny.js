@@ -208,6 +208,8 @@
         }
         //console.log('inragne: '+inrange);
 
+        $('div.post').find('img').addClass('img-responsive');
+
         if (pt_to == undefined && inrange) {
             if (protect_lg) setTimeout('get_next_post(42)', 42);
             pt_to = setTimeout('$(".navx-links a[rel=prev]").trigger("click");', to);
