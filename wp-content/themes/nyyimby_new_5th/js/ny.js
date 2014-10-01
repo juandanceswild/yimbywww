@@ -105,6 +105,15 @@
             // set it to active
             el.addClass('active-menu-post');
 
+            // and bring it to the top of it's scrollable area
+            var scroller = el.parents('.my-col');
+            $.fn.scrollTo = function(elem) { 
+                $(this).scrollTop($(this).scrollTop() - $(this).offset().top + $(elem).offset().top); 
+                return this; 
+            };
+            scroller.scrollTo(el);
+
+
             /* this is mostly all the original code (updated slightly) that updates the url, calls google, and share icons */ var state = {}; if (!window.history || !window.history.replaceState) { return; }
 
             var currentURL    = el.find('.media-body > a').attr('href');
