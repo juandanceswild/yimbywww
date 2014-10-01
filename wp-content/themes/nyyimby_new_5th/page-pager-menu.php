@@ -1,9 +1,10 @@
 <?php
+    global $wp_query, $post;
 
     preg_match('!/pager-menu/([0-9]*)[?]!', $_SERVER['REQUEST_URI'], $matches);
 
     $paged = (integer) @$matches[1];
-    $args = unserialize(base64_decode(@$_GET['args']));
+    if (!empty($_GET['args'])) $args = unserialize(base64_decode(@$_GET['args']));
     $postsperpage = 22;
 
     if (!$paged) $paged = 1;
@@ -99,8 +100,6 @@
 
             <?php
 
-                global $post;
-
                 $current_post = $post; // remember the current post
                 $once = 0;
 
@@ -150,7 +149,9 @@
                          <?php
                     endif;
                 endwhile; 
-            $post = $current_post; // restore
+
+                $post = $current_post;
+                rewind_posts();
             ?>
             </ul>
 
@@ -171,10 +172,3 @@
     </div> <!-- // div.content -->
 </div> <!-- // div.scroll_wrapper -->
 <?php // end of old main_tab.php ?>
-
-<?php
-    $wp_query = null;
-    $wp_query = $temp;  // Reset
-    $post = $temp_post; // Restore the value of $post to the original*/
-?>
-<?php // end of old sidebar_leftTABS.php ?>
