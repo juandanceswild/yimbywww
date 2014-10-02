@@ -108,7 +108,14 @@
             // and bring it to the top of it's scrollable area
             var scroller = el.parents('.my-col');
             $.fn.scrollTo = function(elem) { 
-                $(this).scrollTop($(this).scrollTop() - $(this).offset().top + $(elem).offset().top); 
+
+                var s = $(this).scrollTop() - $(this).offset().top + $(elem).offset().top;
+
+                // account for the date height if there is a date heading before it
+                var dh = elem.prev('li');
+                if (dh.hasClass('dateHeading')) { s = (s-40); if (s < 0) s = 0; }
+
+                $(this).scrollTop(s); 
                 return this; 
             };
             scroller.scrollTo(el);
