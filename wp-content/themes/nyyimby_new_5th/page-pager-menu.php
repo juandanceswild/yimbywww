@@ -2,19 +2,20 @@
 $args = get_args();
 $menu_paged = $args['paged'];
 $taxonomy = get_args_tax($args);
+if (!have_posts()) die('<div class="test_inner_news"></div>');
 ?>
 
 <div class="scroll_wrapper">
     <div class="sidebar_nav_inner_news" id="sidebar_nav_inner">
         <div class="test_inner_news">
 
-            <?php if (!empty($taxonomy)) : ?>
-                <h2 class="archive-title">
+            <?php $mt=0; if (!empty($taxonomy)) : ?>
+                <h2 class="archive-title affix" data-spy="affix">
                     <?php echo $taxonomy; ?>
                 </h2>
-            <?php endif; ?>
+            <?php $mt="50px"; endif; ?>
 
-            <ul class="media-list left_post_nav">
+            <ul class="media-list left_post_nav" style="padding-top:<?=$mt?>;">
 
             <?php
 

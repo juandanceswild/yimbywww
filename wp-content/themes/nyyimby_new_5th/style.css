@@ -1439,11 +1439,14 @@ input[type="date"]::-webkit-inner-spin-button {
 }
 
 .archive-title {
+    text-align:left;
+    width:100%;
+    display:block;
+    background-color:#fff;
     font-size: 22px;
-    line-height: 20px;
-    text-transform: capitalize;
-    padding: 0 0 0 10px;
+    padding: 15px 0 0 10px;
     font-weight:700;
+    margin:0;
 }
 
 #atstbx2,
