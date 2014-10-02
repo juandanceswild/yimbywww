@@ -916,8 +916,8 @@ function redirect() {
         endif;
 }
 
-include('includes/custom_post_types.php');
-include('includes/custom_post_type_view.php');
+//include('includes/custom_post_types.php');
+//include('includes/custom_post_type_view.php');
 /*
 
  */
