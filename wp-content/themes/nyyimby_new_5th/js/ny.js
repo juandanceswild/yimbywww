@@ -18,46 +18,34 @@
     // Navigation
     $(document).on('ready', function() {
 
+            $.fn.scrollTo = function(elem) { 
+
+                var uo = $(elem).offset();
+                var u = (uo) ? uo.top : 0;
+                var to = $(this).offset();
+                var t = (to) ? to.top : 0;
+                var s = $(this).scrollTop() - t + uo;
+
+                // account for the date height if there is a date heading before it
+                var dh = elem.prev('li');
+                if (dh.hasClass('dateHeading')) { s = (s-40); if (s < 0) s = 0; }
+                // now account for the taxonomy header
+                if (elem.text() == elem.parent('ul').find('li:first').text()) s = (s-40); 
+
+                $(this).scrollTop(s); 
+                return this; 
+            };
+
         addthis.init();
 
         setTimeout('fix_body_width();', 1000);
 
         setTimeout("jQuery('.my-col').niceScroll({ autohidemode: false, cursorwidth: 10, cursorcolor:'#333'});", 250);
 
-        $('.navbar-toggle').on('click', function() {
-          setTimeout('toggle_nav()', 1000);
-        });
+        do_dom_listeners($);
 
-        $('#cx').jscroll({
-            loadingHtml: '<img src="/wp-content/themes/nyyimby_new_5th/img/jjloader.gif" alt="">',
-            padding: 20,
-            nextSelector : ".navx-links a[rel=prev]",
-            contentSelector: "div.post",
-            autoTrigger: false,
-            callback: page_loaded,
-            debug: false
-        });
-
-        $('#sidebar_nav_inner').jscroll({
-            //nextSelector : ".navx-links a[rel=prev]",
-            loadingHtml: '<img src="/wp-content/themes/nyyimby_new_5th/img/jjloader.gif" alt="">',
-            padding: 20,
-            nextSelector: ".next_link",
-            contentSelector: "div.test_inner_news",
-            autoTrigger: false,
-            callback: menu_page_loaded,
-            debug: false
-        });
-
-        $('#main_tab').scroll(function() {
-            get_next_posts(100);
-        });
-        get_next_posts(1000);
-
-        $('.my-col.cx').scroll(function() {
-            get_next_post(100);
-        });
         get_next_post(0);
+        get_next_posts(1000);
 
         // TODO: find out why bs 3 affix would not work...i think it's because it expects a more shallow canvas
         //setTimeout("console.log('yay');jQuery('.affix').affix({offset:{top:100}});console.log('boo');",5000);
@@ -110,19 +98,6 @@
 
             // and bring it to the top of it's scrollable area
             var scroller = el.parents('.my-col');
-            $.fn.scrollTo = function(elem) { 
-
-                var s = $(this).scrollTop() - $(this).offset().top + $(elem).offset().top;
-
-                // account for the date height if there is a date heading before it
-                var dh = elem.prev('li');
-                if (dh.hasClass('dateHeading')) { s = (s-40); if (s < 0) s = 0; }
-                // now account for the taxonomy header
-                if (elem.text() == elem.parent('ul').find('li:first').text()) s = (s-40); 
-
-                $(this).scrollTop(s); 
-                return this; 
-            };
             scroller.scrollTo(el);
 
 
@@ -326,4 +301,77 @@
     }
     function fill_ads() {
         $.ajax({'url':'/ad_rotate.php'}).done(function(r){$('#ads').html(r)});
+    }
+
+    var to_1 = setTimeout('', 0);
+    function do_dom_listeners($) {
+        $('.navbar-toggle').on('click', function() {
+          setTimeout('toggle_nav()', 1000);
+        });
+
+        $('#cx').jscroll({
+            loadingHtml: '<img src="/wp-content/themes/nyyimby_new_5th/img/jjloader.gif" alt="">',
+            padding: 20,
+            nextSelector : ".navx-links a[rel=prev]",
+            contentSelector: "div.post",
+            autoTrigger: false,
+            callback: page_loaded,
+            debug: false
+        });
+
+        $('#sidebar_nav_inner').jscroll({
+            //nextSelector : ".navx-links a[rel=prev]",
+            loadingHtml: '<img src="/wp-content/themes/nyyimby_new_5th/img/jjloader.gif" alt="">',
+            padding: 20,
+            nextSelector: ".next_link",
+            contentSelector: "div.test_inner_news",
+            autoTrigger: false,
+            callback: menu_page_loaded,
+            debug: false
+        });
+
+        $('#main_tab').scroll(function() {
+            get_next_posts(100);
+        });
+
+        $('.my-col.cx').scroll(function() {
+            get_next_post(100);
+        });
+
+        $('.menujax').click(function(e) {
+            e.preventDefault();
+            var id = $(this).attr('data-id');
+            var el = $('#'+id);
+            if (! el.length) {
+                load_ajax_content($(this).attr('href'));
+            } else {
+                clearTimeout(to_1);
+                to_1 = setTimeout('load_ajax_delay_scroll("#'+id+'")', 750);
+            }
+        });
+    }
+
+    function load_ajax_content(href) {
+        $.ajax({
+            url: "/wp-admin/admin-ajax.php",
+            type: 'POST',
+            data: "action=wpa_post_load_jj&href=" + href,
+            success: function (html) {
+                var htm = $(html).html(); // this removes teh outer div.post
+                $(htm).children('navx-links.hidden').remove();
+                $('#cx .jscroll-inner .navx-links.hidden').before($(htm));
+                clearTimeout(to_1);
+                to_1 = setTimeout('load_ajax_delay_scroll("#cx .post")', 750);
+            }
+        });
+        // there is no reason to scroll the left menu area
+        //$('.my-col').scrollTop(0);
+    }
+    function load_ajax_delay_scroll(el_sel) {
+        // TODO work out why the scrollTo isn't working
+        // is it the elements (seems not to be)
+        // is it the scrollTo custom function (no errors from that yet)
+        //var scroller = $('#cx').parent('.my-col');
+        //var el = $(el_sel).last().prev();
+        //scroller.scrollTo(el);
     }

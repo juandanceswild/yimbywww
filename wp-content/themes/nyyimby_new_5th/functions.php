@@ -706,9 +706,9 @@ $current_post = query_posts( $args );
  get_template_part( 'content', 'ajax' );
  exit;
 }
-add_action( 'wp_ajax_wpa_post_load', 'ajax_post_load' );
+//add_action( 'wp_ajax_wpa_post_load', 'ajax_post_load' );
 
-add_action( 'wp_ajax_nopriv_wpa_post_load', 'ajax_post_load' );
+//add_action( 'wp_ajax_nopriv_wpa_post_load', 'ajax_post_load' );
 
 
 
@@ -783,8 +783,8 @@ add_action('init', 'init_building_type', 0);
 
 
 /* Post URLs to IDs function, supports custom post types - borrowed and modified from url_to_postid() in wp-includes/rewrite.php */
-function bwp_url_to_postid($url)
-{
+function bwp_url_to_postid($url) {
+  // though most of the bwp isn't, this function IS in use for ajax in the 10/2014 version
   global $wp_rewrite;
 
   $url = apply_filters('url_to_postid', $url);
@@ -1064,4 +1064,27 @@ function get_args_tax($args) {
     }
     $s = ucwords($tag).': '.$tax;
     return $s;
+}
+
+
+add_action( 'wp_ajax_wpa_post_load_jj', 'ajax_post_load' );
+add_action( 'wp_ajax_nopriv_wpa_post_load_jj', 'ajax_post_load' );
+// the original wpa_post_load needed updates to template used
+function ajax_post_load() {
+
+    //error_log('ajax_post_load: '.$_REQUEST['href'], 3, '/home/webjuju/nyyimby/error_log');
+    // bwp_url_to_postid from the now unused
+    // boostrap wordpress library required
+    global $post;
+
+    $postID = bwp_url_to_postid($_REQUEST['href']);
+    $args = array(
+        'p'  => $postID,
+        'posts_per_page' => 1,
+        'post_type' => 'post',
+    );
+    $post = query_posts( $args );
+
+    include('page-pager-page.php');
+    die();
 }
