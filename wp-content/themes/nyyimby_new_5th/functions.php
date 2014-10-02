@@ -1038,8 +1038,10 @@ function get_args($postsperpage=22) {
     $wp_query->query($args);
     if ($debug) error_log("\n".'get_args found '.count($wp_query->posts).' posts for '.print_r($args,1)."\n", 3, '/home/webjuju/nyyimby/error_log');
 
-    $post = $wp_query->posts[0];
-    setup_postdata($post);
+    if (empty($qo->ID)) {
+        $post = $wp_query->posts[0];
+        setup_postdata($post);
+    }
 
     return $args;    
 }
