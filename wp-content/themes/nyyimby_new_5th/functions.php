@@ -1006,13 +1006,14 @@ function get_args($postsperpage=22) {
         $qo = get_queried_object();
         if (!empty($qo->post_date)) {
 
-            $d = strtotime($qo->post_date)+86400;
+            $d = strtotime($qo->post_date);
             $args['date_query'] = array(
                 array(
                     'before'    => array(
                         'year'  => date('Y', $d),
                         'month' => date('m', $d),
                         'day'   => date('d', $d),
+                        'hour'  => date('H', $d+3600),
                     ),
                     'inclusive' => true,
                 ),
