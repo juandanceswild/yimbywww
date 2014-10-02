@@ -679,11 +679,11 @@ function save_cat_details($post_id) {
   $catName = $catTerms->slug;
   
   update_post_meta($post->ID, "primary_cat", $catName);
-}
+ }
 }
 
 
-function ajax_post_load() {
+function ajax_post_load_orig() {
    global $post;
  $url = $_POST['href'];
  $post_type = 'post';
