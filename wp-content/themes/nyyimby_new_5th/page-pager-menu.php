@@ -52,12 +52,12 @@ if (!have_posts()) die('<div class="test_inner_news"></div>');
                     if (!empty($post->ID)) : ?>
 
                 <li class="media">
-                    <a class="pull-left on-page-menu" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="left_nav_link" data-id="post-<?php echo $post->ID; ?>">
+                    <a class="pull-left on-page-menu menujax" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="left_nav_link menujax" data-id="post-<?php echo $post->ID; ?>">
                         <?php echo the_post_thumbnail('square_thumb');  ?>
                     </a>
 
                     <div class="media-body">
-                        <a href="<? the_permalink(); ?>">
+                        <a href="<? the_permalink(); ?>" class="menujax" data-id="post-<?php echo $post->ID; ?>">
                             <p>
                                 <? the_title(); ?>
                             </p>
