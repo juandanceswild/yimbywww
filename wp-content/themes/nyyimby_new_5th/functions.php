@@ -985,44 +985,45 @@ function get_args($postsperpage=22) {
 
     $args = array();
 
+    preg_match('!/pager-(menu|page)/!', $_SERVER['REQUEST_URI'], $matches);
+    if (!empty($matches[1])) $paged_item = $matches[1];
+
     if (!empty($_GET['args'])) {
 
         // we know this to be an ajax call...all ajax calls send existing wpdb args
         $args = unserialize(base64_decode(@$_GET['args']));
 
         // what we don't know yet is if this call is for menus or pages
-        preg_match('!/pager-(menu|page)/([0-9]*)[?]?!', $_SERVER['REQUEST_URI'], $matches);
-        if ($matches[1]=='menu') {
-            $paged_item = 'menu_paged';
-            $postsperpage = 22;
-        } else {
-            $paged_item = 'page_paged';
-            $postsperpage = 1;
-        }
-        $args['paged'] = (@$matches[2]) ?: 1;
+        preg_match('!/pager-'.$paged_item.'/([0-9]*)[?]?!', $_SERVER['REQUEST_URI'], $matches);
+        $args['paged'] = (@$matches[1]) ?: 1;
 
     } else {
 
         $qo = get_queried_object();
-        if (!empty($qo->post_date)) {
-
-            $d = strtotime($qo->post_date);
-            $args['date_query'] = array(
-                array(
-                    'before'    => array(
-                        'year'  => date('Y', $d),
-                        'month' => date('m', $d),
-                        'day'   => date('d', $d),
-                        'hour'  => date('H', $d+3600),
-                    ),
-                    'inclusive' => true,
-                ),
-            );
-        }
         if (!empty($qo->taxonomy)) {
             $args[$qo->taxonomy] = $qo->slug;
             $args['taxonomy_name'] = $qo->name;
         }
+    }
+
+    if (!empty($post->post_date)) {
+        $d = strtotime($post->post_date);
+    }
+    if (empty($date) && !empty($qo->post_date)) {
+        $d = strtotime($qo->post_date);
+    }
+    if ($date) {
+        $args['date_query'] = array(
+            array(
+                'before'    => array(
+                    'year'  => date('Y', $d),
+                    'month' => date('m', $d),
+                    'day'   => date('d', $d),
+                    'hour'  => date('H', $d+3600),
+                ),
+                'inclusive' => true,
+            ),
+        );
     }
 
     $a2 = array('post_type' => 'post', 'showposts' => $postsperpage);
