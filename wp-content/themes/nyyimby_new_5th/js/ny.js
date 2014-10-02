@@ -294,7 +294,11 @@
 
         // set the share icons location
         $('#stuff').prepend($('#soc'));
-        var x = ($(window).width() < 1025) ? 14 : 0;
+        switch(true) {
+            case (vis < 1025): x = 14; break;
+            case (vis < 1280): x = 20; break;
+            default:           x = 0;
+        }
         $('#soc').css({'left':'','margin-left':$('#stuff').width()-x, 'margin-top': '20px'});
    }
    function fix_body_width() {
