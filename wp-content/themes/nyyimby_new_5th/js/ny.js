@@ -66,6 +66,9 @@
         reset_post_menu_vars('menu');
         set_share_link_post_hover();
 
+        // ads are normally filled when the post is found but other pages need them too
+        if (posts_on_page[0]===undefined) fill_ads();
+
         $(window).resize(check_frame_height);
         check_frame_height();
 
@@ -94,7 +97,7 @@
             last_post_id = cur_post_id;
 
             // go get some new ads, finally
-            $.ajax({'url':'/ad_rotate.php'}).done(function(r){$('#ads').html(r)});
+            fill_ads();
 
             // turn off active for all menu post choices
             $('.on-page-menu').parent().removeClass('active-menu-post');
@@ -313,4 +316,7 @@
                 $('body').css({'height':'100%', 'overflow-y':'hidden'});
                 $('.my-col').fadeIn();
             }
+    }
+    function fill_ads() {
+        $.ajax({'url':'/ad_rotate.php'}).done(function(r){$('#ads').html(r)});
     }

@@ -17,7 +17,7 @@ get_header(); ?>
 <div class="summerville">
 
        <div class="white pt-top">
-            <div class="col-md-3 visible-md visible-lg" id="main_tab">
+            <div class="my-col col-md-3 gray visible-md visible-lg" id="main_tab">
             </div>
 
             <div class="my-col rb cx col-md-9">
@@ -60,5 +60,4 @@ get_header(); ?>
 
 </div>
 
-
-<? get_footer(); ?>
+<?php get_footer();?>
