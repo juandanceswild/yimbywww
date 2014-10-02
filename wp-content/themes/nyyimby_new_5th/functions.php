@@ -979,8 +979,7 @@ function prefix_load_term_posts () {
 }
 
 function get_args($postsperpage=22) {
-    // TODO find a way to properly scope the paging vars
-    global $wp_query, $post, $menu_paged, $page_paged;
+    global $wp_query, $post;
 
     $debug = 1;
 
@@ -992,17 +991,15 @@ function get_args($postsperpage=22) {
         $args = unserialize(base64_decode(@$_GET['args']));
 
         // what we don't know yet is if this call is for menus or pages
-        preg_match('!/pager-menu/([0-9]*)[?]?!', $_SERVER['REQUEST_URI'], $m1);
-        $menu_paged = (integer) @$m1[1];
-
-        preg_match('!/pager-page/([0-9]*)[?]?!', $_SERVER['REQUEST_URI'], $m2);
-        $page_paged = (integer) @$m2[1];
-
-        $paged_item = ($menu_paged > $page_paged) ? 'menu_paged': 'page_paged';
-        $postsperpage = ($paged_item=='menu_paged') ? 22 : 1;
-
-        // now we know, but only need to know what page we're on
-        $args['paged'] = ${$paged_item}+1;
+        preg_match('!/pager-(menu|page)/([0-9]*)[?]?!', $_SERVER['REQUEST_URI'], $matches);
+        if ($matches[1]=='menu') {
+            $paged_item = 'menu_paged';
+            $postsperpage = 22;
+        } else {
+            $paged_item = 'page_paged';
+            $postsperpage = 1;
+        }
+        $args['paged'] = (@$matches[2]) ?: 1;
 
     } else {
 
@@ -1027,11 +1024,10 @@ function get_args($postsperpage=22) {
         }
     }
 
-    if (empty($menu_paged)) $menu_paged = 1;
-    if (empty($page_paged)) $page_paged = 1;
-
     $a2 = array('post_type' => 'post', 'showposts' => $postsperpage);
     $args = array_merge($args, $a2);
+
+    if (!empty($args['paged'])) $args['paged']++;
 
     $temp_post = $post;
     $temp = $wp_query;

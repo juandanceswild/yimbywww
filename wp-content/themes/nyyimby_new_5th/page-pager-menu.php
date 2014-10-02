@@ -1,6 +1,6 @@
 <?php
-global $menu_paged;
 $args = get_args();
+$menu_paged = $args['paged'];
 ?>
 
 <div class="scroll_wrapper">

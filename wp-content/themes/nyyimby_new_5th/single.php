@@ -37,14 +37,7 @@ get_header(); ?>
 
                     <div id="stuff" class="jj">
                         <div id="cx">
-                            <div class="post">
-                                <div class="left_post_navasd">
-                        <?php include('page-pager-page.php'); ?>
-                                </div>
-                                <div class="navx-links" style="display: none;">
-                        <a rel="prev" href="<?php echo home_url(); ?>/pager-page/<?php echo $page_paged; if (!empty($args)) : ?>?args=<?php echo base64_encode(serialize($args)); endif; ?>" class="next_link"></a>
-                                </div>
-                            </div>
+                            <?php include('page-pager-page.php'); ?>
                         </div>
                     </div>
 

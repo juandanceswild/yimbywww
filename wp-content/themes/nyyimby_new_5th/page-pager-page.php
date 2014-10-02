@@ -1,6 +1,11 @@
 <?php
 $args = get_args(1);
+$page_paged = $args['paged'];
+if (!empty($post)) :
 ?>
+<div class="post">
+    <div class="left_post_navasd">
+
 
 <div id="post-<?php the_ID(); ?>" <?php post_class('on-page-post'); ?>>
 
@@ -68,3 +73,13 @@ $args = get_args(1);
 
     <div class="clearfix"></div>
 </div>
+
+
+
+    </div>
+    <div class="navx-links hidden">
+      <a rel="prev" href="<?php echo home_url(); ?>/pager-page/<?php echo $page_paged; if (!empty($args)) : ?>?args=<?php echo base64_encode(serialize($args)); endif; ?>"></a>
+    </div>
+</div>
+
+<?php endif; ?>
