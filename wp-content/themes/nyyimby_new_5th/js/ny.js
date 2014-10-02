@@ -18,24 +18,6 @@
     // Navigation
     $(document).on('ready', function() {
 
-            $.fn.scrollTo = function(elem) { 
-
-                var uo = $(elem).offset();
-                var u = (uo) ? uo.top : 0;
-                var to = $(this).offset();
-                var t = (to) ? to.top : 0;
-                var s = $(this).scrollTop() - t + uo;
-
-                // account for the date height if there is a date heading before it
-                var dh = elem.prev('li');
-                if (dh.hasClass('dateHeading')) { s = (s-40); if (s < 0) s = 0; }
-                // now account for the taxonomy header
-                if (elem.text() == elem.parent('ul').find('li:first').text()) s = (s-40); 
-
-                $(this).scrollTop(s); 
-                return this; 
-            };
-
         addthis.init();
 
         setTimeout('fix_body_width();', 1000);
