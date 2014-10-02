@@ -13,10 +13,6 @@
 
 get_header(); ?>
 
-<?php
-$paged = (get_query_var('page')) ? get_query_var('page') : 1;
-?>
-
 <div id="soc">
     <div class="addthis_sharing_toolbox addthis_32x32_style">
         <a class="addthis_button_facebook"></a>
@@ -32,7 +28,33 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
 
        <div class="white pt-top">
             <div class="my-col col-md-3 visible-md visible-lg" id="main_tab">
-<?php include('page-pager-menu.php'); ?>
+<?php
+    include('page-pager-menu.php');
+
+    // the query was defined in pager
+    // try to find our next post link
+/*
+    global $wp_query;
+    $foundit = 0;
+
+    foreach ($wp_query->posts as $q) {
+      if ($foundit) {
+error_log($q->post_name.'::'.print_r($_SESSION['wpdb_args'],true)."\n", 3, '/home/webjuju/nyyimby/error_log');
+        $next_link = get_the_permalink($q->ID);
+        break;
+      }
+      if ($q->ID==$post->ID) {
+        $foundit = 1;
+        continue;
+      }
+    }
+    if (empty($next_link)) {
+       error_log("\n\n".'the next link WAS empty in single! count: ('.count($wp_query->posts, 1).')'."\n", 3, '/home/webjuju/nyyimby/error_log'); 
+       
+    }
+    error_log('next_link: '.$next_link."\n", 3, '/home/webjuju/nyyimby/error_log');
+*/
+?>
             </div>
 
             <div class="my-col rb cx col-md-9">
@@ -43,10 +65,10 @@ $paged = (get_query_var('page')) ? get_query_var('page') : 1;
                         <div id="cx">
                             <div class="post">
                                 <div class="left_post_navasd">
-                        <?php get_template_part('content', 'entry'); ?>
+                        <?php include('page-pager-page.php'); ?>
                                 </div>
                                 <div class="navx-links" style="display: none;">
-                        <?php previous_post_link(); ?>
+                        <a rel="prev" href="<?php echo home_url(); ?>/pager-page/<?php echo $page_paged; if (!empty($args)) : ?>?args=<?php echo base64_encode(serialize($args)); endif; ?>" class="next_link">
                                 </div>
                             </div>
                         </div>

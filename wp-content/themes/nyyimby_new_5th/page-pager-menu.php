@@ -1,97 +1,8 @@
 <?php
-    global $wp_query, $post;
-
-    preg_match('!/pager-menu/([0-9]*)[?]!', $_SERVER['REQUEST_URI'], $matches);
-
-    $paged = (integer) @$matches[1];
-    if (!empty($_GET['args'])) $args = unserialize(base64_decode(@$_GET['args']));
-    $postsperpage = 22;
-
-    if (!$paged) $paged = 1;
-
-    // the args for the query should vary
-    $args = false;
-    $queried_object = get_queried_object();
-    // TODO: perhaps we can put the pre-jax in here:
-    //if (!empty($queried_object)) $_SESSION['qo'] = $queried_object;
-
-    // arg set: existing, active ajaxing
-    if ($paged===1) :
-        unset($_SESSION['wpdb_args']);
-    endif;
-
-    $cat = @$queried_object->query['category_name'];
-    $term_taxo = $queried_object->taxonomy;
-    $args = array();
-
-    switch(true) {
-        case (!empty($args)):
-            // args were passed in serialized
-        break;
-        case (!empty($_SESSION['wpdb_args'])):
-            $args = $_SESSION['wpdb_args']; 
-        break;
-        case (!empty($cat)):
-            $term_slug = $queried_object->slug;
-            $args = array('category_name'=>$term_slug); 
-            $_SESSION['wpdb_args'] = $args;
-            echo '<h2 class="archive-title category">'.$queried_object->query['category_name'].'</h2>';
-        break;
-        case (!empty($term_taxo)):
-            $term_slug = $queried_object->slug;
-            $term_name = $queried_object->name;
-            $temp_post = $post; // Storing the object temporarily
-            $args = array(
-                'taxonomy'=>$term_taxo,
-                'term'=>$term_slug,
-            ); 
-            echo '<h2 class="archive-title">'.$term_name.'</h2>';
-            //$_SESSION['wpdb_args']['cat'] = $args;
-        break;
-        case (!empty($queried_object->ID)):
-            $d = strtotime($queried_object->post_date)+86400;
-            $args = array(
-                'date_query' => array(
-                    array(
-                        'before'    => array(
-                            'year'  => date('Y', $d),
-                            'month' => date('m', $d),
-                            'day'   => date('d', $d),
-                        ),
-                        'inclusive' => true,
-                    ),
-                ),
-            ); 
-            //echo '<h2 class="archive-title">'.$term_name.'</h2>';
-        break;
-        case (!empty($cat)):
-            $term_slug = $queried_object->slug;
-            $args = array('category_name'=>$term_slug); 
-        break;
-    }
-    // merge it in with the defaults
-    $args = array_merge($args, array('post_type' => 'post', 'showposts' => $postsperpage));
-    $args['paged'] = $paged;
-
-
-    $temp_post = $post; // Storing the object temporarily
-    $temp = $wp_query;
-    $wp_query = null;
-    $wp_query = new WP_Query();
-
-    // have a default set of args that just pull in all posts
-    // plan to be able to pick up the args later if they exist
-    $_SESSION['wpdb_args'] = $args;
-
-    $wp_query->query($args);
-
-    $first_date = true;
-    $first = true;
-
-    if (empty($slug)) $slug = 'pager-menu';
+global $menu_paged;
+$args = get_args();
 ?>
 
-<?php // this was the beginning of main_tab.php ?>
 <div class="scroll_wrapper">
     <div class="sidebar_nav_inner_news" id="sidebar_nav_inner">
         <div class="test_inner_news">
@@ -159,7 +70,7 @@
 <?php if (!empty($once)) : ?>
             <ul>
                 <li class="next">
-                    <a href="<?php echo home_url(); ?>/pager-menu/<?php echo $paged+1; ?>?args=<?php echo base64_encode(serialize($args)); ?>" class="next_link">
+                    <a href="<?php echo home_url(); ?>/pager-menu/<?php echo $menu_paged; if (!empty($args)) : ?>?args=<?php echo base64_encode(serialize($args)); endif; ?>" class="next_link">
                         <span class="meta-nav">&larr;</span> More posts
                     </a>
                 </li>
