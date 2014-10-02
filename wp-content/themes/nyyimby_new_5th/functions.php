@@ -981,7 +981,7 @@ function prefix_load_term_posts () {
 function get_args($postsperpage=22) {
     global $wp_query, $post;
 
-    $debug = 1;
+    $debug = 0;
 
     $args = array();
 
@@ -1041,86 +1041,4 @@ function get_args($postsperpage=22) {
     setup_postdata($post);
 
     return $args;    
-}
-
-function get_args_old($paged) {
-    global $wp_query, $post;
-
-    $debug = false;
-    if ($debug) error_log("\n".'GET ARGS -> START'."\n", 3, '/home/webjuju/nyyimby/error_log');
-
-    // the args for the query should vary
-    $args = false;
-
-    if ($paged===1) :
-        if ($debug) error_log('UNSET WPDB ARGS!'."\n", 3, '/home/webjuju/nyyimby/error_log');
-        unset($_SESSION['wpdb_args']);
-    endif;
-
-    // the session is for direct movement, the get args is for indirect movement
-    if (!empty($_GET['args'])) {
-        $_SESSION['wpdb_args'] = unserialize(base64_decode(@$_GET['args']));
-    }
-
-    if (empty($_SESSION['wpdb_args'])) {
-        $queried_object = get_queried_object();
-            // here we only need one post but the menu needs more
-            $d = strtotime($queried_object->post_date)+86400;
-        if ($debug) error_log('qo: '.print_r($queried_object, 1), 3, '/home/webjuju/nyyimby/error_log');
-        $_SESSION['wpdb_args']['cat'] = @$queried_object->query['category_name'];
-        $_SESSION['wpdb_args']['taxonomy'] = @$queried_object->taxonomy;
-        $_SESSION['wpdb_args']['slug'] = @$queried_object->slug;
-        $_SESSION['wpdb_args']['name'] = @$queried_object->name;
-    }
-    extract($_SESSION['wpdb_args'], EXTR_REFS);
-    if ($debug) error_log('wpdb extracted...taxo: '.print_r($taxonomy, 1)."\n", 3, '/home/webjuju/nyyimby/error_log');
-
-    $args = array();
-
-    switch(true) {
-        case (!empty($cat)):
-            echo '<h2 class="archive-title category">'.ucwords($cat).'</h2>';
-            if ($debug) error_log('!empty($cat): '.print_r($cat, 1), 3, '/home/webjuju/nyyimby/error_log');
-            $args = array('category_name'=>$cat);
-            $new_args = $args;
-        break;
-        case (!empty($taxonomy)):
-            echo '<h2 class="archive-title">'.ucwords($name).'</h2>';
-            if ($debug) error_log('!empty($taxonomy)/slug: '.$taxonomy.'/'.$slug."\n", 3, '/home/webjuju/nyyimby/error_log');
-            $args = array(
-                'taxonomy'=>$taxonomy,
-                'term'=>$slug,
-            ); 
-            $new_args = $args;
-        break;
-        case (!empty($queried_object->ID)):
-            if ($debug) error_log('!empty($qo->ID): '.$taxonomy.'/'.$slug."\n", 3, '/home/webjuju/nyyimby/error_log');
-            // here we only need one post but the menu needs more
-            $d = strtotime($queried_object->post_date)+86400;
-            $args = array(
-                'date_query' => array(
-                    array(
-                        'before'    => array(
-                            'year'  => date('Y', $d),
-                            'month' => date('m', $d),
-                            'day'   => date('d', $d),
-                        ),
-                        'inclusive' => true,
-                    ),
-                ),
-            );
-            $new_args = $args;
-            //echo '<h2 class="archive-title">'.$term_name.'</h2>';
-        break;
-        default:
-            if ($debug) error_log('switch default'."\n", 3, '/home/webjuju/nyyimby/error_log');
-    }
-    // merge it in with the defaults
-    $default = array('post_type' => 'post', 'showposts' => $postsperpage);
-    $args = array_merge($new_args, $default);
-    $args['paged'] = $paged;
-    $args['pagedr2'] = $paged;
-    if ($debug) error_log('FINAL GET ARGS: '.print_r($args, 1), 3, '/home/webjuju/nyyimby/error_log');
-
-    return $args;
 }
