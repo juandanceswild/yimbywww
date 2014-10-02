@@ -18,6 +18,18 @@
     // Navigation
     $(document).on('ready', function() {
 
+        $.fn.scrollTo = function(elem) {
+            var s = $(this).scrollTop() - $(this).offset().top + $(elem).offset().top;
+            // account for the date height if there is a date heading before it
+            var dh = elem.prev('li');
+            if (dh.hasClass('dateHeading')) { s = (s-40); if (s < 0) s = 0; }
+            // now account for the taxonomy header
+            if (elem.parent('ul').prev('.archive-title').length>0) s = (s-40);
+
+            $(this).scrollTop(s);
+            return this;
+        };
+
         addthis.init();
 
         setTimeout('fix_body_width();', 1000);
