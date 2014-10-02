@@ -51,7 +51,7 @@ $args = get_args(1);
               <p id="photo_caption"><?php echo get_post(get_post_thumbnail_id())->post_excerpt; ?></p>
         </div>
 
-        <p><?php the_content( the_ID()); ?></p>
+        <p><?php the_content(); ?></p>
 
         <div style="margin-top:14px;">Posted in <?php the_category(' | '); ?>
             <?php if(is_archive()): ?>
