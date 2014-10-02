@@ -88,7 +88,7 @@
             fill_ads();
 
             // turn off active for all menu post choices
-            $('.on-page-menu').parent().removeClass('active-menu-post');
+            $('.menujax').parent().removeClass('active-menu-post');
 
             // get the menu post
             var el = $('a[data-id='+cur_post_id+']').parent();
