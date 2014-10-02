@@ -282,6 +282,7 @@
    function check_frame_height() {
         // try to scroll the page by 0
 
+        var win = $(window).width();
         var vis = $(window).height();
         var hdr = $('div.header').height();
 
@@ -297,9 +298,9 @@
         // set the share icons location
         $('#stuff').prepend($('#soc'));
         switch(true) {
-            case (vis < 1025): x = 14; break;
-            case (vis < 1200): x = 20; break;
-            default:           x = 0;
+            case (win < 1025): x = 14; break;
+            case (win < 1200): x = 20; break;
+            default:           x = 2;
         }
         $('#soc').css({'left':'','margin-left':$('#stuff').width()-x, 'margin-top': '20px'});
    }
