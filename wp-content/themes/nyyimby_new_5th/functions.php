@@ -1042,3 +1042,26 @@ function get_args($postsperpage=22) {
 
     return $args;    
 }
+
+function get_args_tax($args) {
+
+    if (empty($args['taxonomy_name'])) return ''; 
+
+    $tax = $args['taxonomy_name'];
+    unset($args['taxonomy_name']);
+
+    $shortest = -1;
+    foreach ($args as $k=>&$v) {
+        $lev = levenshtein($tax, $v);
+        if ($lev == 0) {
+            $tag = $k;
+            break;
+        }
+        if ($lev <= $shortest || $shortest < 0) {
+            $tag = $k;
+            $shortest = $lev;
+        }
+    }
+    $s = ucwords($tag).': '.$tax;
+    return $s;
+}

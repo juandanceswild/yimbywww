@@ -1,11 +1,18 @@
 <?php
 $args = get_args();
 $menu_paged = $args['paged'];
+$taxonomy = get_args_tax($args);
 ?>
 
 <div class="scroll_wrapper">
     <div class="sidebar_nav_inner_news" id="sidebar_nav_inner">
         <div class="test_inner_news">
+
+            <?php if (!empty($taxonomy)) : ?>
+                <h2 class="archive-title">
+                    <?php echo $taxonomy; ?>
+                </h2>
+            <?php endif; ?>
 
             <ul class="media-list left_post_nav">
 
