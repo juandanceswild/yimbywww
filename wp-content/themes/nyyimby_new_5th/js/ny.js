@@ -211,14 +211,14 @@
 
         if ($(posttab)[0] == undefined) return;
 
+        new ImageCycle();
+
         // TODO: this is case and pasted from get_next_posts...encapsulate this into something reusable
         // is the page still not able to have jscroll attached to it??
         if ($(posttab)[0].scrollHeight == undefined) inrange = 1;
 
         // is the page scrolled almost all the way down?
         if ($(posttab).scrollTop() + $(posttab).innerHeight() + bottom_load_pixel_height > $(posttab)[0].scrollHeight) inrange = 1;
-        //console.log('postab: '+$(posttab).scrollTop() + ' + '+$(posttab).innerHeight() + ' + ' + bottom_load_pixel_height + ' >= ' + $(posttab)[0].scrollHeight);
-        //console.log('postab: '+($(posttab).scrollTop() + $(posttab).innerHeight() + bottom_load_pixel_height) + ' >= ' + $(posttab)[0].scrollHeight);
 
         // is the page not tall enough to trigger a scroll?
         if ($('div.post').innerHeight() < posttab.innerHeight()) {
