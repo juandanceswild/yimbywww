@@ -1,8 +1,8 @@
 <?php
-$args = get_args();
-$menu_paged = $args['paged'];
+$args = get_args(22);
+$menu_paged = (empty($args['paged'])) ? 1 : $args['paged'];
 $taxonomy = get_args_tax($args);
-if (!have_posts()) die('<div class="test_inner_news"></div>');
+if (!have_posts()) die('');
 ?>
 
 <div class="scroll_wrapper">
@@ -13,7 +13,7 @@ if (!have_posts()) die('<div class="test_inner_news"></div>');
                 <h2 class="archive-title affix" data-spy="affix">
                     <?php echo $taxonomy; ?>
                 </h2>
-            <?php $mt="50px"; endif; ?>
+            <?php $mt=($menu_paged<2)?"50px":"0"; endif; ?>
 
             <ul class="media-list left_post_nav" style="padding-top:<?=$mt?>;">
 
