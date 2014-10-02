@@ -1062,6 +1062,11 @@ function get_args_tax($args) {
             $shortest = $lev;
         }
     }
+
+    switch ($tag) {
+        case 'post_type': $tag = 'post type'; break;
+    }
+
     $s = ucwords($tag).': '.$tax;
     return $s;
 }
