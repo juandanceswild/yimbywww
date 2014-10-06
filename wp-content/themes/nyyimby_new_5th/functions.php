@@ -981,9 +981,10 @@ function prefix_load_term_posts () {
 function get_args($postsperpage=22) {
     global $wp_query, $post;
 
-    $debug = 0;
-
     $args = array();
+
+    // primarily for troubleshooting a page-pager-(page|menu).php call
+//    $args['qo'] = $qo;
 
     preg_match('!/pager-(menu|page)/!', $_SERVER['REQUEST_URI'], $matches);
     if (!empty($matches[1])) $paged_item = $matches[1];
@@ -998,11 +999,14 @@ function get_args($postsperpage=22) {
         $args['paged'] = (@$matches[1]) ?: 1;
 
     } else {
+        $qo = $wp_query->get_queried_object();
 
-        $qo = get_queried_object();
         if (!empty($qo->taxonomy)) {
             $args[$qo->taxonomy] = $qo->slug;
             $args['taxonomy_name'] = $qo->name;
+            if ($qo->taxonomy=='category') {
+                $args['category__in'] = array($qo->cat_ID);
+            }
         }
     }
 
@@ -1033,11 +1037,11 @@ function get_args($postsperpage=22) {
 
     $temp_post = $post;
     $temp = $wp_query;
+
     $wp_query = null;
     $wp_query = new WP_Query($args);
 
     $wp_query->query($args);
-    if ($debug) error_log("\n".'get_args found '.count($wp_query->posts).' posts for '.print_r($args,1)."\n", 3, '/home/webjuju/nyyimby/error_log');
 
     if (empty($qo->ID)) {
         $post = $wp_query->posts[0];
@@ -1056,6 +1060,7 @@ function get_args_tax($args) {
 
     $shortest = -1;
     foreach ($args as $k=>&$v) {
+        if (!is_string($v)) continue;
         $lev = levenshtein($tax, $v);
         if ($lev == 0) {
             $tag = $k;
