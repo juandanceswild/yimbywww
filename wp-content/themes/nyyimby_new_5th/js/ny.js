@@ -366,11 +366,19 @@
             type: 'POST',
             data: "action=wpa_post_load_jj&href=" + href,
             success: function (html) {
+
                 var htm = $(html).html(); // this removes teh outer div.post
                 $(htm).children('navx-links.hidden').remove();
                 $('#cx .jscroll-inner .navx-links.hidden').before($(htm));
+
+                reset_post_menu_vars('menu');
+                set_menujax_listeners();
+
+                reset_post_menu_vars('post');
+                set_share_link_post_hover();
+
                 clearTimeout(to_1);
-                to_1 = setTimeout('load_ajax_delay_scroll("#cx div.navx-links.hidden")', 750);
+                to_1 = setTimeout('load_ajax_delay_scroll("#cx div.navx-links.hidden");', 750);
             }
         });
     }
