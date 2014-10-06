@@ -222,6 +222,8 @@
    // menus of posts
    function get_next_posts(to) {
         // check to see if we even have a menu showing!        
+        reset_post_menu_vars('menu');
+        set_menujax_listeners();
 
         var el = $('#main_tab:visible');
         if (el.length < 1) {
@@ -341,7 +343,10 @@
         $('.my-col.cx').scroll(function() {
             get_next_post(100);
         });
+    }
 
+    function set_menujax_listeners() {
+        $('.menujax').off('click');
         $('.menujax').click(function(e) {
             e.preventDefault();
             var id = $(this).attr('data-id');
