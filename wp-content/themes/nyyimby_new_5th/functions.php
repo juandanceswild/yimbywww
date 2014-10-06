@@ -978,7 +978,7 @@ function prefix_load_term_posts () {
     die(1);
 }
 
-function get_args($postsperpage=22) {
+function get_args($postsperpage=22,$ajax=0) {
     global $wp_query, $post;
 
     $args = array();
@@ -1035,17 +1035,19 @@ function get_args($postsperpage=22) {
 
     if (!empty($args['paged'])) $args['paged']++;
 
-    $temp_post = $post;
-    $temp = $wp_query;
+    if (empty($ajax)) {
+        $temp_post = $post;
+        $temp = $wp_query;
 
-    $wp_query = null;
-    $wp_query = new WP_Query($args);
+        $wp_query = null;
+        $wp_query = new WP_Query($args);
 
-    $wp_query->query($args);
+        $wp_query->query($args);
 
-    if (empty($qo->ID)) {
-        $post = $wp_query->posts[0];
-        setup_postdata($post);
+        if (empty($qo->ID)) {
+            $post = $wp_query->posts[0];
+            setup_postdata($post);
+        }
     }
 
     return $args;    
@@ -1086,19 +1088,20 @@ add_action( 'wp_ajax_nopriv_wpa_post_load_jj', 'ajax_post_load' );
 // the original wpa_post_load needed updates to template used
 function ajax_post_load() {
 
-    //error_log('ajax_post_load: '.$_REQUEST['href'], 3, '/home/webjuju/nyyimby/error_log');
     // bwp_url_to_postid from the now unused
     // boostrap wordpress library required
     global $post;
 
     $postID = bwp_url_to_postid($_REQUEST['href']);
-    $args = array(
-        'p'  => $postID,
-        'posts_per_page' => 1,
-        'post_type' => 'post',
-    );
+    $args = unserialize(base64_decode($_GET['args']));
+    //error_log('ajax_post_load: '.$_REQUEST['href']."\npostid found: $postID", 3, '/home/webjuju/nyyimby/error_log');
+    $args['p'] = $postID;
+    $args['posts_per_page'] = 1;
+    $args['post_type'] = 'post';
+
     $post = query_posts( $args );
 
+    $ajax = 1;
     include('page-pager-page.php');
     die();
 }

@@ -18,15 +18,25 @@
     // Navigation
     $(document).on('ready', function() {
 
-        $.fn.scrollTo = function(elem) {
-            var s = $(this).scrollTop() - $(this).offset().top + $(elem).offset().top;
+        $.fn.scrollMenuTo = function(scroller, elem) {
+
+            var tst = scroller.scrollTop();
+            var to = scroller.offset();
+            var tot = (to===undefined) ? 0 : to.top;
+
+            var eo = $(elem).offset();
+            var eot = (eo===undefined) ? 0 : eo.top;
+
+
+            var s = tst - tot + eot;
+
             // account for the date height if there is a date heading before it
             var dh = elem.prev('li');
             if (dh.hasClass('dateHeading')) { s = (s-40); if (s < 0) s = 0; }
             // now account for the taxonomy header
             if (elem.parent('ul').prev('.archive-title').length>0) s = (s-40);
 
-            $(this).scrollTop(s);
+            scroller.scrollTop(s);
             return this;
         };
 
@@ -85,14 +95,14 @@
             $('.menujax').parent().removeClass('active-menu-post');
 
             // get the menu post
-            var el = $('a[data-id='+cur_post_id+']').parent();
+            var el = $('a[data-id='+cur_post_id+']').parent('li');
 
             // set it to active
             el.addClass('active-menu-post');
 
             // and bring it to the top of it's scrollable area
             var scroller = el.parents('.my-col');
-            scroller.scrollTo(el);
+            scroller.scrollMenuTo(scroller, el);
 
 
             /* this is mostly all the original code (updated slightly) that updates the url, calls google, and share icons */ var state = {}; if (!window.history || !window.history.replaceState) { return; }
@@ -340,7 +350,7 @@
                 load_ajax_content($(this).attr('href'));
             } else {
                 clearTimeout(to_1);
-                to_1 = setTimeout('load_ajax_delay_scroll("#'+id+'")', 750);
+                to_1 = setTimeout('load_ajax_delay_scroll("#'+id+'")', 250);
             }
         });
     }
@@ -355,17 +365,12 @@
                 $(htm).children('navx-links.hidden').remove();
                 $('#cx .jscroll-inner .navx-links.hidden').before($(htm));
                 clearTimeout(to_1);
-                to_1 = setTimeout('load_ajax_delay_scroll("#cx .post")', 750);
+                to_1 = setTimeout('load_ajax_delay_scroll("#cx div.navx-links.hidden")', 750);
             }
         });
-        // there is no reason to scroll the left menu area
-        //$('.my-col').scrollTop(0);
     }
     function load_ajax_delay_scroll(el_sel) {
-        // TODO work out why the scrollTo isn't working
-        // is it the elements (seems not to be)
-        // is it the scrollTo custom function (no errors from that yet)
-        //var scroller = $('#cx').parent('.my-col');
-        //var el = $(el_sel).last().prev();
-        //scroller.scrollTo(el);
+        var scroller = $('#cx').parents('.my-col');
+        var el = $(el_sel);
+        scroller.scrollMenuTo(scroller, el);
     }

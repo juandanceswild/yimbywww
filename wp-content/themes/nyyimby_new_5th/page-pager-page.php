@@ -1,7 +1,11 @@
 <?php
-$args = get_args(1);
+$args = get_args(1,$ajax);
 $page_paged = $args['paged'];
-if (!empty($post)) :
+
+if (!empty($post)) : 
+
+if (!empty($ajax)) the_post();
+
 ?>
 <div class="post">
     <div class="left_post_navasd">
@@ -10,7 +14,7 @@ if (!empty($post)) :
 <div id="post-<?php the_ID(); ?>" <?php post_class('on-page-post'); ?>>
 
     <div class="post-wrapper bordered">
-        <h1 class="entry-title"><?php the_title();?></h1>
+        <h1 class="entry-title"><?php the_title(); ?></h1>
         <span class="vcard author post-author">
             <span class="fn">
                 <h4 class="by_line">By: <?php the_author() ?> on <span class="post-date updated"><?php the_time('F jS Y'); ?> at <?php the_time('g:i a'); ?></span></h4>
