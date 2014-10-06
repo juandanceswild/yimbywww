@@ -1031,19 +1031,14 @@ function get_args($postsperpage=22) {
 
     if (!empty($args['paged'])) $args['paged']++;
 
-    if ($paged_item!='menu' && !empty($qo->ID)) {
-        // we have a post sent in...
-        $post = $qo;
-    } else {
+    $temp_post = $post;
+    $temp = $wp_query;
+    $wp_query = null;
+    $wp_query = new WP_Query($args);
 
-        $wp_query = null;
-        $wp_query = new WP_Query($args);
+    $wp_query->query($args);
+    if ($debug) error_log("\n".'get_args found '.count($wp_query->posts).' posts for '.print_r($args,1)."\n", 3, '/home/webjuju/nyyimby/error_log');
 
-        $wp_query->query($args);
-        if ($debug) error_log("\n".'get_args found '.count($wp_query->posts).' posts for '.print_r($args,1)."\n", 3, '/home/webjuju/nyyimby/error_log');
-    }
-
-    // this may not be needed now
     if (empty($qo->ID)) {
         $post = $wp_query->posts[0];
         setup_postdata($post);
