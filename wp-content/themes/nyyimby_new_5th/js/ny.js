@@ -120,7 +120,11 @@
             scroller.scrollMenuTo(scroller, el);
 
 
-            /* this is mostly all the original code (updated slightly) that updates the url, calls google, and share icons */ var state = {}; if (!window.history || !window.history.replaceState) { return; }
+            /* this is mostly all the original code (updated slightly) that updates the url, calls google, and share icons */
+            var state = {};
+            if (!window.history || !window.history.replaceState) {
+                return;
+            }
 
             var currentURL    = el.find('.media-body > a').attr('href');
             var currentTitle  = el.find('.media-body > a > p').text();
