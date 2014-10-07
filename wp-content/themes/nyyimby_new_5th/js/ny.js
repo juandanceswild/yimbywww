@@ -329,6 +329,9 @@
 
     var to_1 = setTimeout('', 0);
     function do_dom_listeners($) {
+
+        bind_history();
+
         $('.navbar-toggle').on('click', function() {
           setTimeout('toggle_nav()', 1000);
         });
@@ -413,4 +416,19 @@
         var el = $(el_sel);
         if (widescale_debug) console.log('load_ajax_delay_scroll is about to scroll...');
         scroller.scrollMenuTo(scroller, el);
+    }
+
+    function bind_history() {
+        History.Adapter.bind(window,'statechange',function(){
+            var State = History.getState();
+
+            var createtime = State.data.createtime;
+            var timestamp = new Date().getTime();
+            var diff = timestamp - createtime;
+
+            if (diff>500) {
+
+            }
+
+        });
     }
