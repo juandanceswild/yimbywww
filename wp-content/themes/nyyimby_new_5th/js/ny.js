@@ -23,6 +23,7 @@
         $.fn.scrollMenuTo = function(scroller, elem) {
 
             var debug = 1;
+
             if (elem.length > 1) {
                 elem = elem.last();
                 if (debug) console.log('element was given two objects: setting to last for now...');
@@ -112,9 +113,19 @@
             // set it to active
             el.addClass('active-menu-post');
 
+
+            reset_post_menu_vars('menu');
+            set_menujax_listeners();
+            reset_post_menu_vars('post');
+
             // and bring it to the top of it's scrollable area
 console.log('set_share_link_post_hover is about to scroll...');
+//console.log(posts_on_page);
+//console.log(menus_on_page);
             var scroller = el.parents('.my-col');
+            if (scroller === undefined || scroller.length < 1) {
+console.log('okay, it\'s the empty scroller bug');
+            }
             scroller.scrollMenuTo(scroller, el);
 
 
