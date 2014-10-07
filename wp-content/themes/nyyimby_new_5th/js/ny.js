@@ -419,16 +419,31 @@
     }
 
     function bind_history() {
-        History.Adapter.bind(window,'statechange',function(){
-            var State = History.getState();
 
-            var createtime = State.data.createtime;
-            var timestamp = new Date().getTime();
-            var diff = timestamp - createtime;
+// handling push and replace at once and setting a flag that indicates an internal state change. Also does some data normalization and random value injection for forcing state change (that was my special need)
+History.pushOrReplaceState = function (data, title, url, isPush) {
+  var func = isPush ? "pushState" : "replaceState";
+  if (data === undefined || data === null)
+    data = {};
+  if (typeof data !== 'object')
+    data = { value: data };
+  History.internalChanging = true;
+  History[func]($.extend(data, { _ran: Math.random() }), title, url);
+};
+// checks if the flag is set, and resets it immediately
+History.isInternalChange = function () {
+  var b = History.internalChanging;
+  History.internalChanging = false;
+  return b;
+};
+// shorthand for subscribing statechange event, using a callback which accepts the current state as parameter
+History.onStateChange = function(handler)
+{
+  if (!$.isFunction(handler)) return;
+  $(window).on("statechange", function () {
+    if (History.isInternalChange()) return;
+    handler(History.getState());
+  });
+};
 
-            if (diff>500) {
-
-            }
-
-        });
     }
