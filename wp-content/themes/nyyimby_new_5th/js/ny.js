@@ -2,6 +2,8 @@
     // Fixed social icons
 //    var social = new FixedSocial();
 
+    var widescale_debug = 0;
+
     // Advanced search
     var search = new AdvancedSearch();
 
@@ -375,7 +377,7 @@ console.log('okay, it\'s the empty scroller bug');
                 load_ajax_content($(this).attr('href'));
             } else {
                 clearTimeout(to_1);
-console.log('set_menuajax_listeners is calling load_ajax_delay_scroll');
+                if (widescale_debug) console.log('set_menuajax_listeners is calling load_ajax_delay_scroll');
                 to_1 = setTimeout('load_ajax_delay_scroll("#'+id+'")', 250);
             }
         });
@@ -404,7 +406,7 @@ console.log('set_menuajax_listeners is calling load_ajax_delay_scroll');
                 set_share_link_post_hover();
 
                 clearTimeout(to_1);
-console.log('load_ajax_content is calling load_ajax_delay_scroll');
+                if (widescale_debug) console.log('load_ajax_content is calling load_ajax_delay_scroll');
                 load_ajax_delay_scroll("#cx .last-ajaxed");
             }
         });
@@ -413,6 +415,6 @@ console.log('load_ajax_content is calling load_ajax_delay_scroll');
         check_frame_height();
         var scroller = $('#cx').parents('.my-col');
         var el = $(el_sel);
-console.log('load_ajax_delay_scroll is about to scroll...');
+        if (widescale_debug) console.log('load_ajax_delay_scroll is about to scroll...');
         scroller.scrollMenuTo(scroller, el);
     }
