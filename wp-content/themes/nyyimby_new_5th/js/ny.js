@@ -15,10 +15,21 @@
     // for use in js optimization
     var last_post_id = 0;
 
+    var fo_to = setTimeout('', 0);
+
     // Navigation
     $(document).on('ready', function() {
 
         $.fn.scrollMenuTo = function(scroller, elem) {
+
+            var debug = 1;
+            if (elem.length > 1) {
+                elem = elem.last();
+                if (debug) console.log('element was given two objects: setting to last for now...');
+            }
+            if (debug) console.log(scroller);
+            if (debug) console.log('wants to scroll to ');
+            if (debug) console.log(elem);
 
             var tst = scroller.scrollTop();
             var to = scroller.offset();
@@ -37,6 +48,7 @@
             if (elem.parent('ul').prev('.archive-title').length>0) s = (s-40);
 
             scroller.scrollTop(s);
+            
             return this;
         };
 
@@ -101,6 +113,7 @@
             el.addClass('active-menu-post');
 
             // and bring it to the top of it's scrollable area
+console.log('set_share_link_post_hover is about to scroll...');
             var scroller = el.parents('.my-col');
             scroller.scrollMenuTo(scroller, el);
 
@@ -355,6 +368,7 @@
                 load_ajax_content($(this).attr('href'));
             } else {
                 clearTimeout(to_1);
+console.log('set_menuajax_listeners is calling load_ajax_delay_scroll');
                 to_1 = setTimeout('load_ajax_delay_scroll("#'+id+'")', 250);
             }
         });
@@ -366,10 +380,15 @@
             type: 'POST',
             data: "action=wpa_post_load_jj&href=" + href,
             success: function (html) {
-
+                
                 var htm = $(html).html(); // this removes teh outer div.post
-                $(htm).children('navx-links.hidden').remove();
-                $('#cx .jscroll-inner .navx-links.hidden').before($(htm));
+                $('.last-ajaxed').removeClass();
+
+                var el = $(htm).find('div.on-page-post').first();
+                el.addClass('last-ajaxed');
+                el.find('.navx-links').remove();
+
+                $('#cx .jscroll-inner').append(el);
 
                 reset_post_menu_vars('menu');
                 set_menujax_listeners();
@@ -378,12 +397,15 @@
                 set_share_link_post_hover();
 
                 clearTimeout(to_1);
-                to_1 = setTimeout('load_ajax_delay_scroll("#cx div.navx-links.hidden");', 750);
+console.log('load_ajax_content is calling load_ajax_delay_scroll');
+                load_ajax_delay_scroll("#cx .last-ajaxed");
             }
         });
     }
     function load_ajax_delay_scroll(el_sel) {
+        check_frame_height();
         var scroller = $('#cx').parents('.my-col');
         var el = $(el_sel);
+console.log('load_ajax_delay_scroll is about to scroll...');
         scroller.scrollMenuTo(scroller, el);
     }
