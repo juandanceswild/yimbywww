@@ -389,7 +389,7 @@ console.log('set_menuajax_listeners is calling load_ajax_delay_scroll');
             success: function (html) {
                 
                 var htm = $(html).html(); // this removes teh outer div.post
-                $('.last-ajaxed').removeClass();
+                $('.last-ajaxed').removeClass('.last-ajaxed');
 
                 var el = $(htm).find('div.on-page-post').first();
                 el.addClass('last-ajaxed');
