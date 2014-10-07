@@ -116,14 +116,7 @@
             el.addClass('active-menu-post');
 
             // and bring it to the top of it's scrollable area
-console.log('set_share_link_post_hover is about to scroll...');
-//console.log(posts_on_page);
-//console.log(menus_on_page);
             var scroller = el.parents('.my-col');
-            if (scroller === undefined || scroller.length < 1) {
-console.log('okay, it\'s the empty scroller bug');
-                
-            }
             scroller.scrollMenuTo(scroller, el);
 
 
