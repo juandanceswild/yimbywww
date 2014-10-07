@@ -110,7 +110,7 @@
             $('.menujax').parent().removeClass('active-menu-post');
 
             // get the menu post
-            var el = $('a[data-id='+cur_post_id+']').parent('li');
+            var el = $('a[data-id='+cur_post_id+']').parents('li');
 
             // set it to active
             el.addClass('active-menu-post');
