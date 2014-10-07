@@ -29,8 +29,7 @@ if (!have_posts()) die('');
 
                     $p = get_next_post(); // this uses $post->ID
                     if (!empty($post)) {
-                        setup_postdata($p);
-                        $current_date = the_date('l F jS, Y', '', '', false);
+                        $current_date = date('l F jS, Y', strtotime($p->post_date));
                     }
 
                     $noDate = 0;
