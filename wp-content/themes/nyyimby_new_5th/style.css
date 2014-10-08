@@ -420,7 +420,7 @@ h4.by_line {
 .aligncenter,
 div.aligncenter {
     display: block;
-    margin: 5px auto 5px auto;
+    margin: 5px 0 5px 0;
 }
 
 .main_menu_nav {
