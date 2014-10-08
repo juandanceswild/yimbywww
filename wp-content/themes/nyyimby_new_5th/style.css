@@ -1913,3 +1913,7 @@ p {
 p.ft {
     font-size:14px !important;
 }
+
+#ads {
+    min-height:1000px;
+}
