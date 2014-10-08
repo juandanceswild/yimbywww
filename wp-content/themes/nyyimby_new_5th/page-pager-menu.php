@@ -57,7 +57,7 @@ if (!have_posts()) die('');
 
                     <div class="media-body">
                         <a href="<? the_permalink(); ?>" class="menujax" data-id="post-<?php echo $post->ID; ?>">
-                            <p>
+                            <p class="ft">
                                 <? the_title(); ?>
                             </p>
                         </a>

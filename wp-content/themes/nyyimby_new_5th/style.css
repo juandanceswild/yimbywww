@@ -1907,6 +1907,9 @@ h4 {
     margin-bottom: 10px !important;
 }
 p {
-    font-size:13px !important;
+    font-size:15px !important;
     color: #000000 !important;
+}
+p.ft {
+    font-size:14px !important;
 }
