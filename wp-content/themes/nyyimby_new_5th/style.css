@@ -1847,6 +1847,9 @@ body {
 }
 
 @media (min-width: 1200px) {
+  .navbar-header {
+    display:none;
+  }
   .col-lg-4 {
     width:38.3333% !important;
   }
