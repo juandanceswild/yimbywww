@@ -324,7 +324,11 @@
             }
     }
     function fill_ads() {
-        $.ajax({'url':'/ad_rotate.php'}).done(function(r){$('#ads').html(r)});
+        $.ajax({'url':'/ad_rotate.php'}).done(function(r){
+            var vis = $(window).height();
+            $('#ads').html(r);
+            if (vis < 698) $('#adrotate_widgets-3').remove();
+        });
     }
 
     var to_1 = setTimeout('', 0);
