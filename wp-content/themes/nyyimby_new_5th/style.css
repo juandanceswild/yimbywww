@@ -190,7 +190,8 @@ a, a:focus, a:hover, a:active {
 }
 @media (min-width: 1024px) {
   #main-navbar-collapse .nav > li:first-child {
-    margin-left:-35px;
+    margin-left:0px;
+    margin-right:0px;
   }
 }
 
@@ -1892,6 +1893,7 @@ input, button, select, textarea {
 h1 {
     font-weight: 700 !important;
     font-size: 30px !important;
+    margin-top: 7px !important;
 }
 h4 {
     font-size: 12px !important;
