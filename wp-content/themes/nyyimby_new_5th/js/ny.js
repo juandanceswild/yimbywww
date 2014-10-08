@@ -334,6 +334,11 @@
     var to_1 = setTimeout('', 0);
     function do_dom_listeners($) {
 
+        $(window).on('popstate', function(){
+            var newurl = location.href; 
+            $('a[href="'+newurl+'"]').trigger('click');
+        });
+
         $('.navbar-toggle').on('click', function() {
           setTimeout('toggle_nav()', 1000);
         });
