@@ -24,7 +24,7 @@
 
         $.fn.scrollMenuTo = function(scroller, elem) {
 
-            var debug = 1;
+            var debug = 0;
 
             if (elem.length > 1) {
                 elem = elem.last();
