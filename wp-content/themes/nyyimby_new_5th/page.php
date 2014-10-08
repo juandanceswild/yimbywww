@@ -14,14 +14,45 @@
 
 get_header(); ?>
 
-    <div class="content-fluid visible-phone" style="height:100%; padding-top:63px;margin-bottom:40px; z-index: 1000;">
-        <div class="row-fluid">
-            <div class="span12">
-                <?php while (have_posts()) : the_post(); ?>
-                    <h1><?php the_title(); ?></h1>
+<div class="summerville">
 
-                    <p><?php the_content(); ?></p>
-                <?php endwhile; // end of the loop. ?>
+    <div class="white pt-top">
+        <div class="my-col col-md-3 visible-md visible-lg" id="main_tab">
+
+        </div>
+
+        <div class="my-col cx col-md-9">
+            <div class="scroll_wrapper">
+                <div class="col-lg-8">
+
+                    <div id="stuff" class="jj">
+                        <div id="cx">
+                <?php the_post(); ?>
+                <h1><?php the_title(); ?></h1>
+                <p><?php the_content(); ?></p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 visible-lg p-md rb-gray">
+                  <div class="my-col-noscroll ads-col pl-xs-lg" data-spy="affix">
+
+                    <div id="ads"></div>
+
+                    <br class="clr">
+                  </div>
+                  <br class="clr">
+                </div>
+                <br class="clr">
+            </div>
+            <br class="clr">
+        </div>
+        <br class="clr">
+    </div>
+    <br class="clr">
+</div>
+
+
             </div>
         </div>
     </div>
