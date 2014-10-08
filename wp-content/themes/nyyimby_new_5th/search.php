@@ -97,7 +97,7 @@ get_header(); ?>
                     <br class="clr">
                   </div>
                 </div>
-                <div class="my-col-noscroll col-lg-4 visible-lg p-md rb-gray">
+                <div class="my-col-noscroll col-lg-4 visible-lg p-sm rb-gray">
                   <div class="ads-col pl-xs-lg" data-spy="affix">
 
                     <div id="ads"></div>
