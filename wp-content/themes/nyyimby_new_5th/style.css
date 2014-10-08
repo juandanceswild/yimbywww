@@ -124,6 +124,7 @@ html, body {
 .thumbnail:active,
 .thumbnail:hover,
 .thumbnail {
+    background-color:transparent !important;
     border: none !important;
     clear: both;
 }
