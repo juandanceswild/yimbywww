@@ -23,7 +23,7 @@ get_header(); ?>
 
         <div class="my-col cx col-md-9">
             <div class="scroll_wrapper">
-                <div class="col-lg-8">
+                <div class="col-lg-8 pl-no">
 
                     <div id="stuff" class="jj">
                         <div id="cx">

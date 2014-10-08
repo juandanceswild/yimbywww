@@ -116,7 +116,7 @@ foreach ($terms_to_exclude as $t)
 
             <div class="col-sm-9">
               <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-8 pl-no">
 
 
 <nav id="site-navigation" class="nav nav-pills<?php // this is the fix: navbar-fixed-top ?>" role="navigation">
