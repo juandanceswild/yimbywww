@@ -334,8 +334,6 @@
     var to_1 = setTimeout('', 0);
     function do_dom_listeners($) {
 
-        bind_history();
-
         $('.navbar-toggle').on('click', function() {
           setTimeout('toggle_nav()', 1000);
         });
@@ -420,34 +418,4 @@
         var el = $(el_sel);
         if (widescale_debug) console.log('load_ajax_delay_scroll is about to scroll...');
         scroller.scrollMenuTo(scroller, el);
-    }
-
-    function bind_history() {
-
-// handling push and replace at once and setting a flag that indicates an internal state change. Also does some data normalization and random value injection for forcing state change (that was my special need)
-History.pushOrReplaceState = function (data, title, url, isPush) {
-  var func = isPush ? "pushState" : "replaceState";
-  if (data === undefined || data === null)
-    data = {};
-  if (typeof data !== 'object')
-    data = { value: data };
-  History.internalChanging = true;
-  History[func]($.extend(data, { _ran: Math.random() }), title, url);
-};
-// checks if the flag is set, and resets it immediately
-History.isInternalChange = function () {
-  var b = History.internalChanging;
-  History.internalChanging = false;
-  return b;
-};
-// shorthand for subscribing statechange event, using a callback which accepts the current state as parameter
-History.onStateChange = function(handler)
-{
-  if (!$.isFunction(handler)) return;
-  $(window).on("statechange", function () {
-    if (History.isInternalChange()) return;
-    handler(History.getState());
-  });
-};
-
     }
