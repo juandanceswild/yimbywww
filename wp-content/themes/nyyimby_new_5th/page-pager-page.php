@@ -1,6 +1,37 @@
 <?php
+global $prepost;
 $args = get_args(1,$ajax);
 $page_paged = $args['paged'];
+
+if (!empty($prepost)) {
+    $tmpp = $post;
+    $post = $prepost; the_post();
+    $args['preposted'] = true;
+    // TODO: consider combining this snippet from page-pager-menu somehow
+?>
+
+<script>
+var html = '    <li class="dateHeading">\
+                    <? echo the_date('l F jS, Y', '', '', false); ?>\
+                </li>\
+                <li class="media">\
+                    <a class="pull-left on-page-menu menujax left_nav_link" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" data-id="post-<?php echo $post->ID; ?>">\
+                        <?php echo the_post_thumbnail('square_thumb');  ?>\
+                    </a>\
+                    <div class="media-body">\
+                        <a href="<? the_permalink(); ?>" class="menujax" data-id="post-<?php echo $post->ID; ?>">\
+                            <p class="ft">\
+                                <? the_title(); ?>\
+                            </p>\
+                        </a>\
+                    </div> <!-- // div.media-body -->\
+                </li>';
+
+jQuery('.left_post_nav').prepend(html);
+</script>
+
+<?php
+}
 
 if (!empty($post)) : 
 

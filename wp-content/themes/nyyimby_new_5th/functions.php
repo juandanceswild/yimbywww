@@ -979,8 +979,7 @@ function prefix_load_term_posts () {
 }
 
 function get_args($postsperpage=22,$ajax=0) {
-    global $wp_query, $post;
-
+    global $wp_query, $post, $prepost;
     $args = array();
 
     // primarily for troubleshooting a page-pager-(page|menu).php call
@@ -988,6 +987,18 @@ function get_args($postsperpage=22,$ajax=0) {
 
     preg_match('!/pager-(menu|page)/!', $_SERVER['REQUEST_URI'], $matches);
     if (!empty($matches[1])) $paged_item = $matches[1];
+
+
+    // pi = paged_item but just not the one that represents paging 
+    $pi = ($postsperpage==1) ? 'page' : 'menu';
+
+    // this crazy little dance allows us to inject the requested article above other current news
+    $preload_requested_post = false;
+    if (!$ajax && strpos($_SERVER['REQUEST_URI'], @$post->post_name)!==false && $pi=='page') {
+        //error_log("post_name {$post->post_name} found in request_uri {$_SERVER['REQUEST_URI']}.  ajax is (".(($ajax)?1:0).")\n\n", 3, '/home/webjuju/nyyimby/error_log');
+        $preload_requested_post = $post->post_name;
+    }
+
 
     if (!empty($_GET['args'])) {
 
@@ -1033,7 +1044,13 @@ function get_args($postsperpage=22,$ajax=0) {
     $a2 = array('post_type' => 'post', 'showposts' => $postsperpage);
     $args = array_merge($args, $a2);
 
-    if (!empty($args['paged'])) $args['paged']++;
+    if (!empty($args['paged'])) {
+        $args['paged']++;
+    }
+    if (!empty($args['preposted'])) {
+        $args['paged']--;
+        unset($args['preposted']);
+    }
 
     if (empty($ajax)) {
         $temp_post = $post;
@@ -1047,6 +1064,12 @@ function get_args($postsperpage=22,$ajax=0) {
         if (empty($qo->ID)) {
             $post = $wp_query->posts[0];
             setup_postdata($post);
+        }
+
+        if (!empty($preload_requested_post)) {
+            $a1 = array('name' => $preload_requested_post);
+            $prepost = $wp_query->query($a1);
+            // error_log("post {$prepost->post_name} found! args[paged] is (".print_r($a1,1).")\n\n", 3, '/home/webjuju/nyyimby/error_log');
         }
     }
 
