@@ -301,7 +301,7 @@
             case (win < 1200): x = 20; break;
             default:           x = 2;
         }
-        $('#soc').css({'left':'','margin-left':$('#stuff').width()-x, 'margin-top': '20px'});
+        $('#soc').css({'left':'','margin-left':$('#stuff').width()-x, 'margin-top': '11px'});
    }
    function fix_body_width() {
         jQuery("html,body").on({
