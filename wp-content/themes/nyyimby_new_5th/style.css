@@ -1927,3 +1927,7 @@ p.ft {
 #ads {
     min-height:1000px;
 }
+.noImageCycle {
+    position:absolute;
+    visibility:hidden;
+}
