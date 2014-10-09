@@ -59,7 +59,7 @@
 
         setTimeout('fix_body_width();', 1000);
 
-        setTimeout("jQuery('.my-col').niceScroll({ autohidemode: false, cursorwidth: 10, cursorcolor:'#333'});", 250);
+        setTimeout("jQuery('.my-col').niceScroll({ autohidemode: false, cursorborderradius: 0, cursorwidth: 10, cursorcolor:'#333'});", 250);
 
         do_dom_listeners($);
 
