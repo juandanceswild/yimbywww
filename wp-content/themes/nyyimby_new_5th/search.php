@@ -12,6 +12,8 @@ function get_the_ny_excerpt() {
 
 get_header(); ?>
 
+<code class="noImageCycle"></code>
+
 <div id="soc" class="hidden">
     <div class="addthis_sharing_toolbox addthis_32x32_style">
         <a class="addthis_button_facebook"></a>
