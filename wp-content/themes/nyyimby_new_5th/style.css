@@ -187,15 +187,15 @@ a, a:focus, a:hover, a:active {
 
 @media (min-width: 768px) {
   #main-navbar-collapse .nav > li:first-child {
-    margin-left:0px;
+    margin-left:15px;
   }
 }
 @media (min-width: 1200px) {
   #main-navbar-collapse .nav > li:first-child {
-    margin-left:16px;
+    margin-left:31px;
   }
   #main-navbar-collapse .nav {
-    margin-right:-16px;
+    margin-right:-31px;
   }
 }
 
