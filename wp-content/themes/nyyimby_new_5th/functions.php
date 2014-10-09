@@ -1113,6 +1113,9 @@ function get_args_tax($args) {
     }
 
     $s = ucwords($tag).': '.ucwords($tax);
+
+    if (strlen($s) > 25) $s = ucwords($tax);
+
     return $s;
 }
 
