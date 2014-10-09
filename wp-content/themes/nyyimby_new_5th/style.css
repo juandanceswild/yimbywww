@@ -1454,17 +1454,6 @@ input[type="date"]::-webkit-inner-spin-button {
     display: none;
 }
 
-.archive-title {
-    text-align:left;
-    width:100%;
-    display:block;
-    background-color:#fff;
-    font-size: 22px;
-    padding: 15px 0 0 10px;
-    font-weight:700;
-    margin:0;
-}
-
 #atstbx2,
 #atstbx3,
 #atstbx4,
@@ -1934,4 +1923,22 @@ p.ft {
 .noImageCycle {
     position:absolute;
     visibility:hidden;
+}
+
+.archive-title {
+    background-color: #000;
+    color: #fff;
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 32px;
+    margin: 0 0 0 -15px;
+    padding: 15px 0 0 25px;
+    text-align: left;
+    width: 315px;
+}
+
+.requested-deeplink-post {
+    border-bottom:5px dotted #333 !important;
+    margin-bottom:20px !important;
 }

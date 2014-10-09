@@ -14,7 +14,7 @@ if (!empty($prepost)) {
 var html = '    <li class="dateHeading">\
                     <? echo the_date('l F jS, Y', '', '', false); ?>\
                 </li>\
-                <li class="media">\
+                <li class="media requested-deeplink-post">\
                     <a class="pull-left on-page-menu menujax left_nav_link" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" data-id="post-<?php echo $post->ID; ?>">\
                         <?php echo the_post_thumbnail('square_thumb');  ?>\
                     </a>\
@@ -37,8 +37,11 @@ if (!empty($post)) :
 
 if (!empty($ajax)) the_post();
 
+
+    $req = ($args['preposted']) ? ' requested-deeplink-post' : '';
+
 ?>
-<div class="post">
+<div class="post<?php echo $req; ?>">
     <div class="left_post_navasd">
 
 
