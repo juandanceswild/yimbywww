@@ -1069,7 +1069,9 @@ function get_args($postsperpage=22,$ajax=0) {
         if (!empty($preload_requested_post)) {
             $a1 = array('name' => $preload_requested_post);
             $prepost = $wp_query->query($a1);
-            // error_log("post {$prepost->post_name} found! args[paged] is (".print_r($a1,1).")\n\n", 3, '/home/webjuju/nyyimby/error_log');
+            if ($prepost[0]->ID == $post->ID) {
+                $prepost = false;
+            }
         }
     }
 

@@ -1,5 +1,5 @@
 <?php
-global $prepost;
+global $prepost, $pi;
 $args = get_args(1,$ajax);
 $page_paged = $args['paged'];
 
