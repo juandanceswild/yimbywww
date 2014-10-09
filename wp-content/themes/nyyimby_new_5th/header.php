@@ -159,7 +159,7 @@ foreach ($terms_to_exclude as $t)
                     </li>
                     <li><a href="/all-building">ALL PROJECTS</a></li>
                     <li><a href="http://yimbyforums.com" target="_blank">FORUMS</a></li>
-                    <li><a href="/search">ADVANCED SEARCH</a></li>
+                    <li><a href="/about-new-york-yimby">ABOUT</a></li>
                   </ul>
     </div>
   </div>
