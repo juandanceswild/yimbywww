@@ -1099,11 +1099,16 @@ function get_args_tax($args) {
         }
     }
 
-    switch ($tag) {
-        case 'post_type': $tag = 'post type'; break;
+    switch (true) {
+        case $tag=='types':
+            $tag = 'Type';
+        break;
+        case $tag=='post_type':
+            $tag = 'post type';
+        break;
     }
 
-    $s = ucwords($tag).': '.$tax;
+    $s = ucwords($tag).': '.ucwords($tax);
     return $s;
 }
 
