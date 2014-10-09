@@ -1,11 +1,8 @@
-<?php
-      $catKey = "primary_cat";
-      $related_category = get_category_by_slug(get_post_meta($post->ID, $catKey, true));
-      ?>
-      <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+      <div id="post-<?php the_ID(); ?>" <?php post_class('on-page-post'); ?>>
 
 
-        <div class="post-wrapper">
+        <div class="post-wrapper bordered">
               <h1 class="entry-title"><?php the_title();?></h1>
               <span class="vcard author post-author">
                   <span class="fn">
@@ -13,20 +10,9 @@
                   </span>
               </span>
 
-            <div class="soc">
-                <div class="addthis_sharing_toolbox addthis_32x32_style">
-                    <a class="addthis_button_facebook"></a>
-                    <a class="addthis_button_twitter"></a>
-                    <a class="addthis_button_pinterest_share"></a>
-                    <a class="addthis_button_google_plusone_share"></a>
-                    <a class="addthis_button_reddit"></a>
-                    <a class="addthis_button_linkedin"></a>
-                </div>
-            </div>
-
-              <div id="main_image_wrapper">
+              <div class="main_image_wrapper">
                 <a href="#" class="thumbnail">
-                  <?php echo the_post_thumbnail('full', array('id'=>'blog_post_main_image', 'class'=>'blog_main_desktop'));  ?>
+                  <?php echo the_post_thumbnail('full', array('class'=>'w75'));  ?>
                   <?php $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "full" ); ?>
                 </a>
                 <div id="main_image_thumbnails">
@@ -62,7 +48,7 @@
             <div class="text-center">
               <p id="photo_caption"><?php echo get_post(get_post_thumbnail_id())->post_excerpt; ?></p>
             </div>
-            <p><?php the_content();?>
+            <p><?php wp_reset_query(); the_content();?>
 
             <p style="margin-top:14px;">Posted in <?php the_category(' | '); ?></p>
                 <?php if(is_archive()): ?>

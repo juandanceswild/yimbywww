@@ -1,2 +1,0 @@
-[20-Aug-2014 00:09:31 UTC] PHP Fatal error:  Call to undefined function get_option() in /home/staging2/public_html/wp-content/plugins/wp-nicescroll/jnc_admin_set.php on line 13
-[20-Aug-2014 00:28:51 UTC] PHP Fatal error:  Call to undefined function is_admin() in /home/staging2/public_html/wp-content/plugins/wp-nicescroll/wp-nicescroll.php on line 69

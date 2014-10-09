@@ -13,44 +13,51 @@
 
 get_header(); ?>
 
-<?php
-$paged = (get_query_var('page')) ? get_query_var('page') : 1;
-?>
-
-<div class="main main-content" style="min-width:1002px;">
-    <div class="box" style="min-width:1002px;">
-        <div class="row-fluid">
-            <?php get_sidebar('leftTABS');?>
-
-            <div id="right-col">
-                <div class="post_content_area">
-                    <?php get_template_part('content', 'post'); ?>
-                </div>
-            </div>
-        </div>
+<div id="soc">
+    <div class="addthis_sharing_toolbox addthis_32x32_style">
+        <a class="addthis_button_facebook"></a>
+        <a class="addthis_button_twitter"></a>
+        <a class="addthis_button_pinterest_share"></a>
+        <a class="addthis_button_google_plusone_share"></a>
+        <a class="addthis_button_reddit"></a>
+        <a class="addthis_button_linkedin"></a>
     </div>
 </div>
 
+<div class="summerville">
 
+    <div class="white pt-top">
+        <div class="my-col col-md-3 visible-md visible-lg" id="main_tab">
+            <?php include('page-pager-menu.php'); ?>
+        </div>
 
-<?php if ($image_data[1]<600):?>
-    <style>
-        #main_image_wrapper {
-            width: <?php echo $image_data[1];?>px;
-            height: <?php echo $image_data[2];?>px;
-            margin: 0 auto;
-        }
-    </style>
-<?php endif;?>
+        <div class="my-col rb cx col-md-9">
+            <div class="scroll_wrapper">
+                <div class="col-lg-8 pl-no">
 
-<script>
+                    <div id="stuff" class="jj">
+                        <div id="cx">
+                            <?php include('page-pager-page.php'); ?>
+                        </div>
+                    </div>
 
-    jQuery(document).ready(function()
-    {
+                </div>
+                <div class="col-lg-4 visible-lg p-sm rb-gray">
+                  <div class="my-col-noscroll ads-col pl-xs-lg" data-spy="affix">
 
-        var singlePageCycle = new ImageCycle();
-    });
+                    <div id="ads"></div>
 
-</script>
+                    <br class="clr">
+                  </div>
+                  <br class="clr">
+                </div>
+                <br class="clr">
+            </div>
+            <br class="clr">
+        </div>
+        <br class="clr">
+    </div>
+    <br class="clr">
+</div>
 
 <?php get_footer();?>

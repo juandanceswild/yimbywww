@@ -37,7 +37,7 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
@@ -51,8 +51,10 @@
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <?php wp_head(); ?>
-    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/custom.css" media="screen" />
+
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/fancybox.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/wp-content/themes/nyyimby_new_5th/style.css?r=<?php echo rand(1000,9999); ?>">
 
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53b1bb1e1b4b9a65&async=1"></script>
 
@@ -92,59 +94,18 @@ foreach ($terms_to_exclude as $t)
 <?php $terms = get_terms('neighborhoods', 'hide_empty=true');?>
 <?php $type_terms = get_terms('types');?>
 <?php $categories = get_categories( array('number'=>10));?>
-<body <?php body_class(); ?>  data-spy="scroll" data-target=".bs-docs-sidebar" data-offset="10" >
+<body <?php body_class(); ?>>
+<?php if (strpos($_SERVER['HTTP_HOST'], 'webjuju')!==false) : ?>
+  <div class="counts" style="position:absolute;top:5px;right:-5px;font-size:8px;"><div class="col-xs-1 menus-count"></div><div class="col-xs-1 posts-count"></div></div>
+<?php endif; ?>
 <?php include('ga.php');?>
-<div class="navbar navbar-inverse navbar-relative-top visible-phone visible-tablet">
-    <div class="navbar-inner" style="">
-        <div class="container" style="">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="<?php echo get_site_url();?>" class="brand"><img src="<?php bloginfo('template_directory'); ?>/img/yimby_logo.png"  /></a>
 
-            <div class="nav-collapse collapse">
-                <ul class="nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            NEIGHBORHOOD
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <?php foreach ($terms as $term): ?>
-                                <?php if (!in_array($term->term_id, $exTerms)) : ?>
 
-                                    <li><a style="padding:2px 0 !important;margin:0px; !important;" href="<?php echo get_term_link($term->slug, 'neighborhoods');?>"><?php echo $term->name;?></a></li>
-                                <?php endif;?>
-                            <?php endforeach;?>
+<div class="summerville">
+    <div class="header">
+        <div class="row">
 
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-                            PROJECT TYPE
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <?php foreach ($type_terms as $term):?>
-                                <li><a href="<?php echo get_term_link($term->slug, 'types');?>"><?php echo $term->name;?></a></li>
-                            <?php endforeach;?>
-                        </ul>
-                    </li>
-                    <li><a href="/all-building/">ALL PROJECTS</a></li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<div class="navbar  navbar-inverse navigation hidden-phone hidden-tablet">
-    <div class="navbar-inner navbar-in">
-        <div class="row-fluid">
-
-            <div class="span3 columns">
+            <div class="col-sm-3 pull-left-xs pl-xs">
                 <a href="<?php echo get_site_url();?>" class="brand"><img src="<?php bloginfo('template_directory'); ?>/img/yimby_logo.png"  /></a>
                 <ul class="pull-left inline header_social_links hidden-tablet"  style="" >
                     <li><a href="https://www.facebook.com/NewYorkYimby" target=_blank><img src="<?php bloginfo('template_directory'); ?>/img/social_facebook.png" /></a></li>
@@ -153,47 +114,64 @@ foreach ($terms_to_exclude as $t)
                 </ul>
             </div>
 
-            <ul class="nav main_menu_nav hidden" style="max-width: 585px; float: left;">
-                <!-- <li><a href="<?php echo get_site_url();?>" class="active">HOME</a></li> -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-                        NEIGHBORHOOD
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <?php $count=0; foreach ($terms as $term): ?>
-                            <?php if (!in_array($term->term_id, $exTerms)) : $count++;?>
-                                <li class="<?php if($count%2==0){echo "right-aligned";}else{echo "left-aligned";}?>"><a href="<?php echo get_term_link($term->slug, 'neighborhoods');?>"><?php echo $term->name;?></a></li>
-                            <?php endif;?>
-                        <?php endforeach;?>
-                    </ul>
-                </li>
+            <div class="col-sm-9">
+              <div class="row">
+                <div class="col-lg-8 pl-no">
 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-                        PROJECT TYPE
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <?php foreach ($type_terms as $term):?>
-                            <li><a href="<?php echo get_term_link($term->slug, 'types');?>"><?php echo $term->name;?></a></li>
-                        <?php endforeach;?>
-                    </ul>
-                </li>
-                <li><a href="/all-building">ALL PROJECTS</a></li>
-                <li><a href="http://yimbyforums.com" target="_blank">FORUMS</a></li>
-                <li><a href="/search">ADVANCED SEARCH</a></li>
-            </ul>
 
-            <div class="hidden-tablet search-in hidden">
-                <?php get_search_form( ); ?>
-            </div>
+<nav id="site-navigation" class="nav nav-pills<?php // this is the fix: navbar-fixed-top ?>" role="navigation">
+  <div class="row" id="mobinav">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><?php bloginfo( 'name' ); ?></a>
+    </div>
+    <!--<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', '_s' ); ?></a>-->
+    <div class="collapse navbar-collapse" id="main-navbar-collapse">
 
-            </ul>
-        </div><!-- /.nav-collapse -->
-    </div><!-- /.container -->
-</div><!-- /navbar-inner -->
-<!--</div>-->
+                  <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                            NEIGHBORHOOD
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu ul600">
+                            <?php $count=0; foreach ($terms as $term): ?>
+                                <?php if (!in_array($term->term_id, $exTerms)) : $count++;?>
+                                    <li class="neighborhoods"><a href="<?php echo get_term_link($term->slug, 'neighborhoods');?>"><?php echo $term->name;?></a></li>
+                                <?php endif;?>
+                            <?php endforeach;?>
+                        </ul>
+                    </li>
 
-<!-- End Header -->
-<!-- Begin Template Content -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"> PROJECT TYPE <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu ul500">
+                            <?php foreach ($type_terms as $term):?>
+                                <li><a href="<?php echo get_term_link($term->slug, 'types');?>"><?php echo $term->name;?></a></li>
+                            <?php endforeach;?>
+                        </ul>
+                    </li>
+                    <li><a href="/all-building">ALL PROJECTS</a></li>
+                    <li><a href="http://yimbyforums.com" target="_blank">FORUMS</a></li>
+                    <li><a href="/about-new-york-yimby">ABOUT</a></li>
+                  </ul>
+    </div>
+  </div>
+</nav>
+
+                </div>
+                <div class="col-lg-4 visible-lg">
+                  <div class="pl-xs-lg">
+                    <?php get_search_form( ); ?>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

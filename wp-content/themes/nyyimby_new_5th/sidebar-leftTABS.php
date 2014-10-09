@@ -8,30 +8,21 @@
     } else {
         $single = false;
     }
+
+
+    $temp_post = $post; // Storing the object temporarily
+    $temp = $wp_query;
+    $wp_query = null;
+    $wp_query = new WP_Query();
+    $wp_query->query('showposts='.$postsperpage.'&post_type=post&post_status=publish'.'&paged='.$paged);
+
+    $first_date = true;
+    $first = true;
+
 ?>
 
 
-
-<?php
-	 $temp_post = $post; // Storing the object temporarily
-	 $temp = $wp_query;
-	 $wp_query = null;
-	 $wp_query = new WP_Query();
-	 $wp_query->query('showposts='.$postsperpage.'&post_type=post&post_status=publish'.'&paged='.$paged);
-
-	 ?>
-	 <?php $first_date = true;?>
-	 <?php $first = true;?>
-
-	 <div class="column left_col nano" id="sidebar-news">
-        <div class="tab-content visible">
-
-            <div class="tab-pane active" id="news">
-	 			<?php include('main_tab.php');?>
-	 		</div>
-
-        </div>
-    </div>
+    <?php include('main_tab.php');?>
 
 
 <?php

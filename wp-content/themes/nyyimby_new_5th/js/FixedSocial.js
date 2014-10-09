@@ -27,6 +27,7 @@ var FixedSocial = FixedSocial || (function()
     var initialize = function()
     {
 
+        if (jQuery('.soc').length < 1) return;
         addthis.init();
 
         views.call(this);
@@ -63,7 +64,7 @@ var FixedSocial = FixedSocial || (function()
     {
 
         this.state            =  {};
-        this.state.isDesktop  =  this.dom.window.width() >= 1245;
+        this.state.isDesktop  =  this.dom.window.width() >= 119;
     };
 
 
@@ -76,13 +77,15 @@ var FixedSocial = FixedSocial || (function()
     var pin = function()
     {
 
-        this.state.isDesktop  =  this.dom.window.width() >= 1245;
+        this.state.isDesktop  =  this.dom.window.width() >= 119;
 
-        if ( jQuery(window).width() >= 1245 && !jQuery('body').hasClass('page-template-default') )
+        if ( jQuery(window).width() >= 119 && !jQuery('body').hasClass('page-template-default') )
         {
 
             var desktopOffsetLeft = jQuery('div#cx').offset().left + jQuery('div#cx').width() - 22;
-            this.dom.icons.attr('style', 'position: fixed; top: 78px; left: ' + desktopOffsetLeft + 'px !important');
+            var desktopOffsetTop = jQuery('div#cx').offset().top;
+            desktopOffsetLeft-=30;
+            this.dom.icons.attr('style', 'position: fixed; top: ' + desktopOffsetTop + 'px; left: ' + desktopOffsetLeft + 'px !important');
 
             // console.log( 'Desktop, add fixded right positioning.' );
         }

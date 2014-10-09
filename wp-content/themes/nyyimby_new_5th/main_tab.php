@@ -1,52 +1,47 @@
-<!-- start of sidebar_nav_inner -->
 <div class="scroll_wrapper">
     <div class="padding content sidebar_nav_inner_news" id="sidebar_nav_inner">
         <div class="test_inner_news">
 
+            <ul class="media-list left_post_nav">
+
             <?php
+
                 global $post;
+
                 $current_post = $post; // remember the current post
-                $current_date = the_date('l F jS, Y', '', '', false);
-            ?>
+                $once = 0;
 
-            <ul class="media-list left_post_nav">
-                <li class="dateHeading">
-                    <?php echo $current_date;?>
-                </li>
+                while (have_posts()) : the_post();
 
-                <!-- Current post -->
-                <li class="media">
-                    <a class="pull-left" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="left_nav_link">
-                        <?php echo the_post_thumbnail('square_thumb');  ?>
-                    </a>
-
-                    <div class="media-body">
-                        <a href="<? the_permalink(); ?>">
-                            <p>
-                                <? the_title(); ?>
-                            </p>
-                        </a>
-                    </div> <!-- // div.media-body -->
-                </li>
-            </ul>
-
-            <ul class="media-list left_post_nav">
-                <?php
-                    for($i = 1; $i <= 19; $i++) {
-                    $post = get_previous_post(); // this uses $post->ID
-                    setup_postdata($post);
+                    $once = 1;
                     $curDate = the_date('l F jS, Y', '', '', false);
-                ?>
 
-                <?php // TODO: Fix the markup (spacing), and discuss best practies for seo and code commenting ?>
-                <?php if ( $curDate ) { ?>
+                    $p = get_next_post(); // this uses $post->ID
+                    if (!empty($post)) {
+                        setup_postdata($p);
+                        $current_date = the_date('l F jS, Y', '', '', false);
+                    }
+
+                    $noDate = 0;
+                    if (strcmp($curDate,$current_date)===false && $paged>1) {
+                        $noDate = 1;
+                    }
+ 
+                    if ( $current_date ) :
+                        if (empty($noDate)) :
+                            ?>
+
                     <li class="dateHeading">
                         <? echo $curDate; ?>
                     </li>
-                <? } ?>
+
+                            <?php
+                        endif;
+                    endif; 
+                    if (!empty($post->ID)) : ?>
 
                 <li class="media">
-                    <a class="pull-left" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="left_nav_link">
+                    <a class="pull-left on-page-menu" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="left_nav_link" data-id="post-<?php echo $post->ID; ?>">
                         <?php echo the_post_thumbnail('square_thumb');  ?>
                     </a>
 
@@ -59,31 +54,29 @@
                     </div> <!-- // div.media-body -->
                 </li>
 
-                <?php
-                    }
-                    $post = $current_post; // restore
-                ?>
+                         <?php
+                    endif;
+                endwhile; 
+            $post = $current_post; // restore
+            ?>
             </ul>
 
+<?php
+  if (!empty($once)) :
+?>
             <!-- Pagination -->
-            <ul class="pager">
+            <ul>
                 <li class="next">
-                    <a href="<?php echo home_url(); ?>/page/<?php echo $paged+2;?>"  class="next_link">
-                        <span class="meta-nav">&larr;</span> Older posts
+                    <a href="<?php echo home_url(); ?>/page/<?php echo $paged+1; ?>" class="next_link">
+                        <span class="meta-nav">&larr;</span> More posts
                     </a>
                 </li>
-
-                <?php if ($paged > 0) :?>
-                    <li class="previous">
-                        <a href="<?php echo home_url(); ?>/page/<?php echo $paged-1;?>">
-                            Newer posts
-                            <span class="meta-nav">&rarr;</span>
-                        </a>
-                    </li>
-                <?php endif;?>
             </ul>
 
             <div id="preloader"></div>
+<?php
+  endif;
+?>
 
         </div> <!-- // div.test_inner_news -->
     </div> <!-- // div.content -->

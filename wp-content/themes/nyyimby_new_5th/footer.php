@@ -9,6 +9,7 @@
  * Last Revised: July 16, 2012
  */
 ?>
+
     <!-- End Template Content -->
 <?php wp_footer(); ?>
 
@@ -24,6 +25,19 @@
     </div>
   </div>
 </div>
+
+<?php /* we only support the recent browser population */ ?>
+<script type="text/javascript"> 
+var $buoop = {}; 
+$buoop.ol = window.onload; 
+window.onload=function(){ 
+ try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
+ var e = document.createElement("script"); 
+ e.setAttribute("type", "text/javascript"); 
+ e.setAttribute("src", "//browser-update.org/update.js"); 
+ document.body.appendChild(e); 
+} 
+</script> 
 
 <script type="text/javascript" src="/wp-content/themes/nyyimby_new_5th/js/nicescroll.js"></script>
 
@@ -41,7 +55,11 @@
 <script type="text/javascript" src="/wp-content/themes/nyyimby_new_5th/js/nicescroll.js"></script>
 <script type="text/javascript" src="/wp-content/themes/nyyimby_new_5th/js/inf.js"></script>
 <script type="text/javascript" src="/wp-content/themes/nyyimby_new_5th/js/cookie.js"></script>
+<script type="text/javascript" src="/wp-content/themes/nyyimby_new_5th/js/jscroll.min.js"></script>
 <script type="text/javascript" src="/wp-content/themes/nyyimby_new_5th/js/ny.js"></script>
+
+<?php // i've just had it with this out of date bs v2, we're going to twitter bs or risk failure ?>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
 var _qevents = _qevents || [];

@@ -131,25 +131,20 @@ var SearchResults = SearchResults || (function()
         // Remove old content (flush)
         flush.call(this);
 
+        $(content).find('img').addClass('img-responsive');
+        $(content).find('.navx-links').remove();
+
         // Append retrieved content to the modal
         content.appendTo( this.dom.modal );
 
         // Show the modal
-        this.dom.overlay.fadeIn();
-        this.dom.modal.fadeIn().css({
-            'width' :  jQuery('div#entry-content').width() - 20,
-            'left'  :  jQuery('div#cx').offset().left
-        });
+        $('#myModal').modal('show');
+
+        // set the share icons location
+        $('#soc').removeClass('hidden');
 
         // Add locked class on the body and the html
         jQuery('html, body').addClass('locked');
-
-        jQuery(window).on('resize', function()
-        {
-
-            self.dom.modal.css('width', jQuery('div#entry-content').width() - 20);
-        });
-
 
         // Initialize the social sharing
         initSocial.call(this, url, title);
