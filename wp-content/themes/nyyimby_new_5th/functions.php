@@ -1099,7 +1099,11 @@ function get_args_tax($args) {
         }
     }
 
+    // switchers for the taxonomy nice names
     switch (true) {
+        case $tag=='neighborhoods':
+            $tag = 'Neighborhood';
+        break;
         case $tag=='types':
             $tag = 'Type';
         break;
