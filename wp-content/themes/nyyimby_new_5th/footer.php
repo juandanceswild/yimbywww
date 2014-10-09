@@ -26,6 +26,19 @@
   </div>
 </div>
 
+<?php /* we only support the recent browser population */ ?>
+<script type="text/javascript"> 
+var $buoop = {}; 
+$buoop.ol = window.onload; 
+window.onload=function(){ 
+ try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
+ var e = document.createElement("script"); 
+ e.setAttribute("type", "text/javascript"); 
+ e.setAttribute("src", "//browser-update.org/update.js"); 
+ document.body.appendChild(e); 
+} 
+</script> 
+
 <script type="text/javascript" src="/wp-content/themes/nyyimby_new_5th/js/nicescroll.js"></script>
 
 <!-- Modules -->
