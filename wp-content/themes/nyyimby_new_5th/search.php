@@ -12,6 +12,17 @@ function get_the_ny_excerpt() {
 
 get_header(); ?>
 
+<div id="soc" class="hidden">
+    <div class="addthis_sharing_toolbox addthis_32x32_style">
+        <a class="addthis_button_facebook"></a>
+        <a class="addthis_button_twitter"></a>
+        <a class="addthis_button_pinterest_share"></a>
+        <a class="addthis_button_google_plusone_share"></a>
+        <a class="addthis_button_reddit"></a>
+        <a class="addthis_button_linkedin"></a>
+    </div>
+</div>
+
 <div class="summerville">
 
        <div class="white pt-top">
@@ -44,6 +55,18 @@ get_header(); ?>
 
                   <div id="stuff" class="jj">
 
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
                                                 <div id="cx">
@@ -90,6 +113,13 @@ get_header(); ?>
                                                     </div>
                                                 </div> <!-- // div#cx -->
 
+<script>
+jQuery(document).ready(function() {
+    if ( jQuery(window).width() >= 1025 ) {
+        var search = new SearchResults();
+    }
+});
+</script>
 
 
 

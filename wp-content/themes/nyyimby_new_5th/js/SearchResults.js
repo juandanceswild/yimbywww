@@ -135,21 +135,13 @@ var SearchResults = SearchResults || (function()
         content.appendTo( this.dom.modal );
 
         // Show the modal
-        this.dom.overlay.fadeIn();
-        this.dom.modal.fadeIn().css({
-            'width' :  jQuery('div#entry-content').width() - 20,
-            'left'  :  jQuery('div#cx').offset().left
-        });
+        $('#myModal').modal('show');
+
+        // set the share icons location
+        $('#soc').removeClass('hidden');
 
         // Add locked class on the body and the html
         jQuery('html, body').addClass('locked');
-
-        jQuery(window).on('resize', function()
-        {
-
-            self.dom.modal.css('width', jQuery('div#entry-content').width() - 20);
-        });
-
 
         // Initialize the social sharing
         initSocial.call(this, url, title);
@@ -190,6 +182,7 @@ var SearchResults = SearchResults || (function()
         // Hide the modal
         this.dom.overlay.fadeOut();
         this.dom.modal.fadeOut();
+        $('#soc').fadeOut();
 
         window.document.title = this.dom.title;
 
