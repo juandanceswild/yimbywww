@@ -4,7 +4,7 @@ Theme Name: Yimby 5th - New 2014
 
 html, body {
     height: 100%;
-    font-family: "PT Serif",serif !important;
+    font-family: "PT Sans",serif !important;
 }
 
 .container-fluid {
@@ -945,6 +945,10 @@ div.appended {
 
 div.media-body p.highlight {
     font-weight: bold;
+}
+div.media-body p {
+    line-height:20px;
+    font-family: "PT Sans",serif !important;
 }
 
 li.dateHeading {
