@@ -118,6 +118,12 @@ jQuery(document).ready(function() {
     if ( jQuery(window).width() >= 1025 ) {
         var search = new SearchResults();
     }
+    jQuery('#myModal').on('hide.bs.modal', function (e) {
+        $('#soc').fadeOut();
+    })
+    jQuery('#myModal').on('show.bs.modal', function (e) {
+        $('#soc').fadeIn();
+    })
 });
 </script>
 

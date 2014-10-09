@@ -182,7 +182,6 @@ var SearchResults = SearchResults || (function()
         // Hide the modal
         this.dom.overlay.fadeOut();
         this.dom.modal.fadeOut();
-        $('#soc').fadeOut();
 
         window.document.title = this.dom.title;
 
