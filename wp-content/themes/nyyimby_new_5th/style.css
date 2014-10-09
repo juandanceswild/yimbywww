@@ -1945,6 +1945,12 @@ p.ft {
     padding: 15px 0 0 25px;
     text-align: left;
     width: 315px;
+    white-space:nowrap;
+}
+@media (max-width: 1200px) {
+    .archive-title {
+        font-size: 18px !important;
+    }
 }
 
 .requested-deeplink-post {
