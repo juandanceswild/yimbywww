@@ -1714,13 +1714,22 @@ body {
 }
 
 
+@media (min-width: 990px) {
+  .rb-gray {
+    margin-left:15px !important; padding-left:12px !important; margin-right:-15px !important;
+    background:transparent url('/wp-content/themes/nyyimby_new_5th/img/bg-vr-gray-new.png') repeat-y 0;
+  }
+  .rb {
+    background:transparent url('/wp-content/themes/nyyimby_new_5th/img/bg-vr-new.png') repeat-y -6px center;
+  }
+}
 @media (min-width: 1026px) {
   .rb-gray {
     margin-left:15px !important; padding-left:12px !important; margin-right:-15px !important;
     background:transparent url('/wp-content/themes/nyyimby_new_5th/img/bg-vr-gray-new.png') repeat-y 0;
   }
   .rb {
-    background:transparent url('/wp-content/themes/nyyimby_new_5th/img/bg-vr-new.png') repeat-y 0;
+    background:transparent url('/wp-content/themes/nyyimby_new_5th/img/bg-vr-new.png') repeat-y -6px center;
   }
   .row-fluid [class*="span"].my-col.rb, .row-fluid [class*="span"].my-col-noscroll.rb {
     margin-left:0 !important;
@@ -1941,4 +1950,10 @@ p.ft {
 .requested-deeplink-post {
     border-bottom:5px dotted #333 !important;
     margin-bottom:20px !important;
+}
+
+#cx {
+    margin-left:15px !important;
+    position:relative;
+    z-index:900;
 }
