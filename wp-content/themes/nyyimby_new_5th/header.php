@@ -158,8 +158,8 @@ foreach ($terms_to_exclude as $t)
                         </ul>
                     </li>
                     <li><a href="/all-building">ALL PROJECTS</a></li>
-                    <li class="hidden-xs hidden-sm"><a href="http://yimbyforums.com" target="_blank">FORUMS</a></li>
-                    <li class="hidden-xs hidden-sm"><a href="/search">ADVANCED SEARCH</a></li>
+                    <li><a href="http://yimbyforums.com" target="_blank">FORUMS</a></li>
+                    <li><a href="/search">ADVANCED SEARCH</a></li>
                   </ul>
     </div>
   </div>
