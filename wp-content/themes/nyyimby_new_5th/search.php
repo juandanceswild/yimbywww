@@ -14,17 +14,6 @@ get_header(); ?>
 
 <code class="noImageCycle"></code>
 
-<div id="soc" class="hidden">
-    <div class="addthis_sharing_toolbox addthis_32x32_style">
-        <a class="addthis_button_facebook"></a>
-        <a class="addthis_button_twitter"></a>
-        <a class="addthis_button_pinterest_share"></a>
-        <a class="addthis_button_google_plusone_share"></a>
-        <a class="addthis_button_reddit"></a>
-        <a class="addthis_button_linkedin"></a>
-    </div>
-</div>
-
 <div class="summerville">
 
        <div class="white pt-top">
@@ -52,15 +41,20 @@ get_header(); ?>
 
                   <div id="stuff" class="jj">
 
+<div id="soc" class="search-soc hidden">
+    <div class="addthis_sharing_toolbox addthis_32x32_style">
+        <a class="addthis_button_facebook"></a>
+        <a class="addthis_button_twitter"></a>
+        <a class="addthis_button_pinterest_share"></a>
+        <a class="addthis_button_google_plusone_share"></a>
+        <a class="addthis_button_reddit"></a>
+        <a class="addthis_button_linkedin"></a>
+    </div>
+</div>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header"></div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+    <div class="modal-content modal-soc">
     </div>
   </div>
 </div>

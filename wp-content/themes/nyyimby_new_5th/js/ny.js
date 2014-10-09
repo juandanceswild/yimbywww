@@ -295,7 +295,7 @@
         var bht = ($('#stuff').height() > vis) ? $('#stuff').height() : vis; 
         $('.rb-gray').css('height', bht+'px');
 
-        // set the share icons location
+        // set the share icons location (unless it's a search page)
         $('#stuff').prepend($('#soc'));
         switch(true) {
             case (win < 1025): x = 14; break;
@@ -303,6 +303,11 @@
             default:           x = 2;
         }
         $('#soc').css({'left':'','margin-left':$('#stuff').width()-x, 'margin-top': '11px'});
+        if ($('#soc').hasClass('search-soc')) {
+            var x = $('.modal-dialog').first().width()-32;
+            var l = $('.modal-dialog').first().offset().left;
+            $('#soc').css({'margin-left':0, 'left':l+x, 'margin-top':'5px'});
+        }
    }
    function fix_body_width() {
         jQuery("html,body").on({
