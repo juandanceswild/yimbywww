@@ -132,6 +132,7 @@ var SearchResults = SearchResults || (function()
         flush.call(this);
 
         $(content).find('img').addClass('img-responsive');
+        $(content).find('.navx-links').remove();
 
         // Append retrieved content to the modal
         content.appendTo( this.dom.modal );
