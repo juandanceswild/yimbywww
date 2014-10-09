@@ -131,6 +131,8 @@ var SearchResults = SearchResults || (function()
         // Remove old content (flush)
         flush.call(this);
 
+        $(content).find('img').addClass('img-responsive');
+
         // Append retrieved content to the modal
         content.appendTo( this.dom.modal );
 
