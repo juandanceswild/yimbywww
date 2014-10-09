@@ -114,6 +114,9 @@
 
             // set it to active
             el.addClass('active-menu-post');
+            if (el.length > 1) {
+                el.first().remove();
+            }
 
             // and bring it to the top of it's scrollable area
             var scroller = el.parents('.my-col');
