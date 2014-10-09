@@ -215,7 +215,8 @@
         if ($(posttab)[0] == undefined) return;
 
         // this is a nifty hack to allow /search or other pages to not glom the fancybox onto images
-        if ($('.noImageCycle').length < 1) new ImageCycle();
+        // dg turns this off for now...it is the lightobx for all images in posts etc
+        //if ($('.noImageCycle').length < 1) new ImageCycle();
 
         // TODO: this is case and pasted from get_next_posts...encapsulate this into something reusable
         // is the page still not able to have jscroll attached to it??
