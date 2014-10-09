@@ -26,13 +26,10 @@ get_header(); ?>
 <div class="summerville">
 
        <div class="white pt-top">
-            <div class="my-col col-md-3 visible-md visible-lg" id="main_tab">
+            <div class="my-col col-md-3 nopd visible-md visible-lg" id="main_tab">
 
-<div class="column nano" id="sidebar-news">
-    <div class="tab-content visible">
-
+    <div class="column nano" id="sidebar-news">
         <div class="tab-pane active" id="news">
-
             <div class="scroll_wrapper">
                 <div class="content sidebar_nav_inner_news no-padding">
                     <div class="refine">
@@ -42,10 +39,8 @@ get_header(); ?>
                     </div>
                 </div>
             </div>
-
-        </div> <!-- // div.tab_pane -->
-    </div> <!-- // div.tab-content -->
-</div> <!-- // div.left_col -->
+        </div>
+    </div>
 
             </div>
 

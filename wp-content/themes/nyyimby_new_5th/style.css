@@ -1261,39 +1261,58 @@ label {
 /* Search sidebar */
 
 div.refine {
-    padding: 3px 14px 65px;
+    padding: 3px 14px 65px !important;
 }
 
 div.refine
 h1 {
-    font-size: 22px;
-    line-height: 20px;
+    padding-bottom:7px !important;
+    font-size: 22px !important;
+    line-height: 20px !important;
 }
 
 div.refine
 h3 {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 16px !important;
+    line-height: 20px !important;
 }
 
 div.refine
 form {
-    width: 100%;
+    width: 100% !important;
 }
 
 form.searchandfilter {
     margin: 0 0 40px;
 }
+form.searchandfilter input['text'] {
+    background-color: #ffffff !important;
+    border: 1px solid #cccccc !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset !important;
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s !important;
+    border-radius: 0px !important;
+    color: #555555 !important;
+    display: inline-block !important;
+    font-size: 14px !important;
+    height: 28px !important;
+    line-height: 20px !important;
+    margin-bottom: 10px !important;
+    padding: 4px 6px !important;
+    vertical-align: middle;
+}
+
 
 form.searchandfilter
 ul {
     display: block;
-    margin: 0;
+    margin: 0 !important;
+    padding:0 !important;
 }
 
 form.searchandfilter
 li {
-    display: block;
+    display: block !important;
+    line-height:20px !important;
 }
 
 form.searchandfilter
@@ -1348,7 +1367,9 @@ label input {
 
 form.searchandfilter
 h4 {
-    margin: 20px 0 10px;
+    margin: 20px 0 10px !important;
+    font-size:16px !important;
+    text-transform:none !important;
 }
 
 h4 {
