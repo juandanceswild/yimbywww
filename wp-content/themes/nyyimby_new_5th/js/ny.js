@@ -17,7 +17,7 @@
     // for use in js optimization
     var last_post_id = 0;
 
-    var fo_to = setTimeout('', 0);
+    var fa_to = setTimeout('', 0);
 
     // Navigation
     $(document).on('ready', function() {
@@ -334,10 +334,13 @@
             }
     }
     function fill_ads() {
+        clearTimeout(fa_to);
+        $('#ads').fadeOut();
         $.ajax({'url':'/ad_rotate.php'}).done(function(r){
             var vis = $(window).height();
             $('#ads').html(r);
             if (vis < 698) $('#adrotate_widgets-3').remove();
+            fa_to = setTimeout("$('#ads').fadeIn();", 750);
         });
     }
 
