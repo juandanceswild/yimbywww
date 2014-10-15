@@ -1384,11 +1384,6 @@ h4 {
     padding: 0;
 }
 
-.bordered {
-    border-bottom: 1px solid #EEE;
-    margin-bottom: 18px;
-}
-
 .hidden {
     display: none;
 }
@@ -1955,7 +1950,8 @@ p.ft {
 
 .requested-deeplink-post {
     border-bottom:5px dotted #333 !important;
-    margin-bottom:20px !important;
+    margin-bottom:5px !important;
+    padding-bottom:20px !important;
 }
 
 #cx {
