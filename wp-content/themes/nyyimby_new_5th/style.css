@@ -1515,7 +1515,7 @@ div.post
 p, p {
     font-family: 'PT Serif', serif !important;
     line-height: 27px;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 div.overlay
@@ -1914,7 +1914,7 @@ h4 {
     margin-bottom: 10px !important;
 }
 p {
-    font-size:15px !important;
+    font-size:14px !important;
     color: #000000 !important;
 }
 p.ft {

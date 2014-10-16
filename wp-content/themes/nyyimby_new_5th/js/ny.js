@@ -325,12 +325,12 @@
    }
    function toggle_nav() {
            if ($('#main-navbar-collapse').hasClass('in')) {
-                var ht = $('#site-navigation').height();
-                $('.my-col').fadeOut();
-                $('body').css({'height':ht,'overflow-y':'scroll'});
+                //var ht = $('#site-navigation').height();
+                //$('.my-col').fadeOut();
+                //$('body').css({'height':ht,'overflow-y':'scroll'});
             } else {
-                $('body').css({'height':'100%', 'overflow-y':'hidden'});
-                $('.my-col').fadeIn();
+                //$('body').css({'height':'100%', 'overflow-y':'hidden'});
+                //$('.my-col').fadeIn();
             }
     }
     function fill_ads() {
