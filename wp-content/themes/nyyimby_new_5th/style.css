@@ -1960,4 +1960,5 @@ p.ft {
 .brand {
     position:relative;
     z-index:1;
+    margin-left:15px;
 }
