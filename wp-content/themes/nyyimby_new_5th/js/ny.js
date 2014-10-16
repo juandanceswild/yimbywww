@@ -311,6 +311,11 @@ console.log(w);
         if (vis < 698) $('#adrotate_widgets-3').remove();
 
         // this has to be there or cols have no scrolling height
+
+        // TODO - it may be possible to use this line of code for a
+        // new function that would allow for a robust area to replace
+        // archive title
+
         $('.my-col, .my-col-noscroll').css('height', (vis - hdr)+'px');
         var bht = ($('#stuff').height() > vis) ? $('#stuff').height() : vis; 
         $('.rb-gray').css('height', bht+'px');
