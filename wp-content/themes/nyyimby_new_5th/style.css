@@ -1396,11 +1396,6 @@ h1.search {
     max-width: none !important;
 }
 
-div.modal-content
-.bordered {
-    border: none;
-}
-
 div.column.all-proj {
     background-color: #F1F0EF;
     position: absolute;
@@ -1941,11 +1936,21 @@ p.ft {
     }
 }
 
-.requested-deeplink-post {
-    border-bottom:5px dotted #333 !important;
+.bordered {
+    border-bottom: 1px solid #EEE !important;;
     margin-bottom:5px !important;
     padding-bottom:20px !important;
 }
+
+.requested-deeplink-post {
+    border-bottom:5px dotted #333 !important;
+}
+
+
+.modal-content .bordered, .modal-content .requested-deeplink-post, .requested-deeplink-post .bordered {
+    border-bottom: none !important;
+}
+
 
 #cx {
     margin-left:15px !important;
