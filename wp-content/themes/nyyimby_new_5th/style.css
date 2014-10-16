@@ -1950,5 +1950,5 @@ p.ft {
 #cx {
     margin-left:15px !important;
     position:relative;
-    z-index:900;
+    z-index:11; /* this must be greater than modal-dialog in advanced serach */
 }
