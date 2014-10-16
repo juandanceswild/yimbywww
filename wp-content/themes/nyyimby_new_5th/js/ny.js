@@ -335,12 +335,13 @@
     }
     function fill_ads() {
         clearTimeout(fa_to);
-        $('#ads').fadeOut();
+        //$('#ads').fadeOut();
+        // TODO: manipulate the logo so that it remains positioned in the right place during fading
         $.ajax({'url':'/ad_rotate.php'}).done(function(r){
             var vis = $(window).height();
             $('#ads').html(r);
             if (vis < 698) $('#adrotate_widgets-3').remove();
-            fa_to = setTimeout("$('#ads').fadeIn();", 750);
+            //fa_to = setTimeout("$('#ads').fadeIn();", 750);
         });
     }
 
