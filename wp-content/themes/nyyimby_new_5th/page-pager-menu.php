@@ -12,6 +12,7 @@ if (!have_posts()) die('');
             <?php $mt=0; if (!empty($taxonomy)) : ?>
                 <h2 class="archive-title affix" data-spy="affix">
                     <?php echo $taxonomy; ?>
+                    <script>(function(){ jQuery('.archive-title').hide(); })</script><noscript>This script is visual effect with no extra functionality</noscript>
                 </h2>
             <?php $mt=($menu_paged<2)?"50px":"0"; endif; ?>
 

@@ -49,6 +49,13 @@
             if (dh.hasClass('dateHeading')) { s = (s-40); if (s < 0) s = 0; }
             // now account for the taxonomy header
             if (elem.parent('ul').prev('.archive-title').length>0) s = (s-40);
+            var w = $('#main_tab').width()+30;
+            var at = $('.archive-title');
+            at.first().css('width', w+'px');
+            if (!at.hasClass('fadedin')) {
+                at.addClass('fadedin').fadeIn();
+            }
+            
 
             scroller.scrollTop(s);
             
