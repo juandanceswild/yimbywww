@@ -45,9 +45,10 @@ li:first-child a.dropdown-toggle
     padding-left: 0;
 }
 
+/* this is a challenging project
 div#ascrail2001 {
     top: 65px !important;
-}
+}*/
 
 div.newsletter-overlay {
     display: none;

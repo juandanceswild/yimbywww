@@ -16,18 +16,45 @@
 
 session_start();
 
-function twenty_twelve_infinite_scroll_init() {
-    add_theme_support( 'infinite-scroll', array(
-		'container' =>'entry-content',
-                'render'      => 'content-entry',
-		'type'           => 'scroll',
-		
-    ) );
+// adding on-the-fly ads rotation page
+add_action('template_redirect', 'display_ads');
+function display_ads() {
+    if (strpos($_SERVER['REQUEST_URI'], 'ad_rotate.php')!==false) {
+        header('HTTP/1.0 200');
+        require(TEMPLATEPATH.'/_ad_rotate.php');
+        exit();
+    }
 }
-add_action( 'after_setup_theme', 'twenty_twelve_infinite_scroll_init' );
 
-if (!defined('BOOTSTRAPWP_VERSION'))
-  define('BOOTSTRAPWP_VERSION', '.90');
+// try to tap into the process of getting the posts so we know what is being queried!
+// then use what is being queried to track in session vars what history has been shown
+// then use the history shown to augment the prejax
+// oh yeah, don't forget the anchor links
+add_action('wp', 'store_user_stuff');
+function store_user_stuff() {
+    global $wp_query;
+
+    @$_SESSION['loads']++;
+
+    //error_log('this user has loaded their session '.$_SESSION['loads'].' times', 3, '/home/webjuju/nyyimby/error_log');
+    // leave that debuggin line...this will be amazing if it works and hell if it doesn't
+
+    foreach ($wp_query->posts as $p) {
+      if (empty($_SESSION['posts_seen'][strtotime($p->post_date)])) {
+        $_SESSION['posts_seen'][strtotime($p->post_date)] = $p;
+      }
+    }
+    if (!empty($_SESSION['posts_seen'][strtotime($p->post_date)])) {
+      krsort($_SESSION['posts_seen']);
+    }
+}
+
+function get_sus($key,$value,$parent='') {
+//    $wp = get_sus($wp->request);
+//    set_sus($wp->request, $wp);
+}
+function set_sus($key,$value,$parent='') {
+}
 
  /**
  * Declaring the content width based on the theme's design and stylesheet.
@@ -68,12 +95,12 @@ endif;
 ################################################################################
 function bootstrapwp_css_loader() {
    // wp_enqueue_style('bootstrapwp', get_template_directory_uri().'/css/bootstrapwp.css', false ,'0.90', 'all' );
-  wp_enqueue_style('bootstrap', get_template_directory_uri().'/css/bootstrap.css', false ,'0.90', 'all' );
-  wp_enqueue_style('bootstrapwp-default', get_stylesheet_uri());
-  wp_enqueue_style('bootstrap-resposnive', get_template_directory_uri().'/css/bootstrap-responsive.css', false ,'1.0', 'all' );
+  //wp_enqueue_style('bootstrap', get_template_directory_uri().'/css/bootstrap.css', false ,'0.90', 'all' );
+  //wp_enqueue_style('bootstrapwp-default', get_stylesheet_uri());
+  //wp_enqueue_style('bootstrap-resposnive', get_template_directory_uri().'/css/bootstrap-responsive.css', false ,'1.0', 'all' );
 
-  wp_enqueue_style('prettify', get_template_directory_uri().'/js/google-code-prettify/prettify.css', false ,'1.0', 'all' );
-  wp_enqueue_style('nanoscroll', get_template_directory_uri().'/css/nanoscroller.css', false ,'1.0', 'all' );
+  //wp_enqueue_style('prettify', get_template_directory_uri().'/js/google-code-prettify/prettify.css', false ,'1.0', 'all' );
+  //wp_enqueue_style('nanoscroll', get_template_directory_uri().'/css/nanoscroller.css', false ,'1.0', 'all' );
 
 }
 add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
@@ -83,11 +110,11 @@ add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
 // Loading all JS Script Files.  Remove any files you are not using!
 ################################################################################
 function bootstrapwp_js_loader() {
- wp_enqueue_script('bootstrapjs', get_template_directory_uri().'/js/bootstrap.js', array('jquery'),'0.90', true );
- wp_enqueue_script('hover-dropdown', get_template_directory_uri().'/js/twitter-bootstrap-hover-dropdown.js', array('jquery'),'0.90', true );
- wp_enqueue_script('nanoscroll', get_template_directory_uri().'/js/jquery.nanoscroller.js', array('jquery'),'0.90', true );
- wp_enqueue_script('ininitescroll', get_template_directory_uri().'/js/jquery.infinitescroll.js', array('jquery'),'0.90', true );
- wp_enqueue_script('main', get_template_directory_uri().'/js/main.js', array('jquery'),'0.92', true );
+// wp_enqueue_script('bootstrapjs', get_template_directory_uri().'/js/bootstrap.js', array('jquery'),'0.90', true );
+// wp_enqueue_script('hover-dropdown', get_template_directory_uri().'/js/twitter-bootstrap-hover-dropdown.js', array('jquery'),'0.90', true );
+// wp_enqueue_script('nanoscroll', get_template_directory_uri().'/js/jquery.nanoscroller.js', array('jquery'),'0.90', true );
+// wp_enqueue_script('ininitescroll', get_template_directory_uri().'/js/jquery.infinitescroll.js', array('jquery'),'0.90', true );
+// wp_enqueue_script('main', get_template_directory_uri().'/js/main.js', array('jquery'),'0.92', true );
 
 }
 add_action('wp_enqueue_scripts', 'bootstrapwp_js_loader');
@@ -652,11 +679,11 @@ function save_cat_details($post_id) {
   $catName = $catTerms->slug;
   
   update_post_meta($post->ID, "primary_cat", $catName);
-}
+ }
 }
 
 
-function ajax_post_load() {
+function ajax_post_load_orig() {
    global $post;
  $url = $_POST['href'];
  $post_type = 'post';
@@ -679,9 +706,9 @@ $current_post = query_posts( $args );
  get_template_part( 'content', 'ajax' );
  exit;
 }
-add_action( 'wp_ajax_wpa_post_load', 'ajax_post_load' );
+//add_action( 'wp_ajax_wpa_post_load', 'ajax_post_load' );
 
-add_action( 'wp_ajax_nopriv_wpa_post_load', 'ajax_post_load' );
+//add_action( 'wp_ajax_nopriv_wpa_post_load', 'ajax_post_load' );
 
 
 
@@ -756,8 +783,8 @@ add_action('init', 'init_building_type', 0);
 
 
 /* Post URLs to IDs function, supports custom post types - borrowed and modified from url_to_postid() in wp-includes/rewrite.php */
-function bwp_url_to_postid($url)
-{
+function bwp_url_to_postid($url) {
+  // though most of the bwp isn't, this function IS in use for ajax in the 10/2014 version
   global $wp_rewrite;
 
   $url = apply_filters('url_to_postid', $url);
@@ -889,8 +916,8 @@ function redirect() {
         endif;
 }
 
-include('includes/custom_post_types.php');
-include('includes/custom_post_type_view.php');
+//include('includes/custom_post_types.php');
+//include('includes/custom_post_type_view.php');
 /*
 
  */
@@ -949,4 +976,169 @@ function prefix_load_term_posts () {
     ob_end_clean();
     echo $response;
     die(1);
+}
+
+function get_args($postsperpage=22,$ajax=0) {
+    global $wp_query, $post, $prepost;
+    $args = array();
+
+    // primarily for troubleshooting a page-pager-(page|menu).php call
+//    $args['qo'] = $qo;
+
+    preg_match('!/pager-(menu|page)/!', $_SERVER['REQUEST_URI'], $matches);
+    if (!empty($matches[1])) $paged_item = $matches[1];
+
+
+    // pi = paged_item but just not the one that represents paging 
+    $pi = ($postsperpage==1) ? 'page' : 'menu';
+
+    // this crazy little dance allows us to inject the requested article above other current news
+    $preload_requested_post = false;
+    if (!$ajax && strpos($_SERVER['REQUEST_URI'], @$post->post_name)!==false && $pi=='page') {
+        //error_log("post_name {$post->post_name} found in request_uri {$_SERVER['REQUEST_URI']}.  ajax is (".(($ajax)?1:0).")\n\n", 3, '/home/webjuju/nyyimby/error_log');
+        $preload_requested_post = $post->post_name;
+    }
+
+
+    if (!empty($_GET['args'])) {
+
+        // we know this to be an ajax call...all ajax calls send existing wpdb args
+        $args = unserialize(base64_decode(@$_GET['args']));
+
+        // what we don't know yet is if this call is for menus or pages
+        preg_match('!/pager-'.$paged_item.'/([0-9]*)[?]?!', $_SERVER['REQUEST_URI'], $matches);
+        $args['paged'] = (@$matches[1]) ?: 1;
+
+    } else {
+        $qo = $wp_query->get_queried_object();
+
+        if (!empty($qo->taxonomy)) {
+            $args[$qo->taxonomy] = $qo->slug;
+            $args['taxonomy_name'] = $qo->name;
+            if ($qo->taxonomy=='category') {
+                $args['category__in'] = array($qo->cat_ID);
+            }
+        }
+    }
+
+    if (!empty($post->post_date)) {
+        $d = strtotime($post->post_date);
+    }
+    if (empty($date) && !empty($qo->post_date)) {
+        $d = strtotime($qo->post_date);
+    }
+    if ($date) {
+        $args['date_query'] = array(
+            array(
+                'before'    => array(
+                    'year'  => date('Y', $d),
+                    'month' => date('m', $d),
+                    'day'   => date('d', $d),
+                    'hour'  => date('H', $d+3600),
+                ),
+                'inclusive' => true,
+            ),
+        );
+    }
+
+    $a2 = array('post_type' => 'post', 'showposts' => $postsperpage);
+    $args = array_merge($args, $a2);
+
+    if (!empty($args['paged'])) {
+        $args['paged']++;
+    }
+    if (!empty($args['preposted'])) {
+        $args['paged']--;
+        unset($args['preposted']);
+    }
+
+    if (empty($ajax)) {
+        $temp_post = $post;
+        $temp = $wp_query;
+
+        $wp_query = null;
+        $wp_query = new WP_Query($args);
+
+        $wp_query->query($args);
+
+        if (empty($qo->ID)) {
+            $post = $wp_query->posts[0];
+            setup_postdata($post);
+        }
+
+        if (!empty($preload_requested_post)) {
+            $a1 = array('name' => $preload_requested_post);
+            $prepost = $wp_query->query($a1);
+            if ($prepost[0]->ID == $post->ID) {
+                $prepost = false;
+            }
+        }
+    }
+
+    return $args;    
+}
+
+function get_args_tax($args) {
+
+    if (empty($args['taxonomy_name'])) return ''; 
+
+    $tax = $args['taxonomy_name'];
+    unset($args['taxonomy_name']);
+
+    $shortest = -1;
+    foreach ($args as $k=>&$v) {
+        if (!is_string($v)) continue;
+        $lev = levenshtein($tax, $v);
+        if ($lev == 0) {
+            $tag = $k;
+            break;
+        }
+        if ($lev <= $shortest || $shortest < 0) {
+            $tag = $k;
+            $shortest = $lev;
+        }
+    }
+
+    // switchers for the taxonomy nice names
+    switch (true) {
+        case $tag=='neighborhoods':
+            $tag = 'Neighborhood';
+        break;
+        case $tag=='types':
+            $tag = 'Type';
+        break;
+        case $tag=='post_type':
+            $tag = 'post type';
+        break;
+    }
+
+    $s = ucwords($tag).': '.ucwords($tax);
+
+    if (strlen($s) > 25) $s = ucwords($tax);
+
+    return $s;
+}
+
+
+add_action( 'wp_ajax_wpa_post_load_jj', 'ajax_post_load' );
+add_action( 'wp_ajax_nopriv_wpa_post_load_jj', 'ajax_post_load' );
+// the original wpa_post_load needed updates to template used
+function ajax_post_load() {
+
+    // bwp_url_to_postid from the now unused
+    // boostrap wordpress library required
+    global $post;
+
+    $postID = bwp_url_to_postid($_REQUEST['href']);
+    $args = unserialize(base64_decode($_GET['args']));
+    //error_log('ajax_post_load: '.$_REQUEST['href']."\npostid found: $postID", 3, '/home/webjuju/nyyimby/error_log');
+    $args['p'] = $postID;
+    $args['posts_per_page'] = 1;
+    $args['post_type'] = 'post';
+
+    $post = query_posts( $args );
+
+    $ajax = 1;
+    include('page-pager-page.php');
+    die();
 }

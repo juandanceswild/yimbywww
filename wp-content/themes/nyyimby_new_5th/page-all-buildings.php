@@ -14,93 +14,50 @@
 
 get_header(); ?>
 
-    <div class="main">
+<div class="summerville">
 
-        <div class="box">
-
-            <div class="row-fluid">
-
-                <?php // get_sidebar('leftTABS');?>
-
-                <div class="column left_col nano all-proj-sidebar" id="sidebar-news">
-                    <div class="tab-content visible">
-
-                        <div class="tab-pane active" id="news">
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="column all-proj" id="right_col">
-
-                    <div class="padding inner content">
-
-                        <div class="full" id="right_wrapper">
-                            <div class="row-fluid">
-                                <div id="post_main_content" class="post-content-proj">
-                                    <div id="entry-content" class="post_main_content_class">
-                                        <div class="test_inner_newsa">
-
-
-                                            <?php $categories = get_categories(); ?>
-
-
-                                            <div id="cx">
-                                                <div class="post">
-                                                    <div class="post-wrapper">
-                                                        <h1>All Projects</h1>
-
-                                                        <div class="res">
-                                                            <ul class="nav nav-list nav-proj">
-                                                                <?php foreach ($categories as $category): ?>
-                                                                    <li>
-                                                                        <a href="<?php echo get_category_link($category->term_id); ?>">
-                                                                            <?php echo $category->name; ?>
-                                                                        </a>
-                                                                    </li>
-                                                                <?php endforeach; // end of the loop. ?>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/end of post left column-->
-
-
-                                <div id="related_updates">
-                                    <div class="related_posts">
-
-
-                                        <!-- get related info for here -->
-
-                                        <?php if (is_active_sidebar('sidebar-page')) : ?>
-
-                                            <?php dynamic_sidebar('sidebar-page'); ?>
-
-                                        <?php endif; ?>
-
-                                    </div>
-
-                                </div>
-                                <!--/end of post right column-->
-
-
-                            </div>
-                            <!--/row-->
-
-                        </div>
-
-
-                    </div>
-                </div>
+       <div class="white pt-top">
+            <div class="my-col col-md-3 gray visible-md visible-lg" id="main_tab">
             </div>
-        </div>
-    </div>
 
-<? get_footer(); ?>
+            <div class="my-col rb cx col-md-9">
+              <div class="scroll_wrapper">
+                <div class="col-lg-8 pl-no">
+
+                  <div id="stuff" class="jj">
+                    <?php $categories = get_categories(); ?>
+
+                    <h1>All Projects</h1>
+
+                    <ul class="ul600 ul-projects nav nav-list nav-proj" style="width:100%;">
+                    <?php foreach ($categories as $category): ?>
+                      <li><a href="<?php echo get_category_link($category->term_id); ?>">
+                        <?php echo $category->name; ?>
+                      </a></li>
+                    <?php endforeach; // end of the loop. ?>
+                    </ul>
+
+                    <br class="clr">
+                  </div>
+                </div>
+                <div class="my-col-noscroll col-lg-4 visible-lg p-sm rb-gray">
+                  <div class="ads-col pl-xs-lg" data-spy="affix">
+
+                    <div id="ads"></div>
+
+                    <br class="clr">
+                  </div>
+                  <br class="clr">
+                </div>
+
+                <br class="clr">
+              </div>
+              <br class="clr">
+            </div>
+            <br class="clr">
+        </div>
+        <br class="clr">
+
+</div>
+
+<?php get_footer();?>

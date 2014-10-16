@@ -71,8 +71,9 @@ var ImageCycle = ImageCycle || (function()
     ImageCycle.prototype.loadFancyBox = function()
     {
 
-        // Asynchronously include FancyBox
-        jQuery.getScript('/wp-content/themes/nyyimby_new_5th/js/jquery.fancybox.js');
+        // Asynchronously include FancyBox - jj wonders why u loaded this 500 times per page
+        // even though you also had the same exact include in your js section in the footer?
+        //jQuery.getScript('/wp-content/themes/nyyimby_new_5th/js/jquery.fancybox.js');
 
         // Load FancyBox on desktop, destroy it on mobile
         this.state.isDesktop  ?  run.call(this)  :  jQuery(document).unbind('click.fb-start');
