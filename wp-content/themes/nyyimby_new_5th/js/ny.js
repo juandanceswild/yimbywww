@@ -414,8 +414,14 @@ console.log(w);
             e.preventDefault();
             var id = $(this).attr('data-id');
             var el = $('#'+id);
+
+            // TODO client has this in a makeshift solution for now
+            // desired is to uncomment load_ajax_content however the
+            // current problem with right pane scrolling and loading must be fixed
             if (! el.length) {
-                load_ajax_content($(this).attr('href'));
+                var href = $(this).attr('href');
+                location.href = href;
+                //load_ajax_content(href);
             } else {
                 clearTimeout(to_1);
                 if (widescale_debug) console.log('set_menuajax_listeners is calling load_ajax_delay_scroll');
