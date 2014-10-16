@@ -266,17 +266,17 @@
         var bottom_load_pixel_height = 100;
         var inrange = 0, protect_lg = 0;
 
-        if ($(maintab)[0] == undefined) return;
+        if (main_tab[0] == undefined) return;
 
         // is the page still not able to have jscroll attached to it??
-        if ($(maintab)[0].scrollHeight == undefined) inrange = 1;
+        if (main_tab[0].scrollHeight == undefined) inrange = 1;
 
         // is the page scrolled almost all the way down?
-        if ($(maintab).scrollTop() + $(maintab).innerHeight() + bottom_load_pixel_height >= $(maintab)[0].scrollHeight) inrange = 1;
-        //console.log('maintab: '+$(maintab).scrollTop() + ' + '+$(maintab).innerHeight() + ' + ' + bottom_load_pixel_height + ' >= ' + $(maintab)[0].scrollHeight);
+        if (main_tab.scrollTop() + main_tab.innerHeight() + bottom_load_pixel_height >= main_tab[0].scrollHeight) inrange = 1;
+        //console.log('main_tab: '+main_tab.scrollTop() + ' + '+main_tab.innerHeight() + ' + ' + bottom_load_pixel_height + ' >= ' + main_tab[0].scrollHeight);
 
         // is the page not tall enough to trigger a scroll?
-        if ($('#sidebar_nav_inner').innerHeight()<$(maintab).innerHeight()) {
+        if ($('#sidebar_nav_inner').innerHeight()<main_tab.innerHeight()) {
             protect_lg = 1;
             inrange = 1;
         }
