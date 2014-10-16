@@ -410,18 +410,50 @@ console.log(w);
 
     function set_menujax_listeners() {
         $('.menujax').off('click');
+
+
+        // TODO client has this in a makeshift solution for now
+        // desired is to uncomment load_ajax_content however the
+        // current problem with right pane scrolling and loading must be fixed
+        // original pre kludge TODO from above menujax click handler, fwiw
+        /*$('.menujax').click(function(e) {
+            e.preventDefault();
+            var id = $(this).attr('data-id');
+            var el = $('#'+id);
+            if (! el.length) {
+                load_ajax_content($(this).attr('href'));
+            } else {
+                clearTimeout(to_1);
+                to_1 = setTimeout('load_ajax_delay_scroll("#'+id+'")', 250);
+            }
+        });*/
+        // temporary kludge/makeshift solution:
         $('.menujax').click(function(e) {
             e.preventDefault();
             var id = $(this).attr('data-id');
             var el = $('#'+id);
 
-            // TODO client has this in a makeshift solution for now
-            // desired is to uncomment load_ajax_content however the
-            // current problem with right pane scrolling and loading must be fixed
             if (! el.length) {
+
+                var is_li = $(this).parents('li').first();
+                if (is_li.hasClass('dateHeading')) is_li = is_li.prev();
+                var is = is_li.find('a');
+                var is_id = is.attr('data-id');
+                if ($('#'+is_id).length) {
+                // more of the makeshift solution (so remove it when TODO is done)
+
+                    ////////////////////////////////////////////////////////////////// TODO
+                    // original solution to be replaced after interpolated-post-bg-loading
+                    load_ajax_content(href);
+                    ////////////////////////////////////////////////////////////////// TODO
+
+                    return;
+                }
+                // when the el is empty and the immediate sibling is absent, redirect TODO
                 var href = $(this).attr('href');
                 location.href = href;
-                //load_ajax_content(href);
+                return;
+
             } else {
                 clearTimeout(to_1);
                 if (widescale_debug) console.log('set_menuajax_listeners is calling load_ajax_delay_scroll');
