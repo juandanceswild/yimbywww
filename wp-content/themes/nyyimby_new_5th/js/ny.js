@@ -49,13 +49,21 @@
             if (dh.hasClass('dateHeading')) { s = (s-40); if (s < 0) s = 0; }
             // now account for the taxonomy header
             if (elem.parent('ul').prev('.archive-title').length>0) s = (s-40);
-            var w = $('#main_tab').width()+30;
-            var at = $('.archive-title');
-            at.first().css('width', w+'px');
-            if (!at.hasClass('fadedin')) {
-                at.addClass('fadedin').fadeIn();
+
+// TODO this is where we were finishing off the archive title width issue
+// accepted soultion is to make it line up with the requested-deeplink-post
+        var w = main_tab.width();
+/*
+console.log(w);
+console.log(main_tab);
+w += 5;
+console.log(w);
+// TODO - dump this debugging once the eventual solution is in place
+*/
+        archive_title.first().css('width', w+'px');
+            if (! archive_title.hasClass('fadedin')) {
+                archive_title.fadeIn();
             }
-            
 
             scroller.scrollTop(s);
             
