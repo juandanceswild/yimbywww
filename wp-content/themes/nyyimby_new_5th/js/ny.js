@@ -196,7 +196,8 @@
 
    // global scope:
    var bottom_load_pixel_height = 500;
-   var maintab = $('#main_tab');
+   var main_tab = $('#main_tab');
+   var archive_title = $('.archive-title');
    var posttab = $('.my-col.cx');
    var pt_to = undefined;
    var mt_to = undefined;
@@ -385,7 +386,7 @@
             debug: false
         });
 
-        $('#main_tab').scroll(function() {
+        main_tab.scroll(function() {
             get_next_posts(100);
         });
 
