@@ -1957,3 +1957,8 @@ p.ft {
     position:relative;
     z-index:11; /* this must be greater than modal-dialog in advanced serach */
 }
+
+.brand {
+    position:relative;
+    z-index:1;
+}
